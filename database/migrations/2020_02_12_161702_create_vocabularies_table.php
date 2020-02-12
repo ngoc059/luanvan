@@ -16,7 +16,7 @@ class CreateVocabulariesTable extends Migration
         Schema::create('vocabularies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('type_id')->unsigned();
-            $table->foreign('type_id')->references('id')->on('type');
+            $table->foreign('type_id')->references('id')->on('types');
             $table->string('chinese');
             $table->string('vietnamese');
             $table->string('vd');
