@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class Theme extends Migration
+class CreateTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class Theme extends Migration
      */
     public function up()
     {
-        Schema::create('theme', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name'); 
-            $table->bigIncrements('vocabulary_id')->unsigned();
-            $table->foreign('vocabulary_id')->references('id')->on('vocabulary');
+            $table->timestamps();
         });
     }
 
@@ -28,7 +27,6 @@ class Theme extends Migration
      */
     public function down()
     {
-        Schema::drop('theme');
-
+        Schema::dropIfExists('types');
     }
 }

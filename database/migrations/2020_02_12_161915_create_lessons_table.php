@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class Lesson extends Migration
+class CreateLessonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,16 @@ class Lesson extends Migration
      */
     public function up()
     {
-        Schema::create('lesson', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->bigIncrements('id');
-           
-            
             $table->string('name');
             $table->bigInteger('type');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('theme_id')->unsigned();
-            $table->foreign('theme_id')->references('id')->on('theme');
+            $table->foreign('theme_id')->references('id')->on('themes');
             $table->bigInteger('level_id')->unsigned();
-            $table->foreign('level_id')->references('id')->on('level');
-
-            
+            $table->foreign('level_id')->references('id')->on('levels');
             $table->timestamps();
         });
     }
@@ -38,6 +34,6 @@ class Lesson extends Migration
      */
     public function down()
     {
-        Schema::drop('lesson');
+        Schema::dropIfExists('lessons');
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class Save extends Migration
+class CreateAudioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Save extends Migration
      */
     public function up()
     {
-        Schema::create('save', function (Blueprint $table) {
+        Schema::create('audio', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name'); 
+            $table->string('path');
             $table->float('lenght');
-            $table->string('path'); 
-            $table->string('type'); 
+            $table->float('size');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class Save extends Migration
      */
     public function down()
     {
-        Schema::drop('save');    
+        Schema::dropIfExists('audio');
     }
 }

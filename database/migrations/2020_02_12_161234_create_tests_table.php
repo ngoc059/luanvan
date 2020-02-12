@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class Test extends Migration
+class CreateTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class Test extends Migration
      */
     public function up()
     {
-        Schema::create('test', function (Blueprint $table) {
+        Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('content');
             $table->string('time');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('save_id')->unsigned();
-            $table->foreign('save_id')->references('id')->on('save');
+            $table->foreign('save_id')->references('id')->on('saves');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +32,6 @@ class Test extends Migration
      */
     public function down()
     {
-        Schema::drop('test');
+        Schema::dropIfExists('tests');
     }
 }
