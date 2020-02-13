@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class lesson extends Model
 {
-    //
+    Protected $table = 'lessons';
+
 }
