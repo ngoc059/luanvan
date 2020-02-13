@@ -30,3 +30,27 @@ Route::get('home', function(){
 Route::get('chude', function(){
     return view('chude');
 });
+
+
+Route::group(['prefix' => 'vocabulary'], function () {
+    Route::get('/get-four', 'vocabularyController@getFour', function () {
+       
+    });
+
+    Route::get('/them', 'vocabularyController@getThem', function () {
+        
+    });
+
+    Route::get('/sua/{id}', 'vocabularyController@getSua', function ($id) {
+        
+    });
+    Route::get('/xoa/{id}', 'vocabularyController@getXoa', function ($id) {
+        
+    });
+    Route::post('/sua/{id}', 'vocabularyController@postSua',function ($id) {
+        
+    });
+   
+    Route::post('/them', 'loaiHangController@postThem');
+});
+
