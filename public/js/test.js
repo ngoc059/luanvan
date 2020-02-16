@@ -1,4 +1,4 @@
-function onClick(){
+function onClick(i){
     // alert(1);
-    document.getElementById("test1").style.visibility = "visible";
+    document.getElementById(i).style.visibility = "visible";
 }

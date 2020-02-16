@@ -13,10 +13,19 @@ class vocabularyController extends Controller
      */
     public function getFour()
     {
-        $NCC = vocabulary::all();
-        return view('main.main',['hanghoa'=>$NCC]);
+        $NCC = vocabulary::all()->take(4);
+        $autoVocabulary = vocabulary::where('type_id', 2)
+            ->take(4)
+            ->get();
+        return view('main.main',['listV'=>$autoVocabulary]);
     }
 
+    // public function getFour($typeId) {
+    //     $autoVocabulary = vocabulary::where('type_id', $typeId)
+    //            ->take(4)
+    //            ->get();
+    //     return view('learn.learnbytype',['listV'=>$autoVocabulary]);
+    // }
     /**
      * Show the form for creating a new resource.
      *

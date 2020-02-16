@@ -33,17 +33,18 @@ Route::get('chude', function(){
 
 
 Route::group(['prefix' => 'vocabulary'], function () {
-    Route::get('/get-four', 'vocabularyController@getFour', function () {
+    Route::get('/get-four/{typeId}', 'vocabularyController@getFour', function ($typeId) {
        
     });
 
-    Route::get('/them', 'vocabularyController@getThem', function () {
+    Route::get('/them', 'vocabularyController@getFour', function () {
         
     });
 
     Route::get('/sua/{id}', 'vocabularyController@getSua', function ($id) {
         
     });
+
     Route::get('/xoa/{id}', 'vocabularyController@getXoa', function ($id) {
         
     });
