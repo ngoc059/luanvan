@@ -13,19 +13,43 @@ class vocabularyController extends Controller
      */
     public function getFour()
     {
-        $NCC = vocabulary::all()->take(4);
-        $autoVocabulary = vocabulary::where('type_id', 2)
+        $autoVocabulary = vocabulary::where('type_id', 1)
             ->take(4)
             ->get();
         return view('main.main',['listV'=>$autoVocabulary]);
     }
-
-    // public function getFour($typeId) {
-    //     $autoVocabulary = vocabulary::where('type_id', $typeId)
-    //            ->take(4)
-    //            ->get();
-    //     return view('learn.learnbytype',['listV'=>$autoVocabulary]);
-    // }
+    
+    public function insert(Request $request) {
+        $vocabulary = new vocabulary;
+        $vocabulary->type_id = $request->type_id;
+        $vocabulary->vietnamese = $request->TV;
+        $vocabulary->chinese = $request->TQ;
+        $vocabulary->VDTQ = $request->VDTQ;
+        $vocabulary->VDTV = $request->VDTV;
+        $file = $request->file('hinhanh');
+        if($file->getClientOriginalExtension('myFile')== "jpg"||$file->getClientOriginalExtension('myFile')== "png" ){
+            $fileName = $file->getClientOriginalName('myFile');
+            echo $fileName;
+            $file->move('img', $fileName); 
+            $vocabulary->img = $fileName;
+            }
+            else{
+                return redirect('admin/hangHoa/them')->with('thongbao','khong phai file anh');
+            }
+        $audio = $request->file('audio');
+        if($file->getClientOriginalExtension('audio')== "mp3"){
+            $audioName = $file->getClientOriginalName('audio');
+            echo $fileName;
+            $file->move('audio', $audioName); 
+            $vocabulary->audio = $audioName;
+            }
+            else{
+                return redirect('admin/hangHoa/them')->with('thongbao','khong phai file audio');
+            }
+        $vocabulary->save();
+        // return redirect('admin/hangHoa/them')->with('thongbao','Thêm thành công');
+        return $vocabulary;
+    }
     /**
      * Show the form for creating a new resource.
      *

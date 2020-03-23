@@ -19,11 +19,10 @@ class CreateVocabulariesTable extends Migration
             $table->foreign('type_id')->references('id')->on('types');
             $table->string('chinese');
             $table->string('vietnamese');
-            $table->string('vd_TV');
-            $table->string('vd_TQ');
-            $table->string('audio_TV');
-            $table->string('audio_TQ');
-            $table->string('img_id');
+            $table->string('vdTQ');
+            $table->string('vdTV');
+            $table->string('audio');
+            $table->string('img');   
             $table->timestamps();
         });
     }

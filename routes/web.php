@@ -32,14 +32,12 @@ Route::get('chude', function(){
 });
 
 
-Route::group(['prefix' => 'vocabulary'], function () {
+Route::group(['prefix' => '/vocabulary'], function () {
     Route::get('/get-four/{typeId}', 'vocabularyController@getFour', function ($typeId) {
        
     });
 
-    Route::get('/them', 'vocabularyController@getFour', function () {
-        
-    });
+    Route::POST('/them', 'vocabularyController@insert');
 
     Route::get('/sua/{id}', 'vocabularyController@getSua', function ($id) {
         
@@ -52,6 +50,5 @@ Route::group(['prefix' => 'vocabulary'], function () {
         
     });
    
-    Route::post('/them', 'loaiHangController@postThem');
 });
 
