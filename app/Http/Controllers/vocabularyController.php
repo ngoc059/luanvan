@@ -13,14 +13,13 @@ class vocabularyController extends Controller
      */
     public function getFour()
     {
-        $autoVocabulary = vocabulary::where('type_id', 2)
+        $autoVocabulary = vocabulary::where('type_id', 1)
             ->take(4)
             ->get();
         return view('main.main',['listV'=>$autoVocabulary]);
     }
     
     public function insert(Request $request) {
-
         $vocabulary = new vocabulary;
         $vocabulary->type_id = $request->type_id;
         $vocabulary->vietnamese = $request->TV;
