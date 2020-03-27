@@ -2,7 +2,10 @@
 
 @section('body')
     <div class="container">
+      <h3 style="text-align: center;">Chọn từ có nghĩa là: {{$tq}} </h3>
+      <br>
         <div class="row row-cols-1 row-cols-md-4">
+         
               @foreach ($listV as $lV)
               <div class="col mb-4">
                 <label>
@@ -18,5 +21,4 @@
               @endforeach
           </div> 
     </div>  
-
 @endsection

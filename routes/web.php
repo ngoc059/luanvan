@@ -37,7 +37,13 @@ Route::group(['prefix' => '/vocabulary'], function () {
        
     });
 
-    Route::POST('/them', 'vocabularyController@insert');
+    Route::get('/tracnghiem', 'vocabularyController@getFourE', function ($typeId) {
+       
+    });
+
+    Route::get('/themcautracnghiem', 'vocabularyController@getFourE', function ($typeId) {
+       
+    });
 
     Route::get('/sua/{id}', 'vocabularyController@getSua', function ($id) {
         

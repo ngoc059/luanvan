@@ -16,9 +16,22 @@ class vocabularyController extends Controller
         $autoVocabulary = vocabulary::where('type_id', 1)
             ->take(4)
             ->get();
-        return view('main.main',['listV'=>$autoVocabulary]);
+        return view('learn.learnbytype',['listV'=>$autoVocabulary, 'tq'=>'ngoc']);
+    }
+
+    public function getFourE()
+    {
+        $autoVocabulary = vocabulary::where('type_id', 1)
+            ->take(4)
+            ->get();
+        return view('them.themnghevietlai',['listV'=>$autoVocabulary, 'tq'=>'ngoc']);
     }
     
+    public function checkCorre($answer) {
+        if ($answer) {
+        } 
+        return view('learn.nghevietlai',['listV'=>$autoVocabulary, 'tq'=>'ngoc']);
+    }
     public function insert(Request $request) {
         $vocabulary = new vocabulary;
         $vocabulary->type_id = $request->type_id;
