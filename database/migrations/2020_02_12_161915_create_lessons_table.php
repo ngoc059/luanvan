@@ -17,12 +17,10 @@ class CreateLessonsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->bigInteger('type');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('theme_id')->unsigned();
             $table->foreign('theme_id')->references('id')->on('themes');
-            $table->bigInteger('level_id')->unsigned();
-            $table->foreign('level_id')->references('id')->on('levels');
+            $table->string('description');
+            $table->string('path');
             $table->timestamps();
         });
     }

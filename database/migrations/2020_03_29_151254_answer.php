@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateThemesTable extends Migration
+class Answer extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,17 @@ class CreateThemesTable extends Migration
      */
     public function up()
     {
-        Schema::create('themes', function (Blueprint $table) {
+        Schema::create('answer', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->bigInteger('type');
+            $table->bigInteger('question_id')->unsigned();
+            $table->foreign('question_id')->references('id')->on('question');
             $table->string('description');
+            $table->string('path');
+            $table->string('is_corred');
             $table->timestamps();
-        });
+        });    
     }
 
     /**
@@ -28,6 +33,6 @@ class CreateThemesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('themes');
+        //
     }
 }

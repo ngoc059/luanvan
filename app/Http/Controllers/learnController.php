@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class lession extends Controller
+use App\vocabulary;
+class learnController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function viewQuestListenToWrite()
     {
-        //
+        $autoVocabulary = vocabulary::where('type_id', 1)
+        ->take(4)
+        ->get();
+        $vocabulary = $autoVocabulary[0]->vietnamese;
+        return view('learn.learnbytype',['listV'=> $autoVocabulary, 'tq'=>$vocabulary]);
     }
 
     /**

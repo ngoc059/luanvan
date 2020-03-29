@@ -1,11 +1,12 @@
-@extends('layout.app')
+@extends('main.mainlearn')
 
-@section('body')
+@section('mainlearn')
     <div class="container">
       <h3 style="text-align: center;">Chọn từ có nghĩa là: {{$tq}} </h3>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
       <br>
-        <div class="row row-cols-1 row-cols-md-4">
-         
+        <div class="row row-cols-3 row-cols-md-4">
               @foreach ($listV as $lV)
               <div class="col mb-4">
                 <label>
@@ -20,5 +21,7 @@
               </div>
               @endforeach
           </div> 
+          <input type="submit" class="form-control" name="check" value="check">
+        </form>
     </div>  
 @endsection

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLevelsTable extends Migration
+class Question extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateLevelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('levels', function (Blueprint $table) {
+        Schema::create('question', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name'); 
-            $table->float('process');
+            $table->string('name');
+            $table->bigInteger('type');
+            $table->bigInteger('lesson_id')->unsigned();
+            $table->foreign('lesson_id')->references('id')->on('lessons');
+            $table->string('description');
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateLevelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('levels');
+        //
     }
 }

@@ -40,21 +40,6 @@ Route::group(['prefix' => '/vocabulary'], function () {
     Route::get('/tracnghiem', 'vocabularyController@getFourE', function ($typeId) {
        
     });
-
-    Route::get('/themcautracnghiem', 'vocabularyController@getFourE', function ($typeId) {
-       
-    });
-
-    Route::get('/sua/{id}', 'vocabularyController@getSua', function ($id) {
-        
-    });
-
-    Route::get('/xoa/{id}', 'vocabularyController@getXoa', function ($id) {
-        
-    });
-    Route::post('/sua/{id}', 'vocabularyController@postSua',function ($id) {
-        
-    });
    
 });
 
@@ -70,17 +55,17 @@ Route::group(['prefix' => '/lession'], function () {
     Route::get('/themcautracnghiem', 'vocabularyController@getFourE', function ($typeId) {
        
     });
-
-    Route::get('/sua/{id}', 'vocabularyController@getSua', function ($id) {
-        
-    });
-
-    Route::get('/xoa/{id}', 'vocabularyController@getXoa', function ($id) {
-        
-    });
-    Route::post('/sua/{id}', 'vocabularyController@postSua',function ($id) {
-        
-    });
-   
 });
 
+Route::group(['prefix' => '/learn'], function () {
+    Route::get('/learn-by-type','learnController@viewQuestListenToWrite', function ($dd) {
+    });
+
+    Route::get('/nghe-viet-lai','learnController@viewQuestListenToWrite', function () {
+        return view('learn.tracnghiem');
+    });
+
+    Route::get('/themcautracnghiem', 'learnController@getFourE', function ($typeId) {
+       
+    });
+});
