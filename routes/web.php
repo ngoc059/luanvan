@@ -58,3 +58,29 @@ Route::group(['prefix' => '/vocabulary'], function () {
    
 });
 
+Route::group(['prefix' => '/lession'], function () {
+    Route::get('/them-trac-nghiem', function () {
+        return view('them.themcautracnghiem');
+    });
+
+    Route::get('/them-nghe-viet-lai', function () {
+        return view('them.themnghevietlai');
+    });
+
+    Route::get('/themcautracnghiem', 'vocabularyController@getFourE', function ($typeId) {
+       
+    });
+
+    Route::get('/sua/{id}', 'vocabularyController@getSua', function ($id) {
+        
+    });
+
+    Route::get('/xoa/{id}', 'vocabularyController@getXoa', function ($id) {
+        
+    });
+    Route::post('/sua/{id}', 'vocabularyController@postSua',function ($id) {
+        
+    });
+   
+});
+

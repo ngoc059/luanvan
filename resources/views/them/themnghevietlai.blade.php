@@ -1,5 +1,5 @@
-@extends('layout.app')
-@section('body')
+@extends('main.main')
+@section('maininsert')
 <div class="container">
     <h2> THÊM CÂU NGHE VIẾT RỒI VIẾT LẠI </h2>
     <form action="#" method="POST">
