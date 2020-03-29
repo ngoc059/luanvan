@@ -58,14 +58,13 @@ Route::group(['prefix' => '/lession'], function () {
 });
 
 Route::group(['prefix' => '/learn'], function () {
-    Route::get('/learn-by-type','learnController@viewQuestListenToWrite', function ($dd) {
+    Route::get('/learn-by-type/{notification}','learnController@viewQuestLearnByType', function ($notification) {
     });
 
-    Route::get('/nghe-viet-lai','learnController@viewQuestListenToWrite', function () {
-        return view('learn.tracnghiem');
+    Route::get('/nghe-viet-lai','learnController@viewQuestListenToWrite', function ($notification) {
     });
 
-    Route::get('/themcautracnghiem', 'learnController@getFourE', function ($typeId) {
-       
+    Route::post('/check/{id}', 'learnController@check', function ($id){
+
     });
 });

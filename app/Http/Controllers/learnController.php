@@ -11,15 +11,34 @@ class learnController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function viewQuestListenToWrite()
+    public function viewQuestLearnByType($notification)
     {
         $autoVocabulary = vocabulary::where('type_id', 1)
         ->take(4)
         ->get();
-        $vocabulary = $autoVocabulary[0]->vietnamese;
-        return view('learn.learnbytype',['listV'=> $autoVocabulary, 'tq'=>$vocabulary]);
+        $vocabulary = $autoVocabulary[0];
+        echo $notification;
+        return view('learn.learnbytype',['listV'=> $autoVocabulary, 'tq'=>$vocabulary, 'notification'=> $notification]);
     }
 
+    public function viewQuestListenToWrite($notification)
+    {
+        $autoVocabulary = vocabulary::where('type_id', 1)
+        ->take(4)
+        ->get();
+        $vocabulary = $autoVocabulary[0];
+        echo $notification;
+        return view('learn.nghevietlai',['listV'=> $autoVocabulary, 'tq'=>$vocabulary, 'notification'=> $notification]);
+    }
+
+    public function check(Request $request, $id){
+      if ($id === $request->test) {
+        $notification = 'success';
+      } else {
+        $notification = 'not success';
+      }
+      return $this->viewQuestListenToWrite($notification);
+    }
     /**
      * Show the form for creating a new resource.
      *
