@@ -31,6 +31,6 @@ class Level extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('level');
     }
 }

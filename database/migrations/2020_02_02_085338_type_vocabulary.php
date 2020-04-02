@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestsTable extends Migration
+class TypeVocabulary extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateTestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('type_vocabulary', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('content');
-            $table->string('time');
-            $table->string('is_pass');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('name'); 
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateTestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('type_vocabulary');
     }
 }

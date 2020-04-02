@@ -1,10 +1,11 @@
 @extends('layout.app')
 @section('body')
 <div class="container">
-    <h2> NGHE VIẾT RỒI VIẾT LẠI </h2>
-
-    <i class='fas fa-bullhorn' style='font-size:24px'>H</i>
-    <form action="/learn/check/{{$tq->vietnamese}}" method="POST">
+    <h2> {{ $question->name }} </h2>
+    <audio controls>
+      <source src="<?php echo asset($question->path)?>" type="audio/mpeg">
+    </audio>
+    <form action="/learn/check" method="POST">
       @csrf
       <div class="row">
         <div class="col-sm-3">    

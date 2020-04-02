@@ -11,21 +11,7 @@ class vocabularyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getFour()
-    {
-        $autoVocabulary = vocabulary::where('type_id', 1)
-            ->take(4)
-            ->get();
-        return view('learn.learnbytype',['listV'=>$autoVocabulary, 'tq'=>'ngoc']);
-    }
 
-    public function getFourE()
-    {
-        $autoVocabulary = vocabulary::where('type_id', 1)
-            ->take(4)
-            ->get();
-        return view('them.themcautracnghiem',['listV'=>$autoVocabulary, 'tq'=>'ngoc']);
-    }
     
     public function checkCorre($answer) {
         if ($answer) {

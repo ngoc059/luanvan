@@ -1,19 +1,19 @@
 @extends('main.mainlearn')
 @section('mainlearn')
     <div class="container">
-      <h3 style="text-align: center;">Chọn từ có nghĩa là: {{$tq->vietnamese}} </h3>
-    <form action="/learn/check/{{$tq->id}}" method="POST">
+      <h3 style="text-align: center;">{{$question->description}}: {{$question->name}} </h3>
+    <form action="/learn/check" method="POST">
         @csrf
         <br>
         <div class="row row-cols-3 row-cols-md-4">
-              @foreach ($listV as $lV)
+              @foreach ($listAnswer as $answer)
               <div class="col mb-4">
                 <label>
                 <div class="card h-100">
-                    <input type="radio" name="test" value="{{$lV->id}}" checked>
-                    <img onclick="onClick({{$lV->id}})" src="{{ asset('image/cat.jpg') }}" class="card-img-top">
+                    <input type="radio" name="test" value="{{$answer->id}}">
+                    <img onclick="onClick({{$answer->id}})" src="{{ asset('image/cat.jpg') }}" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title" id="{{$lV->id}}">{{$lV->chinese}}</h5>
+                    <h5 class="card-title" id="{{$answer->id}}">{{$answer->chinese}}</h5>
                   </div>
                 </div>
                   </label>

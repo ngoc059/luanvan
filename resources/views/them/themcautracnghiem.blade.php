@@ -43,6 +43,12 @@
           <input name="cautraloi3" class="form-control" type="text" value=""> 
         </div>
       </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-12" style="text-align: center;">    
+          <input class="btn btn-primary btn-block" type="submit" value="insert"> 
+        </div>
+      </div>
     <form>
 </div>
 @endsection

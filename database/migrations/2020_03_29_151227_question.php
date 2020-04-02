@@ -19,6 +19,8 @@ class Question extends Migration
             $table->bigInteger('type');
             $table->bigInteger('lesson_id')->unsigned();
             $table->foreign('lesson_id')->references('id')->on('lessons');
+            $table->bigInteger('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('types');
             $table->string('description');
             $table->string('path');
             $table->timestamps();
@@ -32,6 +34,7 @@ class Question extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('question');
+
     }
 }

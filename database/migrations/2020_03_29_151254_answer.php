@@ -33,6 +33,6 @@ class Answer extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('answer');
     }
 }
