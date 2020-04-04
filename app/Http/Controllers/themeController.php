@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class lessionController extends Controller
+class themeController extends Controller
 {
     /**
      * Display a listing of the resource.

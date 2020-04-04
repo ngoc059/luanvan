@@ -23,6 +23,10 @@ Route::get('register', function(){
     return view('auth.register');
 });
 
+Route::get('test', 'lessonController@viewInsertLesson', function(){
+    
+});
+
 Route::get('home', function(){
     return view('home');
 });
@@ -51,10 +55,6 @@ Route::group(['prefix' => '/lession'], function () {
     Route::get('/them-nghe-viet-lai', function () {
         return view('them.themnghevietlai');
     });
-
-    Route::get('/themcautracnghiem', 'vocabularyController@getFourE', function ($typeId) {
-       
-    });
 });
 
 Route::group(['prefix' => '/learn'], function () {
@@ -65,3 +65,37 @@ Route::group(['prefix' => '/learn'], function () {
     Route::get('/get-list-question-by-lesson/{lessonId}','learnController@getListQuestionByLesson', function ($lessonId) {
     });
 });
+
+Route::group(['prefix' => '/lesson'], function () {
+    Route::post('/insert', 'lessonController@create', function (){
+
+    });
+
+    Route::get('/lesson-add','lessonController@viewInsertLesson', function () {
+    });
+
+    Route::get('/lesson-list','lessonController@viewListLesson', function () {
+        
+    });
+});
+
+Route::group(['prefix' => '/question'], function () {
+    Route::post('/insert', 'questionController@create', function (){
+
+    });
+
+    Route::post('/insert-tn', 'questionController@createTN', function (){
+
+    });
+
+    Route::get('/question-add','questionController@viewInsertQuestion', function () {
+
+    });
+
+    Route::get('/them-trac-nghiem','questionController@hienThiThemTN', function () {
+
+    });
+
+});
+
+

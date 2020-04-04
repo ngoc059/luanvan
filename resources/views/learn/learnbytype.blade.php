@@ -1,7 +1,7 @@
 @extends('main.mainlearn')
 @section('mainlearn')
     <div class="container">
-      <h3 style="text-align: center;">{{$question->description}}: {{$question->name}} </h3>
+      <h3 style="text-align: center;">{{$question->description}} {{$question->name}} </h3>
     <form action="/learn/check" method="POST">
         @csrf
         <br>

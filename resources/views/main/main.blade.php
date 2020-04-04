@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="them-trac-nghiem">them cau trac nghiem<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="question-add">them cau trac nghiem<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="them-nghe-viet-lai">them nghe viet lai</a>
+              <a class="nav-link" href="them-trac-nghiem">them nghe viet lai</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

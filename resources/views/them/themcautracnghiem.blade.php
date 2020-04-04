@@ -1,14 +1,37 @@
 @extends('main.main')
 @section('maininsert')
+<link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
+
 <div class="container">
-    <h2> THÊM CÂU HỎI TRẮC NGHIỆM </h2> <br>
-    <form action="#" method="POST">
+    <h2>THÊM CÂU HỎI TRẮC NGHIỆM</h2> <br>
+    <form action="/question/insert-tn" method="POST">
+      @csrf
+      <div class="row">
+        <div class="col-sm-3"> 
+          <h3 for="usr">chọn bài học</h3>
+        </div>
+      <div class="col-sm-9">
+        <select class="form-control" name="lesson" id="sel1">
+          @foreach ($lesson as $le)
+          <option value="{{$le->id}}">{{$le->name}}</option>
+          @endforeach
+        </select>
+      </div>
+    </div> <br>
       <div class="row">
         <div class="col-sm-3">    
-          <h3 for="usr">Câu hỏi:</h3>
+          <h3 for="usr">tên:</h3>
         </div>
         <div class="col-sm-9">    
-          <input name="cauhoi" class="form-control" type="text" value=""><br>
+          <input name="name" class="form-control" type="text" value=""><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">    
+          <h3 for="usr">Mô tả:</h3>
+        </div>
+        <div class="col-sm-9">    
+          <input name="description" class="form-control" type="text" value=""><br>
         </div>
       </div>
       <div class="row">
@@ -44,11 +67,7 @@
         </div>
       </div>
       <br>
-      <div class="row">
-        <div class="col-sm-12" style="text-align: center;">    
-          <input class="btn btn-primary btn-block" type="submit" value="insert"> 
-        </div>
-      </div>
+          <input class="btn btn-primary" type="submit" value="insert"> 
     <form>
 </div>
 @endsection
