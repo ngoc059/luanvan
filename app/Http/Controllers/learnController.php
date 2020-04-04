@@ -67,7 +67,7 @@ class learnController extends Controller
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
         $answer = array_search('true', array_column($arrayAnswer, 'is_corred'));
         $_SESSION['rightAnswer'] = $answers[$answer]->id;
-        return view('learn.tracnghiem',['answers'=> $answers]);
+        return view('learn.tracnghiem',['answers'=> $answers, 'question'=> $question->description]);
     }
 
     public function check(Request $request){
@@ -96,7 +96,7 @@ class learnController extends Controller
               break;
       }
       } else {
-          echo "đã hoàn thành";
+          return view('level');
       }
     }
    
