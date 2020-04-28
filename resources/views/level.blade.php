@@ -40,7 +40,7 @@
         </div>
         <div class="w3-light-grey w3-round-xlarge mx-4">
           <div id="myBar" class="w3-container w3-greenw3-container w3-blue w3-round-xlarge" style="width:{{$levelNow}}%">{{$levelNow}}%</div>
-          </div>
+        </div>
         <div class="modal-footer justify-content-center">
           <button type="button" href="/lesson/lesson-list" class="btn btn-default" data-dismiss="modal">
             <a href="/lesson/lesson-list">OK</a>

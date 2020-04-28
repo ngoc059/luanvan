@@ -15,11 +15,10 @@ class Level extends Migration
     {
         Schema::create('level', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('level');
             $table->bigInteger('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users');
-            $table->string('description');
-            $table->string('path');
+            $table->string('percent');
             $table->timestamps();
         });
     }

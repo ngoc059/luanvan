@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class level extends Model
 {
-    Protected $table = 'levels';
+    Protected $table = 'level';
 
 }

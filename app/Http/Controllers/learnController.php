@@ -96,6 +96,8 @@ class learnController extends Controller
               break;
       }
       } else {
+
+        return $_SESSION['user'];
           $levelNow = 40;          
           $level = 50;
           return view('level',['levelNow'=> $levelNow, 'level'=> $level]);

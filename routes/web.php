@@ -34,6 +34,10 @@ Route::group(['prefix' => '/user'], function () {
     Route::post('/login-admin', 'LoginController@loginAdmin', function (){
 
     });
+
+    Route::get('/login-out', 'LoginController@logOutAdmin', function (){
+
+    });
 });
 
 Route::group(['prefix' => '/vocabulary'], function () {

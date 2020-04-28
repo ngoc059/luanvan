@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\lesson;
 session_start();
 class LoginController extends Controller
 {
@@ -15,6 +16,15 @@ class LoginController extends Controller
      */
     public function loginAdmin(Request $request) {
         $user = User::where('email', $request->username)->where('passWord', $request->pass)->get();
-        return $user;
+        if(count($user) > 0){
+            $_SESSION['user'] = $user[0];
+            $lesson = lesson::All();
+            return view('learn.listlesson',['lessons'=> $lesson]);
+        }
+    }
+
+    public function logOutAdmin() {
+        unset($_SESSION['user']);
+        return view('auth.login');
     }
 }
