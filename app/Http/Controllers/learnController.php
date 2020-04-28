@@ -96,7 +96,9 @@ class learnController extends Controller
               break;
       }
       } else {
-          return view('level');
+          $levelNow = 40;          
+          $level = 50;
+          return view('level',['levelNow'=> $levelNow, 'level'=> $level]);
       }
     }
    

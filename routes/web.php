@@ -12,11 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('main.main');
+    return view('auth.login');
 });
 
 Route::get('login', function(){
-    return view('auth.login');
 });
 
 Route::get('register', function(){
@@ -31,10 +30,11 @@ Route::get('home', function(){
     return view('home');
 });
 
-Route::get('chude', function(){
-    return view('chude');
-});
+Route::group(['prefix' => '/user'], function () {
+    Route::post('/login-admin', 'LoginController@loginAdmin', function (){
 
+    });
+});
 
 Route::group(['prefix' => '/vocabulary'], function () {
     Route::get('/get-four/{typeId}', 'vocabularyController@getFour', function ($typeId) {
