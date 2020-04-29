@@ -15,7 +15,7 @@
           <input name="test" class="form-control" type="text" value=""><br>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Check</button>
+      <button type="submit" class="btn btn-primary btn-block">Kiểm Tra</button>
       <form>
 </div>
 @endsection

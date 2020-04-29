@@ -1,0 +1,10 @@
+.bg-insert {
+    background-image: linear-gradient(#00FF00, #81F7D8,#58FAF4);
+}
+.form-control{
+    width: 450px;
+    text-align: center;
+}
+.btn btn-outline-info{
+    text-align: center;
+}

@@ -1,9 +1,9 @@
 @extends('main.main')
 @section('maininsert')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
-
-<div class="container">
-    <h2>THÊM CÂU HỎI TRẮC NGHIỆM</h2> <br>
+<link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
+<div class="bg-insert container ml-5 pl-5 pr-5 mr-5">
+    <h2 class="text-center pt-3">THÊM CÂU HỎI TRẮC NGHIỆM</h2> <br>
     <form action="/question/insert-tn" method="POST">
       @csrf
       <div class="row">
@@ -19,8 +19,8 @@
       </div>
     </div> <br>
       <div class="row">
-        <div class="col-sm-3">    
-          <h3 for="usr">tên:</h3>
+        <div class="col-sm-3">      
+          <h3 for="usr">Tên:</h3>
         </div>
         <div class="col-sm-9">    
           <input name="name" class="form-control" type="text" value=""><br>
@@ -66,8 +66,11 @@
           <input name="cautraloi3" class="form-control" type="text" value=""> 
         </div>
       </div>
-      <br>
-          <input class="btn btn-primary" type="submit" value="insert"> 
+      <div class="row mt-3 mb-3 justify-content-center">
+        <button type="submit" class="btn btn-outline-info" >Thêm</button>
+      </div>
+          {{-- <input class="btn btn-primary" type="submit" value="insert">  --}}
+
     <form>
 </div>
 @endsection

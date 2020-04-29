@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 @section('body')
 <div class="container">
-  <h1> THEM CAU HOI</h1>
+  <h1> THÊM CÂU HỎI</h1>
   <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -12,13 +12,11 @@
             <li class="nav-item">
               <a class="nav-link" href="them-trac-nghiem">them nghe viet lai</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+            
           </ul>
         </div>
       </nav>
-    <div style="margin-bottom: 40px; margin-top: 40px;">
+    <div style="margin-bottom: 40px; margin-top: 40px; margin-left: 40px; margin->
         @yield('maininsert')
     </div>
   </div>

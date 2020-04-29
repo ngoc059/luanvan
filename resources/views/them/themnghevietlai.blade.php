@@ -1,14 +1,14 @@
 @extends('main.main')
 @section('maininsert')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
-
+<link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
 <div class="container">
   @if (session('thongbao'))
   <div class="">
      {{ session('thongbao') }}
   </div>
   @endif
-    <h2> THÊM CÂU NGHE VIẾT RỒI VIẾT LẠI </h2><br>
+    <h2 class="text-center"> THÊM CÂU NGHE VIẾT RỒI VIẾT LẠI </h2><br>
     <form action="/question/insert-tn" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="row">
