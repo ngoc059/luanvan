@@ -2,7 +2,7 @@
 @section('maininsert')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
-<div class="bg-insert container ml-5 pl-5 pr-5 mr-5">
+<div class="bg-insert container pl-5 pr-5">
     <h2 class="text-center pt-3">THÊM CÂU HỎI TRẮC NGHIỆM</h2> <br>
     <form action="/question/insert-tn" method="POST">
       @csrf

@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\vocabulary;
 use App\answer;
 use App\question;
+use App\level;
+use App\lesson;
 use App\questionview;
 session_start();
 class learnController extends Controller
@@ -15,6 +17,7 @@ class learnController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getListQuestionByLesson($lessonId) {
+        $_SESSION['lessonId'] = $lessonId;
         unset($_SESSION['question']);
         $listQuestion = question::where('lesson_id', $lessonId)->get();
         $type = $listQuestion[0]->type_id;
@@ -77,7 +80,6 @@ class learnController extends Controller
         $notification = 1;
       }
       $stt = $_SESSION['question']->stt;
-      echo $notification;
       if (sizeof($_SESSION['question']->listQuestion) > $stt) {
         $type = $_SESSION['question']->listQuestion[$stt]->type_id;
         $question = $_SESSION['question']->listQuestion[$stt];
@@ -96,11 +98,31 @@ class learnController extends Controller
               break;
       }
       } else {
-
-        return $_SESSION['user'];
-          $levelNow = 40;          
-          $level = 50;
-          return view('level',['levelNow'=> $levelNow, 'level'=> $level]);
+        $level = 0;
+        $percent = 0;
+        $experience = 0;
+        $levelInsert = new level;
+        $getLesson = lesson::where('id', $_SESSION['lessonId'])->first();
+        $levelOfUser = level::where('users_id', $_SESSION['user']->id)->first();
+        $levelInsert->users_id = $_SESSION['user']->id;
+        if($levelOfUser) {
+            $level = $levelOfUser->level;
+            $percent = $levelOfUser->percent;
+            $experience = $percent + $getLesson->experience;
+            if ($experience > 100) {
+                $levelInsert->level = $levelOfUser->level + 1;
+                $levelInsert->percent = $experience - 100;
+            } else {
+                $levelInsert->level = $levelOfUser->level;
+                $levelInsert->percent = $experience;
+                $levelInsert.update($levelOfUser->id);
+            }
+        } else {
+            $levelInsert->level = 0;
+            $levelInsert->percent = $getLesson->experience;
+            $levelInsert->save();
+        }
+        return view('level',['percent'=> $percent, 'level'=> $level, 'experience'=>$experience]);
       }
     }
    

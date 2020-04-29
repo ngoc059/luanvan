@@ -20,6 +20,7 @@ class CreateLessonsTable extends Migration
             $table->foreign('theme_id')->references('id')->on('themes');
             $table->string('description');
             $table->string('is_finish');
+            $table->integer('experience');
             $table->timestamps();
         });
     }

@@ -39,3 +39,8 @@ h1 {
 #center {
    width: 40%;
 }
+
+.fix-width {
+   max-width: 80%;
+   width: 70%;
+}
