@@ -19,7 +19,6 @@ Route::get('login', function(){
 });
 
 Route::get('register', function(){
-    return view('auth.register');
 });
 
 Route::get('test', 'lessonController@viewInsertLesson', function(){
@@ -37,6 +36,14 @@ Route::group(['prefix' => '/user'], function () {
 
     Route::get('/login-out', 'LoginController@logOutAdmin', function (){
 
+    });
+
+    Route::get('/register', 'LoginController@register', function(){
+        
+    });
+
+    Route::post('/create', 'LoginController@createUser', function() {
+        
     });
 });
 

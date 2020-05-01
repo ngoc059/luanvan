@@ -73,6 +73,13 @@
                         Forgot Password?
                     </a>
                 </div>
+
+                
+                <div class="text-center p-t-90">
+                    <a class="txt1" href="/user/registerSS">
+                        chưa có tài khoản ?
+                    </a>
+                </div>
             </form>
         </div>
     </div>

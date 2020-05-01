@@ -6,7 +6,8 @@
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">Registration Info</h2>
-                <form method="POST">
+                <form method="POST" action="/user/create">
+                    @csrf
                     <div class="input-group">
                         <input class="input--style-3" type="text" placeholder="Name" name="name">
                     </div>
@@ -18,15 +19,18 @@
                         <div class="rs-select2 js-select-simple select--no-search">
                             <select name="gender">
                                 <option disabled="disabled" selected="selected">Gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
+                                <option value="0">Male</option>
+                                <option value="1">Female</option>
+                                <option value="2">Other</option>
                             </select>
                             <div class="select-dropdown"></div>
                         </div>
                     </div>
                     <div class="input-group">
                         <input class="input--style-3" type="email" placeholder="Email" name="email">
+                    </div>
+                    <div class="input-group">
+                        <input class="input--style-3" type="text" placeholder="pass word" name="password">
                     </div>
                     <div class="input-group">
                         <input class="input--style-3" type="text" placeholder="Phone" name="phone">
