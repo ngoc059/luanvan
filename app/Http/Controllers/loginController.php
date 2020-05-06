@@ -27,4 +27,21 @@ class LoginController extends Controller
         unset($_SESSION['user']);
         return view('auth.login');
     }
+
+    public function register() {
+        return view('auth.register');
+    }       
+
+    public function createUser(Request $request) {
+        $user = new User;
+        $user->full_name = $request->name;
+        $user->birthday = $request->birthday;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->remember_token = $request->token;
+        $user->gender = $request->gender;
+        $user->save();
+        return view('auth.login');
+
+    }
 }
