@@ -94,6 +94,9 @@ Route::group(['prefix' => '/theme'], function () {
         return view('them.themchude');
     });
     
+    Route::post('/add', 'ThemeController@create', function (){
+
+    });
 });
 
 Route::group(['prefix' => '/img'], function () {
@@ -126,8 +129,12 @@ Route::group(['prefix' => '/question'], function () {
     Route::get('/them-trac-nghiem','questionController@hienThiThemTN', function () {
 
     });
-    Route::get('/view-img', function (){
-        return view('them.themhoctheohinhanh');
+    Route::get('/view-img', 'questionController@hienThiThemIMG', function (){
+
+    });
+
+    Route::post('/insert-img', 'questionController@createIMG', function (){
+
     });
 });
 

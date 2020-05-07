@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
 <div class="container fix-width bg-insert pl-5 pr-5">
     <h2 style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="pt-3">THÊM CHỦ ĐỀ</h2> <br>
-    <form action="/lesson/insert" method="POST">
+    <form action="/theme/add" method="POST">
       @csrf
         <div class="row">
             <div class="col-sm-2">    

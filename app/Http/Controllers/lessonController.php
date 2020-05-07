@@ -25,6 +25,7 @@ class lessonController extends Controller
         $lesson->name = $request->name;
         $lesson->description = $request->description;
         $lesson->theme_id = $request->theme;
+        $lesson->is_finish = false;
         $lesson->save();
         return $lesson;
     }

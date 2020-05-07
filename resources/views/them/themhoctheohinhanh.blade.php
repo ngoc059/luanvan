@@ -4,18 +4,45 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/learn.css') }}" media="screen" />
 <div class="bg-insert container pl-5 pr-5 pb-1">
     <h2 class="text-center pt-3 " style="text-shadow: 2px 2px 5px #B40486;">THÊM HỌC THEO HÌNH ẢNH</h2> <br>
-    <form action="/question/insert-tn" method="POST">
+    <form action="/question/insert-img" method="POST">
         @csrf
+        <div class="row">
+            <div class="col-sm-3"> 
+              <h3 for="usr">Chọn bài học</h3>
+            </div>
+          <div class="col-sm-9">
+            <select class="form-control" name="lesson" id="sel1">
+              @foreach ($lesson as $le)
+              <option value="{{$le->id}}">{{$le->name}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-3">      
+          <h3 for="usr">Tên</h3>
+        </div>
+        <div class="col-sm-9">    
+          <input name="name" class="form-control" type="text" value=""><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">    
+          <h3 for="usr">Mô tả</h3>
+        </div>
+        <div class="col-sm-9">    
+          <input name="description" class="form-control" type="text" value=""><br>
+        </div>
+      </div>
         <div class="row">
             <div class="col-sm-3">
                 <h3 for="usr">Chọn từ vựng</h3>
             </div>
             <div class="col-sm-9">
-                <select class="form-control" name="lesson" id="sel1">
-                    {{-- @foreach ($lesson as $le) --}}
-                    {{-- <option value="{{$le->id }}">{{ $le->name }}</option> --}}
-                    {{-- @endforeach --}}
-                    <option value="id">Tên</option>
+                <select class="form-control" name="vocabulary" id="sel1">
+                    @foreach ($vocabulary as $ele)
+                <option value="{{$ele->id }}">{{ $ele->vietnamese }} : {{$ele->chinese}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>

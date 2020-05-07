@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\lesson;
 use App\question;
 use App\answer;
+use App\vocabulary;
 class questionController extends Controller
 {
     public function viewInsertQuestion() {
@@ -16,6 +17,12 @@ class questionController extends Controller
     public function hienThiThemTN() {
         $lesson = lesson::All();
         return view('them.themcautracnghiem',['lesson'=> $lesson]);
+    }
+
+    public function hienThiThemIMG() {
+        $lesson = lesson::All();
+        $vocabulary = vocabulary::All();
+        return view('them.themhoctheohinhanh',['lesson'=> $lesson, 'vocabulary' => $vocabulary]);
     }
 
     public function createLS(Request $request) {
@@ -34,7 +41,7 @@ class questionController extends Controller
             return redirect('them.themnghevietlai')->with('thongbao','khong phai file audio');
         }
         $question->save();
-        return $question;
+        return $this->viewInsertQuestion();
     }
 
     public function createTN (Request $request) {
@@ -70,71 +77,17 @@ class questionController extends Controller
         $answer3->question_id = $question->id;
         $answer3->save();
         // return redirect('admin/hangHoa/them')->with('thongbao','Thêm thành công');
-        return $question;
+        return $this->hienThiThemTN();
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+  
+    public function createIMG(Request $request) {
+        $question = new question;
+        $question->name = $request->name;
+        $question->description = $request->description;
+        $question->vocabularyId = $request->vocabulary;
+        $question->type_id = 2;
+        $question->lesson_id = $request->lesson;
+        $question->save();  
+        return $this->hienThiThemIMG();
     }
 }
