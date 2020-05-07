@@ -2,18 +2,18 @@
 @section('maininsert')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
-<div class="container bg-insert pl-5 pr-5 pb-3 mb-3">
+<div class="container bg-insert pl-5 pr-5 pb-1 mb-3">
   @if (session('thongbao'))
   <div class="">
      {{ session('thongbao') }}
   </div>
   @endif
-    <h2 class="text-center pt-3"> THÊM CÂU NGHE VIẾT RỒI VIẾT LẠI </h2><br>
+    <h2 class="text-center pt-3" style="text-shadow: 2px 2px 5px #B40486;"> THÊM CÂU NGHE VIẾT RỒI VIẾT LẠI </h2><br>
     <form action="/question/insert-tn" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="row">
         <div class="col-sm-3"> 
-          <h3 for="usr">chọn bài học</h3>
+          <h3 for="usr">Chọn bài học</h3>
         </div>
       <div class="col-sm-9">
         <select class="form-control" name="lesson" id="sel1">
@@ -41,7 +41,7 @@
       </div>
       <div class="row">
         <div class="col-sm-3">    
-          <h3 for="usr">audio</h3>
+          <h3 for="usr">Audio</h3>
         </div>
         <div class="col-sm-9">    
             <input type="file" name="audio" class="form-control-file border">

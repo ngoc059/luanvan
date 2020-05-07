@@ -44,11 +44,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/question/them-trac-nghiem">them cau trac nghiem <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/question/them-trac-nghiem">Thêm câu trắc nghiệm <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/lesson/lesson-list">danh sach lesson</a>
+              <a class="nav-link" href="/lesson/lesson-add">Thêm bài học</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/theme/view-insert">Thêm chủ đề</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="/type/view-type">Thêm loại từ vựng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/lesson/lesson-list">Danh sách bài học</a>
+            </li>
+
+            
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
@@ -72,7 +84,7 @@
             <li class="nav-item">
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user/login-out">LogOut</a>
+              <a class="nav-link" href="/user/login-out">Đăng xuất</a>
             </li>
           </ul>
         </div>
@@ -84,27 +96,30 @@
       <div class="container">
         <div class="row row-30">
           <div class="col-md-4 col-xl-5">
-            <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+            {{-- <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
               <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
               <!-- Rights-->
               <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
-            </div>
+            </div> --}}
           </div>
           <div class="col-md-4">
             <h5>Contacts</h5>
             <dl class="contact-list">
+              <dt>PHẠM THẾ NGỌC</dt>
+              <dt>MSSV:</dt>
+              <dd></a>  B15505893</a>
+              </dd>
+            </dl>
+            <dl class="contact-list">
+              
               <dt>Address:</dt>
-              <dd>798 South Park Avenue, Jaipur, Raj</dd>
+              <dd>Đường 3/2, Q.Ninh Kiều , TP.Cần Thơ</dd>
             </dl>
             <dl class="contact-list">
               <dt>email:</dt>
-              <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+              <dd><a href="mailto:#">phamthengocb1505893@gmail.com</a></dd>
             </dl>
-            <dl class="contact-list">
-              <dt>phones:</dt>
-              <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a href="tel:#">https://karosearch.com</a>
-              </dd>
-            </dl>
+            
           </div>
           <div class="col-md-4 col-xl-3">
             <h5>Links</h5>
