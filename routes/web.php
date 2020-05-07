@@ -89,6 +89,26 @@ Route::group(['prefix' => '/lesson'], function () {
         
     });
 });
+Route::group(['prefix' => '/theme'], function () {
+    Route::get('/view-insert', function (){
+        return view('them.themchude');
+    });
+    
+});
+
+Route::group(['prefix' => '/img'], function () {
+    Route::get('/view-img', function (){
+        return view('them.themhoctheohinhanh');
+    });
+    
+});
+
+Route::group(['prefix' => '/type'], function () {
+    Route::get('/view-type', function (){
+        return view('them.themloaituvung');
+    });
+    
+});
 
 Route::group(['prefix' => '/question'], function () {
     Route::post('/insert', 'questionController@create', function (){
@@ -106,7 +126,9 @@ Route::group(['prefix' => '/question'], function () {
     Route::get('/them-trac-nghiem','questionController@hienThiThemTN', function () {
 
     });
-
+    Route::get('/view-img', function (){
+        return view('them.themhoctheohinhanh');
+    });
 });
 
 
