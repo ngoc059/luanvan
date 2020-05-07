@@ -69,16 +69,16 @@
                 </div>
 
                 <div class="text-center p-t-90">
+                   <div>
                     <a class="txt1" href="#">
-                        Forgot Password?
+                        Quên mật khẩu?
                     </a>
                 </div>
-
-                
-                <div class="text-center p-t-90">
+                <div>
                     <a class="txt1" href="/user/registerSS">
                         chưa có tài khoản ?
                     </a>
+                </div>
                 </div>
             </form>
         </div>

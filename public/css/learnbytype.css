@@ -44,3 +44,7 @@ h1 {
    max-width: 80%;
    width: 70%;
 }
+
+.hoverC ul li a:hover{
+   color: red;
+}

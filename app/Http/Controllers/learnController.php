@@ -106,6 +106,7 @@ class learnController extends Controller
         $levelOfUser = level::where('users_id', $_SESSION['user']->id)->first();
         $levelInsert->users_id = $_SESSION['user']->id;
         if($levelOfUser) {
+            $levelInsert->id = $levelOfUser->id;
             $level = $levelOfUser->level;
             $percent = $levelOfUser->percent;
             $experience = $percent + $getLesson->experience;
@@ -115,11 +116,14 @@ class learnController extends Controller
             } else {
                 $levelInsert->level = $levelOfUser->level;
                 $levelInsert->percent = $experience;
-                $levelInsert.update($levelOfUser->id);
             }
+            $levelInsert->update();
         } else {
             $levelInsert->level = 0;
-            $levelInsert->percent = $getLesson->experience;
+            $level = 0;
+            $percent = $getLesson->experience;
+            $experience = $getLesson->experience;
+            $levelInsert->percent = 0;
             $levelInsert->save();
         }
         return view('level',['percent'=> $percent, 'level'=> $level, 'experience'=>$experience]);
