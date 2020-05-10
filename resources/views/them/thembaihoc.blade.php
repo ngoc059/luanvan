@@ -8,15 +8,15 @@
       @csrf
         <div class="row">
             <div class="col-sm-2">    
-              <h3 for="usr">Tên:</h3>
+              <h3 for="usr">Tên</h3>
             </div>
-            <div class="col-sm-10">    
+            <div class="col-sm-10" >    
               <input name="name" class="form-control" type="text" value=""><br>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-2"> 
-              <h3 for="usr">Chủ đề:</h3>
+              <h3 for="usr">Chủ đề</h3>
             </div>
           <div class="col-sm-10">
             <select class="form-control" name="theme" id="sel1">
@@ -29,7 +29,7 @@
         <br> 
         <div class="row">
             <div class="col-sm-2"> 
-              <h3 for="usr">Mô tả:</h3>
+              <h3 for="usr">Mô tả</h3>
             </div>
           <div class="col-sm-10">
             <input name="description" class="form-control" type="text">

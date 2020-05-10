@@ -6,7 +6,7 @@
             {{-- <div class="card-heading"></div> --}}
             <div class="card-body">
                 <h2 class="title">Đăng kí thông tin</h2>
-                <form method="POST" action="/user/create" style="background-image: ">
+                <form method="POST" action="{{url('user/create')}}" style="background-image: ">
                     @csrf
                     <div class="input-group">
                         <input class="input--style-3" type="text" placeholder="Tên" name="name">

@@ -27,11 +27,16 @@ class lessonController extends Controller
         $lesson->theme_id = $request->theme;
         $lesson->is_finish = false;
         $lesson->save();
-        return $lesson;
+        return $this->viewListLesson();
     }
 
     public function viewListLesson(){
         $lesson = lesson::All();
         return view('learn.listlesson',['lessons'=> $lesson]);
+    }
+
+    public function lesson($id){
+        $lesson = lesson::where('theme_id', $id)->get();
+        return view('learn.lesson', compact('lesson'));
     }
 }

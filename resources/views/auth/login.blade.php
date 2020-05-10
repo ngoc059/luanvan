@@ -34,7 +34,7 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" method="POST" action="/user/login-admin">
+            <form class="login100-form validate-form" method="POST" action="{{url('user/login-admin')}}">
                 @csrf
 
                 <span class="login100-form-logo">
@@ -77,7 +77,7 @@
 
                 
                 <div class="text-center p-t-90">
-                    <a class="txt1" href="/user/register">
+                <a class="txt1" href="{{ url('user/register') }}">
                         chưa có tài khoản ?
                     </a>
                 </div>

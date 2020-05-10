@@ -7,8 +7,8 @@
           <h3 for="usr">{{$lesson->name}}</h3>
         </div>
         <div class="col-sm-10">    
-          <a href="/learn/get-list-question-by-lesson/{{$lesson->id}}">{{$lesson->description}}</a>
-        </div>
+        <a href="{{ url('/learn/get-list-question-by-lesson',$lesson->id) }}">{{$lesson->description}}</a>
+        </div>                                     
       </div>
   @endforeach
 @endsection

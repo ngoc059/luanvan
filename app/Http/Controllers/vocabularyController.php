@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\vocabulary;
+use App\TypeVocabulary;
 class vocabularyController extends Controller
 {
     /**
@@ -11,7 +12,10 @@ class vocabularyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function viewVocabulary() {
+        $typeVocabulary = TypeVocabulary::all();
+        return view('them.themtuvung', ['typeVocabulary' => $typeVocabulary]);
+    }
     
     public function checkCorre($answer) {
         if ($answer) {
@@ -19,6 +23,7 @@ class vocabularyController extends Controller
         return view('main.main',['listV'=>$autoVocabulary, 'tq'=>'ngoc']);
     }
     public function insert(Request $request) {
+        echo $request;
         $vocabulary = new vocabulary;
         $vocabulary->type_id = $request->type_id;
         $vocabulary->vietnamese = $request->TV;
@@ -48,70 +53,5 @@ class vocabularyController extends Controller
         $vocabulary->save();
         // return redirect('admin/hangHoa/them')->with('thongbao','Thêm thành công');
         return $vocabulary;
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

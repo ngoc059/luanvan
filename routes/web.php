@@ -55,6 +55,15 @@ Route::group(['prefix' => '/vocabulary'], function () {
     Route::get('/tracnghiem', 'vocabularyController@getFourE', function ($typeId) {
        
     });
+
+    Route::post('/create', 'vocabularyController@insert', function () {
+       
+    });
+
+    Route::get('/view-vocabulary', 'vocabularyController@viewVocabulary', function (){
+
+    });
+    
    
 });
 
@@ -78,6 +87,9 @@ Route::group(['prefix' => '/learn'], function () {
 });
 
 Route::group(['prefix' => '/lesson'], function () {
+    Route::get('/{id}','lessonController@lesson');
+
+
     Route::post('/insert', 'lessonController@create', function (){
 
     });
@@ -90,6 +102,7 @@ Route::group(['prefix' => '/lesson'], function () {
     });
 });
 Route::group(['prefix' => '/theme'], function () {
+    Route::get('/index', 'themeController@index');
     Route::get('/view-insert', function (){
         return view('them.themchude');
     });
@@ -113,12 +126,23 @@ Route::group(['prefix' => '/type'], function () {
     
 });
 
+Route::group(['prefix' => '/type'], function () {
+    Route::get('/view-vocabulary', function (){
+        return view('them.themtuvung');
+    });
+    
+});
+
 Route::group(['prefix' => '/question'], function () {
     Route::post('/insert', 'questionController@create', function (){
 
     });
 
     Route::post('/insert-tn', 'questionController@createTN', function (){
+
+    });
+
+    Route::post('/insert-ls', 'questionController@createLS', function (){
 
     });
 
@@ -137,5 +161,3 @@ Route::group(['prefix' => '/question'], function () {
 
     });
 });
-
-

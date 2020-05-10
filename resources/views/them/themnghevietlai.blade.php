@@ -9,7 +9,7 @@
   </div>
   @endif
     <h2 class="text-center pt-3" style="text-shadow: 2px 2px 5px #B40486;"> THÊM CÂU NGHE VIẾT RỒI VIẾT LẠI </h2><br>
-    <form action="/question/insert-tn" method="POST" enctype="multipart/form-data">
+    <form action="/question/insert-ls" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="row">
         <div class="col-sm-3"> 

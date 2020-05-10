@@ -16,5 +16,11 @@ class ThemeController extends Controller
         $theme->save();
         return $theme;
     }
+
+    public function index(){
+        $theme = theme::all();
+        // dd($theme->toArray());
+        return view('chude', compact('theme'));
+    }
     
 }

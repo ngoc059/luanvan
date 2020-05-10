@@ -29,6 +29,7 @@ class questionController extends Controller
         $question = new question;
         $question->name = $request->name;
         $question->description = $request->description;
+        $question->vocabularyId = 0;
         $question->type_id = 3;
         $question->lesson_id = $request->lesson;
         $audio = $request->file('audio');

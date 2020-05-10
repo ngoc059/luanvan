@@ -14,7 +14,7 @@
 <body>
 <div class="container-sm pt-3" id="center">
 <h3 style="text-align: center;">CHỌN CÂU TRẢ LỜI ĐÚNG</h3>
- <form action="/learn/check" method="POST">
+<form action={{url('learn/check')}} method="POST">
   @csrf
   <h3> {{$question}} </h3>
   @foreach ($answers as $lV)

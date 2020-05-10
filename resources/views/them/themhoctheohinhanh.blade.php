@@ -19,10 +19,10 @@
           </div>
         </div>
         <div class="row">
-        <div class="col-sm-3">      
+        <div class="col-sm-3 mt-4">      
           <h3 for="usr">Tên</h3>
         </div>
-        <div class="col-sm-9">    
+        <div class="col-sm-9 mt-4">    
           <input name="name" class="form-control" type="text" value=""><br>
         </div>
       </div>

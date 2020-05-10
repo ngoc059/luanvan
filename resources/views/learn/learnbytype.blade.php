@@ -2,7 +2,7 @@
 @section('mainlearn')
     <div class="container">
       <h3 style="text-align: center;">{{$question->description}} {{$question->name}} </h3>
-    <form action="/learn/check" method="POST">
+    <form action={{ url('learn/check') }} method="POST">
         @csrf
         <br>
         <div class="row row-cols-3 row-cols-md-4">
