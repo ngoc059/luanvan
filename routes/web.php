@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('login', function(){
+    return view('learn.nghephatamlai');
 });
 
 Route::get('register', function(){

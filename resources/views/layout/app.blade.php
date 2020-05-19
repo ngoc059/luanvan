@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/build.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
     {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -68,7 +70,7 @@
                         <a class="nav-link" href="{{ url('/lesson/lesson-add')}}">Thêm bài học</a>
                         <a class="nav-link" href="{{ url('/theme/view-insert')}}">Thêm chủ đề</a>
                         <a class="nav-link" href="{{ url('/type/view-type')}}">Thêm loại từ vựng</a>
-                        <a class="nav-link" href="{{ url('/type/view-vocabulary')}}">Thêm từ vựng</a>
+                        <a class="nav-link" href="{{ url('/vocabulary/view-vocabulary')}}">Thêm từ vựng</a>
 
                     </div>
                 </li>
@@ -158,6 +160,8 @@
     <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/test.js') }}"></script>
+    <script src="{{ asset('js/speech.js') }}"></script>
+
     <!-- Vendor JS-->
     <script src="{{ asset('vendor/datepicker/moment.min.js') }}"></script>
     <script src="{{ asset('vendor/datepicker/daterangepicker.js') }}"></script>

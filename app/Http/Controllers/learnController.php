@@ -36,9 +36,6 @@ class learnController extends Controller
             case '3':
                 return $this->viewQuestListenToWrite($question);
                 break;
-            default:
-                return $this->viewQuestMultipleChoice($question);
-                break;
         }
     }
 
@@ -58,9 +55,8 @@ class learnController extends Controller
 
     public function viewQuestListenToWrite($question)
     {  
-        $answers = answer::where('question_id', $question->id)->get();
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
-        $_SESSION['rightAnswer'] = $answers[0]->name;
+        $_SESSION['rightAnswer'] = $question->id;
         return view('learn.nghevietlai',['question'=> $question]);
     }
 
@@ -83,6 +79,7 @@ class learnController extends Controller
       if (sizeof($_SESSION['question']->listQuestion) > $stt) {
         $type = $_SESSION['question']->listQuestion[$stt]->type_id;
         $question = $_SESSION['question']->listQuestion[$stt];
+
         switch ($type) {
           case '1':
               return $this->viewQuestMultipleChoice($question);
@@ -93,10 +90,7 @@ class learnController extends Controller
           case '3':
               return $this->viewQuestListenToWrite($question);
               break;
-          default:
-              return $this->viewQuestMultipleChoice($question);
-              break;
-      }
+        }
       } else {
         $level = 0;
         $percent = 0;

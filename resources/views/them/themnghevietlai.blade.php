@@ -41,10 +41,10 @@
       </div>
       <div class="row">
         <div class="col-sm-3">    
-          <h3 for="usr">Audio</h3>
+          <h3 for="usr">question</h3>
         </div>
         <div class="col-sm-9">    
-            <input type="file" name="audio" class="form-control-file border">
+            <input type="text" name="question" class="form-control">
         </div>
       </div>
       <div class="row mt-3 mb-3 justify-content-center">

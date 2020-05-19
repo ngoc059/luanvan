@@ -26,11 +26,12 @@ class vocabularyController extends Controller
         echo $request;
         $vocabulary = new vocabulary;
         $vocabulary->type_id = $request->type_id;
-        $vocabulary->vietnamese = $request->TV;
-        $vocabulary->chinese = $request->TQ;
-        $vocabulary->VDTQ = $request->VDTQ;
-        $vocabulary->VDTV = $request->VDTV;
+        $vocabulary->vietnamese = $request->tv;
+        $vocabulary->chinese = $request->tq;
+        $vocabulary->vdTQ = $request->vdtq;
+        $vocabulary->vdTV = $request->vdtv;
         $file = $request->file('hinhanh');
+        echo $file;
         if($file->getClientOriginalExtension('myFile')== "jpg"||$file->getClientOriginalExtension('myFile')== "png" ){
             $fileName = $file->getClientOriginalName('myFile');
             echo $fileName;
@@ -38,18 +39,8 @@ class vocabularyController extends Controller
             $vocabulary->img = $fileName;
             }
             else{
-                return redirect('admin/hangHoa/them')->with('thongbao','khong phai file anh');
-            }
-        $audio = $request->file('audio');
-        if($file->getClientOriginalExtension('audio')== "mp3"){
-            $audioName = $file->getClientOriginalName('audio');
-            echo $fileName;
-            $file->move('audio', $audioName); 
-            $vocabulary->audio = $audioName;
-            }
-            else{
-                return redirect('admin/hangHoa/them')->with('thongbao','khong phai file audio');
-            }
+                return redirect('admin/vocabulary/them')->with('thongbao','khong phai file anh');
+        }
         $vocabulary->save();
         // return redirect('admin/hangHoa/them')->with('thongbao','Thêm thành công');
         return $vocabulary;

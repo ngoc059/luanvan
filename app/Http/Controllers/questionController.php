@@ -32,15 +32,7 @@ class questionController extends Controller
         $question->vocabularyId = 0;
         $question->type_id = 3;
         $question->lesson_id = $request->lesson;
-        $audio = $request->file('audio');
-        if($audio->getClientOriginalExtension('audio')== "mp3"){
-            $audioName = $audio->getClientOriginalName('audio');
-            $audio->move('audio', $audioName); 
-            $question->path ="audio/" . $audioName;
-        }
-        else{
-            return redirect('them.themnghevietlai')->with('thongbao','khong phai file audio');
-        }
+        $question->path = $request->question;
         $question->save();
         return $this->viewInsertQuestion();
     }

@@ -3,11 +3,6 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
 <div class="container bg-insert pl-5 pr-5 pb-1 mb-3">
-  @if (session('thongbao'))
-  <div class="">
-     {{ session('thongbao') }}
-  </div>
-  @endif
     <h2 class="text-center pt-3" style="text-shadow: 2px 2px 5px #B40486;"> THÊM TỪ VỰNG </h2><br>
     <form action="/vocabulary/create" method="POST" enctype="multipart/form-data">
       @csrf
@@ -16,7 +11,7 @@
           <h3 for="usr">Loại</h3>
         </div>
       <div class="col-sm-9">
-        <select class="form-control" name="lesson" id="sel1">
+        <select class="form-control" name="type_id" id="sel1">
           @foreach ($typeVocabulary as $le)
           <option value="{{$le->id}}">{{$le->name}}</option>
           @endforeach
@@ -58,27 +53,29 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-3">    
-          <h3 for="usr">Audio</h3>
-        </div>
-        <div class="col-sm-9">    
-            <input type="file" name="audio" class="form-control">
-        </div>
-      </div>
-
       <div class="row mt-3">
         <div class="col-sm-3">    
           <h3 for="usr">Ảnh</h3>
         </div>
         <div class="col-sm-9">    
-          <input name="hinhanh" class="form-control" type="file" value=""><br>
+          <input name="hinhanh" class="form-control" type="file"><br>
         </div>
       </div>
       
       <div class="row mt-3 mb-3 justify-content-center">
-        <button type="submit" class="btn btn-outline-info" >Thêm</button>
+        <button type="button" onclick="onchange()" class="btn btn-outline-info" >Thêm</button>
       </div>
       <form>
+        <script>
+        function onchange ()
+        {
+          if('speechSynthesis' in window){
+          var speech = new SpeechSynthesisUtterance('你好，我叫杜');
+          speech.lang = 'zh-CN';
+          window.speechSynthesis.speak(speech);
+        }
+      }
+
+      </script>
 </div>
 @endsection
