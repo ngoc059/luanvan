@@ -13,14 +13,13 @@
         <div class="col-sm-3">    
           <h3 for="usr">Câu trả lời</h3>
         </div>
-        <div class="col-sm-9">    
+        <div class="col-sm-9">  
+        <button style='font-size:24px'  type="button" onclick="record()"
+             class="btn btn-outline-info" > NÓI </button>  
           <input name="test" class="form-control" type="text" value=""><br>
         </div>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Kiểm Tra</button> 
-      {{-- <div class="row mt-3 mb-3 justify-content-center">
-        <button type="submit" class="btn btn-outline-info" >Kiểm Tra</button>
-      </div> --}}
       <form>
 </div>
 @endsection

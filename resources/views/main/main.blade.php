@@ -16,6 +16,10 @@
             <li class="nav-item">
               <a class="nav-link " href="view-img">THÊM HỌC THEO HÌNH ẢNH</a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link " href="view-insert-listen-repeat">THÊM NGHE RỒI LẶP LẠI</a>
+            </li>
           </ul>
         </div>
       </nav>

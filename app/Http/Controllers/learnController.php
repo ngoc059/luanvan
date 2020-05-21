@@ -36,6 +36,9 @@ class learnController extends Controller
             case '3':
                 return $this->viewQuestListenToWrite($question);
                 break;
+            case '4':
+                return $this->viewQuestListenToRepeat($question);
+                break;
         }
     }
 
@@ -56,8 +59,15 @@ class learnController extends Controller
     public function viewQuestListenToWrite($question)
     {  
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
-        $_SESSION['rightAnswer'] = $question->id;
+        $_SESSION['rightAnswer'] = $question->question;
         return view('learn.nghevietlai',['question'=> $question]);
+    }
+
+    public function viewQuestListenToRepeat($question)
+    {  
+        $_SESSION['question']->stt = $_SESSION['question']->stt +1;
+        $_SESSION['rightAnswer'] = $question->question;
+        return view('learn.nghelaplai',['question'=> $question]);
     }
 
     public function viewQuestMultipleChoice($question) {
@@ -89,6 +99,9 @@ class learnController extends Controller
               break;
           case '3':
               return $this->viewQuestListenToWrite($question);
+              break;
+         case '4':
+              return $this->viewQuestListenToRepeat($question);
               break;
         }
       } else {

@@ -25,6 +25,11 @@ class questionController extends Controller
         return view('them.themhoctheohinhanh',['lesson'=> $lesson, 'vocabulary' => $vocabulary]);
     }
 
+    public function viewRepeat() {
+        $lesson = lesson::All();
+        return view('them.themcaunghelaplai',['lesson'=> $lesson]);
+    }
+
     public function createLS(Request $request) {
         $question = new question;
         $question->name = $request->name;
@@ -32,7 +37,19 @@ class questionController extends Controller
         $question->vocabularyId = 0;
         $question->type_id = 3;
         $question->lesson_id = $request->lesson;
-        $question->path = $request->question;
+        $question->question = $request->question;
+        $question->save();
+        return $this->hienThiThemIMG();
+    }
+
+    public function createRepeat(Request $request) {
+        $question = new question;
+        $question->name = $request->name;
+        $question->description = $request->description;
+        $question->vocabularyId = 0;
+        $question->type_id = 4;
+        $question->lesson_id = $request->lesson;
+        $question->question = $request->question;
         $question->save();
         return $this->viewInsertQuestion();
     }

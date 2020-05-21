@@ -158,6 +158,14 @@ Route::group(['prefix' => '/question'], function () {
 
     });
 
+    Route::get('/view-insert-listen-repeat', 'questionController@viewRepeat', function (){
+
+    });
+
+    Route::post('/insert-listen-repeat', 'questionController@CreateRepeat', function (){
+
+    });
+
     Route::post('/insert-img', 'questionController@createIMG', function (){
 
     });

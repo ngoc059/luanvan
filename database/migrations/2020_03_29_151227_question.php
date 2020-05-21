@@ -22,7 +22,7 @@ class Question extends Migration
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types');
             $table->string('description');
-            $table->string('path');
+            $table->string('question');
             $table->timestamps();
         });
     }
