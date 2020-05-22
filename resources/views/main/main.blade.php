@@ -27,5 +27,5 @@
         @yield('maininsert')
     </div>
   </div>
-
+  @yield('script')
 @endsection

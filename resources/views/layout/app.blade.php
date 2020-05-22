@@ -160,7 +160,10 @@
     <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/test.js') }}"></script>
-    <script src="{{ asset('js/speech.js') }}"></script>
+    <script src="{{ asset('js/speech.js') }}"></script>    
+    <script src="{{ asset('js/ajax.js') }}"></script>
+
+
 
     <!-- Vendor JS-->
     <script src="{{ asset('vendor/datepicker/moment.min.js') }}"></script>
