@@ -82,7 +82,7 @@ Route::group(['prefix' => '/learn'], function () {
 });
 
 Route::group(['prefix' => '/lesson'], function () {
-    Route::get('/{id}','lessonController@lesson');
+    Route::get('get/{id}','lessonController@lesson');
 
 
     Route::post('/insert', 'lessonController@create', function (){
@@ -118,10 +118,7 @@ Route::group(['prefix' => '/type'], function () {
     Route::get('/view-type', function (){
         return view('them.themloaituvung');
     });
-    
-});
 
-Route::group(['prefix' => '/type'], function () {
     Route::get('/view-vocabulary', function (){
         return view('them.themtuvung');
     });

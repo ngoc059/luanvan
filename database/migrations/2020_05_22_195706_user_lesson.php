@@ -13,7 +13,7 @@ class UserLesson extends Migration
      */
     public function up()
     {
-        Schema::create('level', function (Blueprint $table) {
+        Schema::create('user_lesson', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users');

@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/build.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}">
+
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -58,7 +59,7 @@
         <div class="collapse navbar-collapse add" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url('/theme/index') }}">Danh sách bài học</a>
+                <a class="nav-link" href="{{ url('/lesson/lesson-list') }}">Danh sách bài học</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"

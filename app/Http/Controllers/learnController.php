@@ -8,6 +8,7 @@ use App\question;
 use App\level;
 use App\lesson;
 use App\questionview;
+use App\userLesson;
 session_start();
 class learnController extends Controller
 {   
@@ -106,6 +107,22 @@ class learnController extends Controller
               break;
         }
       } else {
+        $this->insertUserLesson( $_SESSION['user']->id, $_SESSION['lessonId']);
+        return $this->checkAndInsertLevel();
+      }
+    }
+
+    private function insertUserLesson($userId = 1, $lessonId = 1) {
+        $checkE = userLesson::where('users_id', $userId)->where('lesson_id', $lessonId)->first();
+        if (!$checkE){
+            $obj = new userLesson;
+            $obj->users_id = $userId;
+            $obj->lesson_id = $lessonId;
+            $obj->save();
+        }
+    }
+
+    private function checkAndInsertLevel() {
         $level = 0;
         $percent = 0;
         $experience = 0;
@@ -127,6 +144,7 @@ class learnController extends Controller
             }
             $levelInsert->update();
         } else {
+            $levelInsert->id = $levelOfUser->id;
             $levelInsert->level = 0;
             $level = 0;
             $percent = $getLesson->experience;
@@ -135,7 +153,6 @@ class learnController extends Controller
             $levelInsert->save();
         }
         return view('level',['percent'=> $percent, 'level'=> $level, 'experience'=>$experience]);
-      }
     }
    
 }
