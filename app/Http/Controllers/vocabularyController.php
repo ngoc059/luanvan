@@ -45,4 +45,8 @@ class vocabularyController extends Controller
         // return redirect('admin/hangHoa/them')->with('thongbao','Thêm thành công');
         return $vocabulary;
     }
+    public function list(){
+        $vocabulary = vocabulary::all();
+        return view('list.danhsachloaituvung', compact('vocabulary'));
+    }
 }

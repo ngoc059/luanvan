@@ -81,4 +81,8 @@ class lessonController extends Controller
         return $lesson;
         return view('learn.lesson', compact('lesson'));
     }
+    public function list(){
+        $lesson = lesson::all();
+        return view('list.danhsachbaihoc', compact('lesson'));
+    }
 }

@@ -65,6 +65,10 @@ Route::group(['prefix' => '/vocabulary'], function () {
     Route::get('/view-vocabulary', 'vocabularyController@viewVocabulary', function (){
 
     });
+
+    Route::get('/list', 'vocabularyController@list', function (){
+
+    });
     
    
 });
@@ -95,6 +99,8 @@ Route::group(['prefix' => '/lesson'], function () {
     Route::get('/lesson-list','lessonController@viewListLesson', function () {
         
     });
+
+    Route::get('list','lessonController@list');
 });
 Route::group(['prefix' => '/theme'], function () {
     Route::get('/index', 'themeController@index');
@@ -105,14 +111,10 @@ Route::group(['prefix' => '/theme'], function () {
     Route::post('/add', 'ThemeController@create', function (){
 
     });
+
+    Route::get('/list', 'themeController@list');
 });
 
-Route::group(['prefix' => '/img'], function () {
-    Route::get('/view-img', function (){
-        return view('them.themhoctheohinhanh');
-    });
-    
-});
 
 Route::group(['prefix' => '/type'], function () {
     Route::get('/view-type', function (){

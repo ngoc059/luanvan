@@ -22,5 +22,10 @@ class ThemeController extends Controller
         // dd($theme->toArray());
         return view('chude', compact('theme'));
     }
+
+    public function list(){
+        $theme = theme::all();
+        return view('list.danhsachchude', compact('theme'));
+    }
     
 }
