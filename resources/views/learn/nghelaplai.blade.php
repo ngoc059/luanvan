@@ -1,5 +1,5 @@
-@extends('layout.app')
-@section('body')
+@extends('main.mainlearn')
+@section('mainlearn')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
 <div class="container">
@@ -16,7 +16,7 @@
         <div class="col-sm-9">  
         <button style='font-size:24px'  type="button" onclick="record()"
              class="btn btn-outline-info" > NÓI </button>  
-          <input name="test" class="form-control" type="text" value=""><br>
+          <input name="test" class="form-control" id="voice" type="text" value=""><br>
         </div>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Kiểm Tra</button> 

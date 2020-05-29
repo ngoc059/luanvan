@@ -16,7 +16,8 @@
         <div class="content">
           <div>Bài Học:</div>
           @foreach ($status['listLesson'] as $i => $value)
-          <div> <a href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"> {{ $value['name'] }} </a>  <span>  {{ $value['dateDone'] }}</span></div> 
+          <div> <a href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"> {{ $value['name'] }} </a>
+            <span> {{ $value['dateDone'] }}</span></div>
           @endforeach
         </div>
       </div>
@@ -29,7 +30,8 @@
         <div class="content">
           <div>Bài Học:</div>
           @foreach ($status['listLesson'] as $i => $value)
-        <div> <a href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"> {{ $value['name'] }} </a>  <span>  {{ $value['dateDone'] }}</span></div> 
+          <div> <a href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"> {{ $value['name'] }} </a>
+            <span> {{ $value['dateDone'] }}</span></div>
           @endforeach
         </div>
       </div>

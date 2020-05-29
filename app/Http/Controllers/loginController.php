@@ -23,7 +23,7 @@ class LoginController extends Controller
         if(count($user) > 0){
             $_SESSION['user'] = $user[0];
             $lesson = lesson::All();
-            return view('learn.listlesson',['lessons'=> $lesson]);
+            return redirect('/lesson/lesson-list');
         }
         return redirect('user/login')->with('thongbao','Sai tai khoản hoặc mật khẩu');
     }
@@ -33,7 +33,7 @@ class LoginController extends Controller
         if(count($user) > 0){
             $_SESSION['user'] = $user[0];
             $lesson = lesson::All();
-            return view('learn.listlesson',['lessons'=> $lesson]);
+            return redirect('/lesson/lesson-list');
         }
     }
 
@@ -49,7 +49,7 @@ class LoginController extends Controller
     public function viewLogin() {
         if(isset($_SESSION['user'])) {
             $lesson = lesson::All();
-            return view('learn.listlesson',['lessons'=> $lesson]);
+            return redirect('/lesson/lesson-list');
         }
         return view('auth.login');
     }

@@ -3,11 +3,10 @@ function record() {
     recognition.lang = "zh-CN";
 
     recognition.onresult = function(event) {
-        console.log(event);
-        document.getElementById('speechToText').value = event.results[0][0].transcript;
+        console.log(event.results[0][0].transcript);
+        document.getElementById('voice').value = event.results[0][0].transcript;
     }
     recognition.start();
-
 }
 
 function readOutLoud(value) {
