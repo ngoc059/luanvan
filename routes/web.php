@@ -11,15 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-Route::get('login', function(){
-    return view('learn.nghephatamlai');
-});
-
-Route::get('register', function(){
+Route::get('/', 'LoginController@viewLogin', function () {
+    
 });
 
 Route::get('test', 'lessonController@viewInsertLesson', function(){
@@ -27,6 +20,10 @@ Route::get('test', 'lessonController@viewInsertLesson', function(){
 });
 
 Route::get('home', function(){
+    return view('home');
+});
+
+Route::get('ajax', function(){
     return view('home');
 });
 
@@ -39,6 +36,10 @@ Route::group(['prefix' => '/user'], function () {
 
     });
 
+    Route::get('/login', 'LoginController@viewLogin', function (){
+
+    });
+    
     Route::get('/register', 'LoginController@register', function(){
         
     });
@@ -68,15 +69,8 @@ Route::group(['prefix' => '/vocabulary'], function () {
    
 });
 
-Route::group(['prefix' => '/lession'], function () {
-    Route::get('/them-trac-nghiem', function () {
-        return view('them.themcautracnghiem');
-    });
 
-    Route::get('/them-nghe-viet-lai', function () {
-        return view('them.themnghevietlai');
-    });
-});
+
 
 Route::group(['prefix' => '/learn'], function () {
     Route::post('/check', 'learnController@check', function (){
@@ -168,5 +162,11 @@ Route::group(['prefix' => '/question'], function () {
 
     Route::post('/insert-img', 'questionController@createIMG', function (){
 
+    });
+
+    Route::group(['prefix' => '/ajax'], function () {
+        Route::get('/get-lesson/{themeId}', 'lessonController@getAjax', function ($themeId) {
+           
+        });
     });
 });

@@ -15,6 +15,20 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function loginAdmin(Request $request) {
+       return $this->login($request->username, $request->pass);
+    }
+
+    private function login($userName, $passWord) {
+        $user = User::where('email', $userName)->where('passWord', $passWord)->get();
+        if(count($user) > 0){
+            $_SESSION['user'] = $user[0];
+            $lesson = lesson::All();
+            return view('learn.listlesson',['lessons'=> $lesson]);
+        }
+        return redirect('user/login')->with('thongbao','Sai tai khoản hoặc mật khẩu');
+    }
+
+    public function loginMember(Request $request) {
         $user = User::where('email', $request->username)->where('passWord', $request->pass)->get();
         if(count($user) > 0){
             $_SESSION['user'] = $user[0];
@@ -31,6 +45,14 @@ class LoginController extends Controller
     public function register() {
         return view('auth.register');
     }       
+
+    public function viewLogin() {
+        if(isset($_SESSION['user'])) {
+            $lesson = lesson::All();
+            return view('learn.listlesson',['lessons'=> $lesson]);
+        }
+        return view('auth.login');
+    }
 
     public function createUser(Request $request) {
         $user = new User;

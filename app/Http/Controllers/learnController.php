@@ -17,6 +17,7 @@ class learnController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getListQuestionByLesson($lessonId) {
+        // echo $lessonId;
         $_SESSION['lessonId'] = $lessonId;
         unset($_SESSION['question']);
         $listQuestion = question::where('lesson_id', $lessonId)->get();

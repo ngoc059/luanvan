@@ -6,28 +6,33 @@ use Illuminate\Http\Request;
 use App\lesson;
 use App\question;
 use App\answer;
+use App\theme;
 use App\vocabulary;
 class questionController extends Controller
 {
     public function viewInsertQuestion() {
         $lesson = lesson::All();
-        return view('them.themnghevietlai',['lesson'=> $lesson]);
+        $theme = theme::All();
+        return view('them.themnghevietlai',['lesson'=> $lesson, 'theme'=> $theme]);
     }
 
     public function hienThiThemTN() {
         $lesson = lesson::All();
-        return view('them.themcautracnghiem',['lesson'=> $lesson]);
+        $theme = theme::All();
+        return view('them.themcautracnghiem',['lesson'=> $lesson, 'theme'=> $theme]);
     }
 
     public function hienThiThemIMG() {
         $lesson = lesson::All();
+        $theme = theme::All();
         $vocabulary = vocabulary::All();
-        return view('them.themhoctheohinhanh',['lesson'=> $lesson, 'vocabulary' => $vocabulary]);
+        return view('them.themhoctheohinhanh',['lesson'=> $lesson, 'vocabulary' => $vocabulary, 'theme'=> $theme]);
     }
 
     public function viewRepeat() {
         $lesson = lesson::All();
-        return view('them.themcaunghelaplai',['lesson'=> $lesson]);
+        $theme = theme::All();
+        return view('them.themcaunghelaplai',['lesson'=> $lesson, 'theme'=> $theme]);
     }
 
     public function createLS(Request $request) {

@@ -30,6 +30,13 @@ class lessonController extends Controller
         return $this->viewListLesson();
     }
 
+    public function getAjax($themeId) {
+        $listLesson = lesson::where('theme_id', $themeId)->get();
+        foreach($listLesson as $lesson) {
+          echo  "<option value='".$lesson->id."'>".$lesson->name."</option>";
+        }
+    }
+
     public function viewListLesson(){
         $lesson = lesson::All();
         return view('learn.listlesson',['lessons'=> $lesson]);
