@@ -7,17 +7,18 @@
     <form action="/question/insert-tn" method="POST">
         @csrf
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <h3 for="usr">Tên</h3>
             </div>
-            <div class="col-sm-9">
-                <select class="form-control" name="lesson" id="sel1">
+            <div class="col-sm-10">
+                {{-- <select class="form-control" name="lesson" id="sel1"> --}}
                     {{-- @foreach ($lesson as $le)
           <option value="{{ $le->id }}">{{ $le->name }}</option>
                     @endforeach--}}
-                    <option value="id">Tên</option>
-
-                </select>
+                    {{-- <option value="id">Tên</option> --}}
+                    
+                {{-- </select> --}}
+                <input name="name" class="form-control" type="text" value=""><br>
             </div>
         </div>
             <div class="row mt-3 mb-3 justify-content-center">
