@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+session_start();
 class adminLoginMiddleWare
 {
     /**
@@ -15,6 +15,9 @@ class adminLoginMiddleWare
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(isset($_SESSION['user']) && $_SESSION['user']->gender == 1) {
+            return $next($request);
+        }
+        return view('auth.login');
     }
 }
