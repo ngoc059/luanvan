@@ -169,3 +169,5 @@ Route::group(['prefix' => '/question'], function () {
         });
     });
 });
+
+Route::post('comment/{id}','CommentController@postCommment');

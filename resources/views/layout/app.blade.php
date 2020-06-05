@@ -61,6 +61,24 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{ url('/lesson/lesson-list') }}">Danh sách bài học</a>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Danh sách
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" href="{{ url('/question/list')}}">Danh sách chủ đề</a>
+                        <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách bài học</a>
+                        <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách loại bài học</a>
+                        <a class="nav-link" href="{{ url('/theme/list')}}">Danh sách cộng tác viên</a>
+                        <a class="nav-link" href="{{ url('/type/list')}}">Danh sách học viên</a>
+                        <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
+                        <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách loại từ vựng</a>
+
+                    </div>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -75,6 +93,7 @@
 
                     </div>
                 </li>
+
                 {{-- <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
             </li> --}}
