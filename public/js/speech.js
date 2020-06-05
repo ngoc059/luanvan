@@ -1,7 +1,6 @@
 function record() {
     var recognition = new webkitSpeechRecognition();
     recognition.lang = "zh-CN";
-
     recognition.onresult = function(event) {
         console.log(event.results[0][0].transcript);
         document.getElementById('voice').value = event.results[0][0].transcript;
