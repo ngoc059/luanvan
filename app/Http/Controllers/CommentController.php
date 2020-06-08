@@ -8,7 +8,7 @@ session_start();
 
 class CommentController extends Controller
 {
-    public function postComment($id,Request $request)
+    public function postComment($id, Request $request)
     {
         $idTinTuc =$id;
         $lesson = lesson::find($id);
@@ -17,8 +17,6 @@ class CommentController extends Controller
         $comment->id_user= $_SESSION['user']->id;
         $comment->comment= $request->NoiDung;
         $comment->save();
-        
-        return redirect("tintuc/$id/".$tintuc->TieuDeKhongDau.".html")
-        ->with('thongbao','Viết bình luận thành công');
+        return redirect("tintuc/$id/".$tintuc->TieuDeKhongDau.".html");
     }
 }

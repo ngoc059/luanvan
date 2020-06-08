@@ -20,7 +20,7 @@ Route::get('test', 'lessonController@viewInsertLesson', function(){
 });
 
 Route::get('home', function(){
-    return view('home');
+    return view('main.comment');
 });
 
 Route::get('ajax', function(){
@@ -82,6 +82,9 @@ Route::group(['prefix' => '/learn'], function () {
     });
 
     Route::get('/get-list-question-by-lesson/{lessonId}','learnController@getListQuestionByLesson', function ($lessonId) {
+    });
+
+    Route::get('/get-list-comment/{lessonId}','learnController@getListComment', function ($lessonId) {
     });
 });
 

@@ -9,6 +9,9 @@ use App\level;
 use App\lesson;
 use App\questionview;
 use App\userLesson;
+use App\comment;
+use Session;
+use App\Http\Controllers;
 session_start();
 class learnController extends Controller
 {   
@@ -21,13 +24,18 @@ class learnController extends Controller
         // echo $lessonId;
         $_SESSION['lessonId'] = $lessonId;
         unset($_SESSION['question']);
-        $listQuestion = question::where('lesson_id', $lessonId)->get();
+        $listQuestion = question::where('lesson_id', $lessonId)->inRandomOrder()->get();
         $type = $listQuestion[0]->type_id;
         $question = $listQuestion[0];
         $questionView = new questionview;
         $questionView->listQuestion = $listQuestion;
         $questionView->stt = 0;
         $_SESSION['question'] = $questionView;
+        if(sizeof($_SESSION['question']->listQuestion) == 0) {
+            return redirect('/lesson/lesson-list');
+         }
+        $listComment = $this->getListComment($lessonId);
+        Session::put('listComment', $listComment);
         switch ($type) {
             case '1':
                 return $this->viewQuestMultipleChoice($question);
@@ -44,6 +52,14 @@ class learnController extends Controller
         }
     }
 
+    public function getListComment($lessonId) {
+        $listComment = comment::where('lesson_id', $lessonId)
+        ->join('users', 'users.id', '=', 'comment.users_id')
+        ->select('comment.lesson_id AS lessonId', 'users.full_name  AS userName', 'comment.id AS commentId', 'comment.comment', 'comment.created_at')
+        ->get();
+        return $listComment;
+    }
+
     public function viewQuestLearnByType($question)
     {
         $_SESSION['rightAnswer'] = $question->vocabularyId;
@@ -55,21 +71,34 @@ class learnController extends Controller
         ->get();
         $questionToView = Arr::collapse([[$vocabulary], $autoVocabulary]);
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
-        return view('learn.learnbytype',['listAnswer'=> $questionToView, 'question'=> $question]);
+        $process = [];
+        $process['processNow'] = $_SESSION['question']->stt - 1;
+        $process['total'] = sizeof($_SESSION['question']->listQuestion);
+        $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
+        return view('learn.learnbytype',['listAnswer'=> $questionToView, 'question'=> $question, 'process'=> $process]);
     }
 
     public function viewQuestListenToWrite($question)
     {  
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
         $_SESSION['rightAnswer'] = $question->question;
-        return view('learn.nghevietlai',['question'=> $question]);
+        $process = [];
+        $process['processNow'] = $_SESSION['question']->stt - 1;
+        $process['total'] = sizeof($_SESSION['question']->listQuestion);
+        $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
+        return view('learn.nghevietlai',['question'=> $question, 'process'=> $process]);
     }
 
     public function viewQuestListenToRepeat($question)
     {  
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
         $_SESSION['rightAnswer'] = $question->question;
-        return view('learn.nghelaplai',['question'=> $question]);
+        $process = [];
+        $process['processNow'] = $_SESSION['question']->stt - 1;
+        $process['total'] = sizeof($_SESSION['question']->listQuestion);
+        $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
+
+        return view('learn.nghelaplai',['question'=> $question, 'process'=> $process]);
     }
 
     public function viewQuestMultipleChoice($question) {
@@ -78,7 +107,11 @@ class learnController extends Controller
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
         $answer = array_search('true', array_column($arrayAnswer, 'is_corred'));
         $_SESSION['rightAnswer'] = $answers[$answer]->id;
-        return view('learn.tracnghiem',['answers'=> $answers, 'question'=> $question->description]);
+        $process = [];
+        $process['processNow'] = $_SESSION['question']->stt - 1;
+        $process['total'] = sizeof($_SESSION['question']->listQuestion);
+        $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
+        return view('learn.tracnghiem',['answers'=> $answers, 'question'=> $question->description, 'process'=> $process]);
     }
 
     public function check(Request $request){
