@@ -2,6 +2,13 @@
 @section('mainlearn')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
+<script>
+  window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+  $(this).remove(); 
+  });
+  }, 2000); 
+</script>
 <div class="container">
   <div class="progress">
     <div class="progress-bar bg-info progress-bar-striped" style="width:{{ $process['persen'] }}%">{{ $process['processNow'] }} / {{ $process['total'] }}</div>
@@ -11,6 +18,19 @@
     <button style='font-size:24px'  type="button" onclick="readOutLoud('{{$question->question}}')" class="btn btn-outline-info" ><i class='fas fa-volume-up'> </i></button>
     </div>
     <form action={{url('learn/check')}} method="POST">
+      @if ($checkAnswer->status == 1)
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ $checkAnswer->info }}
+    </div>
+    @endif
+
+    @if ($checkAnswer->status == 0)
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ $checkAnswer->info }}
+    </div>
+    @endif
       @csrf
       <div class="row">
         <div class="col-sm-3">    

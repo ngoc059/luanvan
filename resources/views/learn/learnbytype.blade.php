@@ -1,12 +1,32 @@
 @extends('main.mainlearn')
 @section('mainlearn')
-
+<script>
+  window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+  $(this).remove(); 
+  });
+  }, 2000); 
+</script>
 <div class="container">
   <div class="progress">
-    <div class="progress-bar bg-info progress-bar-striped" style="width:{{ $process['persen'] }}%">{{ $process['processNow'] }} / {{ $process['total'] }}</div>
+    <div class="progress-bar bg-info progress-bar-striped" style="width:{{ $process['persen'] }}%">
+      {{ $process['processNow'] }} / {{ $process['total'] }}</div>
   </div>
   <h3 style="text-align: center;">{{$question->description}} {{$question->name}} </h3>
   <form action={{ url('learn/check') }} method="POST">
+    @if ($checkAnswer->status == 1)
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ $checkAnswer->info }}
+    </div>
+    @endif
+
+    @if ($checkAnswer->status == 0)
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ $checkAnswer->info }}
+    </div>
+    @endif
     @csrf
     <br>
     <div class="row row-cols-3 row-cols-md-4">
