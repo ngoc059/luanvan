@@ -69,8 +69,10 @@ Route::group(['prefix' => '/vocabulary'], function () {
     Route::get('/list', 'vocabularyController@list', function (){
 
     });
-    
-   
+
+    Route::post('/create-type', 'vocabularyController@insertType', function () {
+       
+    });
 });
 
 

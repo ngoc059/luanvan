@@ -16,6 +16,13 @@ class vocabularyController extends Controller
         $typeVocabulary = TypeVocabulary::all();
         return view('them.themtuvung', ['typeVocabulary' => $typeVocabulary]);
     }
+
+    public function insertType(Request $request) {
+        $typeVocabulary = new TypeVocabulary;
+        $typeVocabulary->name = $request->name;
+        $typeVocabulary->save();
+        return redirect('type/view-type')->with('thongbao','thêm thành công');
+    }
     
     public function checkCorre($answer) {
         if ($answer) {
