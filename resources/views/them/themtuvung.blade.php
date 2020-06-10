@@ -2,8 +2,21 @@
 @section('body')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
+<script>
+  window.setTimeout(function() {
+$(".alert").fadeTo(500, 0).slideUp(500, function(){
+  $(this).remove(); 
+});
+}, 2000); 
+</script>
 <div class="container bg-insert pl-5 pr-5 pb-1 mb-3">
     <h2 class="text-center pt-3" style="text-shadow: 2px 2px 5px #B40486;"> THÊM TỪ VỰNG </h2><br>
+    @if (session('thongbao'))
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ session('thongbao') }}
+    </div>
+    @endif
     <form action="/vocabulary/create" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="row">
@@ -63,19 +76,9 @@
       </div>
       
       <div class="row mt-3 mb-3 justify-content-center">
-        <button type="button" onclick="onchange()" class="btn btn-outline-info" >Thêm</button>
+        <button type="submit"  class="btn btn-outline-info" >Thêm</button>
       </div>
-      <form>
-        <script>
-        function onchange ()
-        {
-          if('speechSynthesis' in window){
-          var speech = new SpeechSynthesisUtterance('你好，我叫杜');
-          speech.lang = 'zh-CN';
-          window.speechSynthesis.speak(speech);
-        }
-      }
+    </form>
 
-      </script>
 </div>
 @endsection
