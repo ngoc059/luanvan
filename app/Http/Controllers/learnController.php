@@ -152,7 +152,7 @@ class learnController extends Controller
       }
     }
 
-    private function insertUserLesson($userId = 1, $lessonId = 1) {
+    private function insertUserLesson($userId, $lessonId) {
         $checkE = userLesson::where('users_id', $userId)->where('lesson_id', $lessonId)->first();
         if (!$checkE){
             $obj = new userLesson;
@@ -171,20 +171,18 @@ class learnController extends Controller
         $levelOfUser = level::where('users_id', $_SESSION['user']->id)->first();
         $levelInsert->users_id = $_SESSION['user']->id;
         if($levelOfUser) {
-            $levelInsert->id = $levelOfUser->id;
             $level = $levelOfUser->level;
             $percent = $levelOfUser->percent;
             $experience = $percent + $getLesson->experience;
             if ($experience > 100) {
-                $levelInsert->level = $levelOfUser->level + 1;
-                $levelInsert->percent = $experience - 100;
+                $levelOfUser->level = $levelOfUser->level + 1;
+                $levelOfUser->percent = $experience - 100;
             } else {
-                $levelInsert->level = $levelOfUser->level;
-                $levelInsert->percent = $experience;
+                $levelOfUser->level = $levelOfUser->level;
+                $levelOfUser->percent = $experience;
             }
-            $levelInsert->update();
+            $levelOfUser->save();
         } else {
-            $levelInsert->id = $levelOfUser->id;
             $levelInsert->level = 0;
             $level = 0;
             $percent = $getLesson->experience;
