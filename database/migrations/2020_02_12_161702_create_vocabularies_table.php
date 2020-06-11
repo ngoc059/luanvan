@@ -21,7 +21,6 @@ class CreateVocabulariesTable extends Migration
             $table->string('vietnamese');
             $table->string('vdTQ');
             $table->string('vdTV');
-            $table->string('audio');
             $table->string('img');   
             $table->timestamps();
         });

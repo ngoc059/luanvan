@@ -14,7 +14,7 @@ class ThemeController extends Controller
         $theme->name = $request->name;
         $theme->description = $request->description;
         $theme->save();
-        return $theme;
+        return redirect('/theme/view-insert')->with('thongbao','thêm thành công');
     }
 
     public function index(){

@@ -32,7 +32,7 @@ class vocabularyController extends Controller
     public function insert(Request $request) {
         echo $request;
         $vocabulary = new vocabulary;
-        $vocabulary->type_id = $request->type_id;
+        $vocabulary->type_vocabulary_id = $request->type_id;
         $vocabulary->vietnamese = $request->tv;
         $vocabulary->chinese = $request->tq;
         $vocabulary->vdTQ = $request->vdtq;
@@ -49,8 +49,7 @@ class vocabularyController extends Controller
                 return redirect('admin/vocabulary/them')->with('thongbao','khong phai file anh');
         }
         $vocabulary->save();
-        // return redirect('admin/hangHoa/them')->with('thongbao','Thêm thành công');
-        return $vocabulary;
+        return redirect('/vocabulary/view-vocabulary')->with('thongbao','Thêm thành công');
     }
     public function list(){
         $vocabulary = vocabulary::all();
