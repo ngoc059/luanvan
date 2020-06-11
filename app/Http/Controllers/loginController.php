@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 use App\User;
 use App\lesson;
 session_start();
@@ -22,7 +23,8 @@ class LoginController extends Controller
         $user = User::where('email', $userName)->where('passWord', $passWord)->get();
         if(count($user) > 0){
             $_SESSION['user'] = $user[0];
-            $lesson = lesson::All();
+            Session::put('userLogin', $user[0]);
+            $lesson = lesson::All();    
             return redirect('/lesson/lesson-list');
         }
         return redirect('user/login')->with('thongbao','Sai tai khoản hoặc mật khẩu');

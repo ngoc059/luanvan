@@ -17,12 +17,6 @@ class ThemeController extends Controller
         return redirect('/theme/view-insert')->with('thongbao','thêm thành công');
     }
 
-    public function index(){
-        $theme = theme::all();
-        // dd($theme->toArray());
-        return view('chude', compact('theme'));
-    }
-
     public function list(){
         $theme = theme::all();
         return view('list.danhsachchude', compact('theme'));

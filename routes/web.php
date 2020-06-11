@@ -49,14 +49,7 @@ Route::group(['prefix' => '/user'], function () {
     });
 });
 
-Route::group(['prefix' => '/vocabulary'], function () {
-    Route::get('/get-four/{typeId}', 'vocabularyController@getFour', function ($typeId) {
-       
-    });
-
-    Route::get('/tracnghiem', 'vocabularyController@getFourE', function ($typeId) {
-       
-    });
+Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], function () {
 
     Route::post('/create', 'vocabularyController@insert', function () {
        
@@ -90,7 +83,7 @@ Route::group(['prefix' => '/learn'], function () {
     });
 });
 
-Route::group(['prefix' => '/lesson'], function () {
+Route::group(['prefix' => '/lesson', 'middleware'=>'permissionUser'], function () {
     Route::get('get/{id}','lessonController@lesson');
 
 
@@ -101,14 +94,19 @@ Route::group(['prefix' => '/lesson'], function () {
     Route::get('/lesson-add','lessonController@viewInsertLesson', function () {
     });
 
+    Route::get('list','lessonController@list');
+
+});
+
+Route::group(['prefix' => '/lesson'], function () { 
     Route::get('/lesson-list','lessonController@viewListLesson', function () {
         
     });
 
-    Route::get('list','lessonController@list');
 });
-Route::group(['prefix' => '/theme'], function () {
-    Route::get('/index', 'themeController@index');
+
+
+Route::group(['prefix' => '/theme', 'middleware'=>'permissionUser'], function () {
     Route::get('/view-insert', function (){
         return view('them.themchude');
     });
@@ -117,11 +115,16 @@ Route::group(['prefix' => '/theme'], function () {
 
     });
 
+});
+
+Route::group(['prefix' => '/theme'], function () { 
     Route::get('/list', 'themeController@list');
+
 });
 
 
-Route::group(['prefix' => '/type'], function () {
+
+Route::group(['prefix' => '/type', 'middleware'=>'permissionUser'], function () {
     Route::get('/view-type', function (){
         return view('them.themloaituvung');
     });
@@ -132,7 +135,16 @@ Route::group(['prefix' => '/type'], function () {
     
 });
 
-Route::group(['prefix' => '/question'], function () {
+Route::group(['prefix' => '/question'], function () { 
+    Route::group(['prefix' => '/ajax'], function () {
+        Route::get('/get-lesson/{themeId}', 'lessonController@getAjax', function ($themeId) {
+           
+        });
+    });
+});
+
+
+Route::group(['prefix' => '/question', 'middleware'=>'permissionUser'], function () {
     Route::post('/insert', 'questionController@create', function (){
 
     });
@@ -152,6 +164,7 @@ Route::group(['prefix' => '/question'], function () {
     Route::get('/them-trac-nghiem','questionController@hienThiThemTN', function () {
 
     });
+
     Route::get('/view-img', 'questionController@hienThiThemIMG', function (){
 
     });
@@ -168,11 +181,6 @@ Route::group(['prefix' => '/question'], function () {
 
     });
 
-    Route::group(['prefix' => '/ajax'], function () {
-        Route::get('/get-lesson/{themeId}', 'lessonController@getAjax', function ($themeId) {
-           
-        });
-    });
 });
 
 Route::post('comment/{id}','CommentController@postCommment');

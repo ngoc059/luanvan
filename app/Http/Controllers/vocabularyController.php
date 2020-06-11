@@ -29,6 +29,7 @@ class vocabularyController extends Controller
         } 
         return view('main.main',['listV'=>$autoVocabulary, 'tq'=>'ngoc']);
     }
+
     public function insert(Request $request) {
         echo $request;
         $vocabulary = new vocabulary;
@@ -51,6 +52,9 @@ class vocabularyController extends Controller
         $vocabulary->save();
         return redirect('/vocabulary/view-vocabulary')->with('thongbao','Thêm thành công');
     }
+
+    
+
     public function list(){
         $vocabulary = vocabulary::all();
         return view('list.danhsachloaituvung', compact('vocabulary'));

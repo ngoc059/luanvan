@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Middleware;
+use Session;
 
 use Closure;
-session_start();
 class adminLoginMiddleWare
 {
     /**
@@ -14,10 +14,12 @@ class adminLoginMiddleWare
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
-        if(isset($_SESSION['user']) && $_SESSION['user']->gender == 1) {
+    {           
+        $data = Session::get('userLogin');
+        if(isset($data) && $data->gender == 2) {
             return $next($request);
         }
-        return view('auth.login');
+        // return $next($request);
+        return redirect('/user/login-out');
     }
 }
