@@ -4,7 +4,8 @@
 
 /* Set a background color */
 body {
-    background-color: #474e5d;
+    /* background-image: linear-gradient(#CC6699, #CC66CC, #CC66FF); */
+    background-image: linear-gradient(#819FF7,#CC99FF, #81F7D8,#58FAF4); 
     font-family: Helvetica, sans-serif;
 }
 
@@ -186,4 +187,12 @@ body {
     display: none;
     overflow: hidden;
     background-color: #777;
+}
+
+.lesson{
+    font-size: 1.5rem;
+}
+
+.collapsible{
+    background-color: #CC99FF	;
 }

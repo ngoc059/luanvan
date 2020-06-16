@@ -35,7 +35,7 @@
         <label>
           <div class="card h-100">
             <input type="radio" name="test" value="{{$answer->id}}">
-            <img onclick="onClick({{$answer->id}})" src="{{ asset('image/cat.jpg') }}" class="card-img-top">
+            <img onclick="onClick({{$answer->id}})" src="<?php echo asset("$answer->img") ?>" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title" id="{{$answer->id}}">{{$answer->chinese}}</h5>
             </div>
@@ -44,7 +44,7 @@
       </div>
       @endforeach
     </div>
-    <input type="submit" class="form-control" name="check" value="check">
+    <input type="submit" class="btn btn-info btn-block" name="check" value="KIỂM TRA">
   </form>
 </div>
 @endsection

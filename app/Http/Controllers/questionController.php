@@ -56,7 +56,7 @@ class questionController extends Controller
         $question->lesson_id = $request->lesson;
         $question->question = $request->question;
         $question->save();
-        return $this->viewInsertQuestion();
+        return $this->viewRepeat();
     }
 
     public function createTN (Request $request) {

@@ -31,7 +31,7 @@ class vocabularyController extends Controller
     }
 
     public function insert(Request $request) {
-        echo $request;
+        
         $vocabulary = new vocabulary;
         $vocabulary->type_vocabulary_id = $request->type_id;
         $vocabulary->vietnamese = $request->tv;
@@ -39,12 +39,12 @@ class vocabularyController extends Controller
         $vocabulary->vdTQ = $request->vdtq;
         $vocabulary->vdTV = $request->vdtv;
         $file = $request->file('hinhanh');
-        echo $file;
+        
         if($file->getClientOriginalExtension('myFile')== "jpg"||$file->getClientOriginalExtension('myFile')== "png" ){
             $fileName = $file->getClientOriginalName('myFile');
-            echo $fileName;
-            $file->move('img', $fileName); 
-            $vocabulary->img = $fileName;
+            
+            $file->move('images', $fileName); 
+            $vocabulary->img ='images/' + $fileName;
             }
             else{
                 return redirect('admin/vocabulary/them')->with('thongbao','khong phai file anh');

@@ -47,7 +47,7 @@
         <label class="custom-control-label" for="{{$lV->id}}">{{$lV->name}}</label>
       </div>
       @endforeach
-      <input type="submit" class="btn btn-primary btn-block" value="Submit">
+      <input type="submit" class="btn btn-info btn-block" value="KIỂM TRA">
     </form>
   </div>
 </body>

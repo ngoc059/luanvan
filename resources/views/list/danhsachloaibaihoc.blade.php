@@ -1,13 +1,12 @@
 @extends('layout.app')
 @section('body')
 <div class="container">
-    <h2 style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="pt-3">DANH SÁCH BÀI HỌC</h2>
+    <h2 style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="pt-3">DANH SÁCH LOẠI BÀI HỌC</h2>
   
   <div class="row mt-3 mb-3 pb-3 justify-content-end">
-
-    <button type="button" class="btn btn-info">Thêm</button>
+    <button type="submit" class="btn " >Thêm</button>
   </div>
-    <table class="table table-striped" >
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Mã</th>

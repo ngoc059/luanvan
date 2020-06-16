@@ -47,6 +47,14 @@ Route::group(['prefix' => '/user'], function () {
     Route::post('/create', 'LoginController@createUser', function() {
         
     });
+
+    Route::get('/list-user/{id}', 'LoginController@listUser', function($id){
+        
+    });
+
+    Route::get('/delete/{id}', 'LoginController@delete', function($id){
+        
+    });
 });
 
 Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], function () {

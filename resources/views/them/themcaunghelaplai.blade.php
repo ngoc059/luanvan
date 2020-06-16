@@ -24,7 +24,7 @@
           @endforeach
         </select>
         </div>
-      </div>
+      </div><br>
       <div class="row">
         <div class="col-sm-3"> 
           <h3 for="usr">Chọn bài học</h3>
@@ -37,7 +37,7 @@
     </div> <br>
       <div class="row">
         <div class="col-sm-3">    
-          <h3 for="usr">Tên</h3>
+          <h3 for="usr">Tên câu hỏi</h3>
         </div>
         <div class="col-sm-9">    
           <input name="name" class="form-control" type="text" value=""><br>

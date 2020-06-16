@@ -59,19 +59,20 @@ class learnController extends Controller
     public function getListComment($lessonId) {
         $listComment = comment::where('lesson_id', $lessonId)
         ->join('users', 'users.id', '=', 'comment.users_id')
-        ->select('comment.lesson_id AS lessonId', 'users.full_name  AS userName', 'comment.id AS commentId', 'comment.comment', 'comment.created_at')
+        ->select('comment.lesson_id AS lessonId', 'users.full_name  AS userName', 
+        'comment.id AS commentId', 'comment.comment', 'comment.created_at', 'users.gender AS gender')
         ->get();
         return $listComment;
     }
 
-    public function viewQuestLearnByType($question, $thongbao)
+    public function viewQuestLearnByType($question, $checkAnswer)
     {
         $_SESSION['rightAnswer'] = $question->vocabularyId;
         $vocabulary = vocabulary::find($question->vocabularyId);
-        $autoVocabulary = vocabulary::where('type_id', $vocabulary->type_id)
+        $autoVocabulary = vocabulary::where('type_vocabulary_id', $vocabulary->type_vocabulary_id)
         ->where('id', '!=', $question->vocabularyId)
         ->inRandomOrder()
-        ->take(2)
+        ->take(3)
         ->get();
         $questionToView = Arr::collapse([[$vocabulary], $autoVocabulary]);
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;

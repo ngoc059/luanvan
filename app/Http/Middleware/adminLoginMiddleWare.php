@@ -16,7 +16,7 @@ class adminLoginMiddleWare
     public function handle($request, Closure $next)
     {           
         $data = Session::get('userLogin');
-        if(isset($data) && $data->gender == 2) {
+        if(isset($data) && $data->permission == 2) {
             return $next($request);
         }
         // return $next($request);

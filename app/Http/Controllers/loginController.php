@@ -34,6 +34,7 @@ class LoginController extends Controller
         $user = User::where('email', $request->username)->where('passWord', $request->pass)->get();
         if(count($user) > 0){
             $_SESSION['user'] = $user[0];
+            Session::put('userLogin', $user[0]);
             $lesson = lesson::All();
             return redirect('/lesson/lesson-list');
         }
@@ -41,6 +42,7 @@ class LoginController extends Controller
 
     public function logOutAdmin() {
         unset($_SESSION['user']);
+        Session::forget('userLogin');
         return view('auth.login');
     }
 
@@ -67,5 +69,22 @@ class LoginController extends Controller
         $user->save();
         return view('auth.login');
 
+    }
+
+    public function listUser($id) {
+        $user = User::where('permission', $id)->get();
+        $title = '';
+        if($id == 1) {
+            $title = 'Danh Sách Học Viên';
+        } else {
+            $title = 'Danh Sách Cộng Tác Viên';
+
+        }
+        return view('list.danhsachuser',['listUser'=> $user, 'title'=> $title]);
+    }
+
+    public function delete($id){
+        $user = User::Find($id);
+        $user->delete();
     }
 }

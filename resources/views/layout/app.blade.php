@@ -68,11 +68,11 @@
                         Danh sách
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="{{ url('/question/list')}}">Danh sách chủ đề</a>
+                        <a class="nav-link" href="{{ url('/user/list-user/2')}}">Danh sách cộng tác viên</a> 
                         <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách bài học</a>
                         <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách loại bài học</a>
-                        <a class="nav-link" href="{{ url('/theme/list')}}">Danh sách cộng tác viên</a>
-                        <a class="nav-link" href="{{ url('/type/list')}}">Danh sách học viên</a>
+                        <a class="nav-link" href="{{ url('/theme/list')}}">Danh sách chủ đề</a>
+                        <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a>
                         <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
                         <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách loại từ vựng</a>
 
@@ -132,11 +132,11 @@
                         <dd></a> B15505893</a>
                         </dd>
                     </dl>
-                    <dl class="contact-list">
+                    {{-- <dl class="contact-list">
 
                         <dt>Address:</dt>
                         <dd>Đường 3/2, Q.Ninh Kiều , TP.Cần Thơ</dd>
-                    </dl>
+                    </dl> --}}
                     <dl class="contact-list">
                         <dt>email:</dt>
                         <dd><a href="mailto:#">ngocb1505893@student.ctu.edu.vn</a></dd>

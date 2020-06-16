@@ -9,13 +9,14 @@
   });
   }, 2000); 
 </script>
+<body>
 <div class="container">
   <div class="progress">
     <div class="progress-bar bg-info progress-bar-striped" style="width:{{ $process['persen'] }}%">{{ $process['processNow'] }} / {{ $process['total'] }}</div>
   </div>
     <h2 class="text-center pt-3 " style="text-shadow: 2px 2px 5px #B40486;"> {{ $question->name }} </h2>
     <div class="row mt-3 mb-3 pb-3 justify-content-center">
-    <button style='font-size:24px'  type="button" onclick="readOutLoud('{{$question->question}}')" class="btn btn-outline-info" ><i class='fas fa-volume-up'> </i></button>
+    <button  class="btn btn-info"  type="button" onclick="readOutLoud('{{$question->question}}')"  ><i class='fas fa-volume-up'> </i></button>
     </div>
     <form action={{url('learn/check')}} method="POST">
       @if ($checkAnswer->status == 1)
@@ -40,10 +41,11 @@
           <input name="test" class="form-control" type="text" value=""><br>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Kiểm Tra</button> 
+      <button type="submit" class="btn btn-info">Kiểm Tra</button> 
       {{-- <div class="row mt-3 mb-3 justify-content-center">
         <button type="submit" class="btn btn-outline-info" >Kiểm Tra</button>
       </div> --}}
       <form>
 </div>
+</body>
 @endsection

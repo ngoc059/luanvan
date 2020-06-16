@@ -9,30 +9,32 @@
 <div class="container">
   <div class="timeline">
     @foreach ($themess as $index => $status)
-    @if ($status['index'] === 0)
+    @if ($status['index'] == 0)
     <div class="containerTimeLine left">
       <div class="contentTimeLine">
-        <button type="button" class="collapsible">Chủ Đề: {{ $status['themeName'] }}</button>
+        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}</button>
         <div class="content">
-          <div>Bài Học:</div>
+          <div>BÀI HỌC</div>
           @foreach ($status['listLesson'] as $i => $value)
-          <div> <a href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"> {{ $value['name'] }} </a>
+          <div class="lesson mt-1"> <a class="btn btn-info btn-lg active" href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px' class='fas'>&#xf5da;</i>
+          </a> 
+            <span>{{ $value['name'] }}</span>
             <span> {{ $value['dateDone'] }}</span></div>
           @endforeach
         </div>
       </div>
     </div>
     @endif
-    @if ($status['index'] === 1)
+    @if ($status['index'] == 1)
     <div class="containerTimeLine right">
       <div class="contentTimeLine">
-        <button type="button" class="collapsible">Chủ Đề: {{ $status['themeName'] }}</button>
+        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}</button>
         <div class="content">
-          <div>Bài Học:</div>
-          @foreach ($status['listLesson'] as $i => $value)
-          <div> <a href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"> {{ $value['name'] }} </a>
+          <div>BÀI HỌC</div>
+          <div class="lesson mt-1"> <a class="btn btn-info btn-lg active" href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px' class='fas'>&#xf5da;</i>
+          </a> 
+            <span>{{ $value['name'] }}</span>
             <span> {{ $value['dateDone'] }}</span></div>
-          @endforeach
         </div>
       </div>
     </div>
