@@ -35,7 +35,7 @@
         <label>
           <div class="card h-100">
             <input type="radio" name="test" value="{{$answer->id}}">
-            <img onclick="onClick({{$answer->id}})" src="<?php echo asset("$answer->img") ?>" class="card-img-top">
+            <img onclick="onClick({{$answer->id}}, '{{$answer->chinese}}')" src="<?php echo asset("$answer->img") ?>" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title" id="{{$answer->id}}">{{$answer->chinese}}</h5>
             </div>

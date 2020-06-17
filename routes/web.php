@@ -102,7 +102,20 @@ Route::group(['prefix' => '/lesson', 'middleware'=>'permissionUser'], function (
     Route::get('/lesson-add','lessonController@viewInsertLesson', function () {
     });
 
-    Route::get('list','lessonController@list');
+    Route::get('/list','lessonController@list');
+
+    Route::get('/delete/{id}', 'lessonController@deleteLesson', function ($id) {
+
+    });
+
+    Route::get('/update/{id}', 'lessonController@updateLesson', function ($id) {
+
+    });
+
+    
+    Route::post('/sua', 'lessonController@suaLesson', function () {
+
+    });
 
 });
 

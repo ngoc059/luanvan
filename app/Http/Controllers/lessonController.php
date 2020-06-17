@@ -93,4 +93,24 @@ class lessonController extends Controller
         $lesson = lesson::all();
         return view('list.danhsachbaihoc', compact('lesson'));
     }
+
+    public function deleteLesson ($id) {
+        lesson::destroy($id);
+        return redirect('/lesson/list');
+    }
+
+    public function updateLesson($id) {
+        $lesson = lesson::find($id);
+        $theme = theme::All();
+        return view('sua.suabaihoc',['lesson'=> $lesson, 'theme' => $theme]); 
+    }
+
+    public function suaLesson(Request $request) {
+        $lesson = lesson::find($request->id);
+        $lesson->name = $request->name;
+        $lesson->description = $request->description;
+        $lesson->theme_id = $request->theme;
+        $lesson->save();
+        return redirect('/lesson/list');
+    }
 }

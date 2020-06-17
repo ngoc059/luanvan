@@ -70,7 +70,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="nav-link" href="{{ url('/user/list-user/2')}}">Danh sách cộng tác viên</a> 
                         <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách bài học</a>
-                        <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách loại bài học</a>
+                        {{-- <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách loại bài học</a> --}}
                         <a class="nav-link" href="{{ url('/theme/list')}}">Danh sách chủ đề</a>
                         <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a>
                         <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
@@ -79,7 +79,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Thêm
@@ -92,7 +92,7 @@
                         <a class="nav-link" href="{{ url('/vocabulary/view-vocabulary')}}">Thêm từ vựng</a>
 
                     </div>
-                </li>
+                </li> --}}
 
                 {{-- <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>

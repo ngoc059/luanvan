@@ -3,7 +3,7 @@
 <div class="container">
     <h2 style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="pt-3">DANH SÁCH CHỦ ĐỀ</h2>
     <div class="row mt-3 mb-3 pb-3 justify-content-end">
-      <button type="submit" class="btn btn-outline-info" >Thêm</button>
+      <a href="{{ url('/theme/view-insert')}}" class="btn btn-info" role="button" aria-pressed="true">Thêm</a>
     </div>       
     <table class="table table-striped">
       <thead>
