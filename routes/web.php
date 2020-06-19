@@ -74,6 +74,10 @@ Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], functi
     Route::post('/create-type', 'vocabularyController@insertType', function () {
        
     });
+
+    Route::get('/delete/{id}', 'vocabularyController@deleteTypeVocabulary', function ($id) {
+
+    });
 });
 
 
@@ -136,6 +140,12 @@ Route::group(['prefix' => '/theme', 'middleware'=>'permissionUser'], function ()
 
     });
 
+    Route::get('/list', 'themeController@list');
+    Route::get('/delete/{id}', 'themeController@deleteTheme', function ($id) {
+
+    });
+    
+
 });
 
 Route::group(['prefix' => '/theme'], function () { 
@@ -153,6 +163,7 @@ Route::group(['prefix' => '/type', 'middleware'=>'permissionUser'], function () 
     Route::get('/view-vocabulary', function (){
         return view('them.themtuvung');
     });
+
     
 });
 

@@ -45,26 +45,37 @@ class lessonController extends Controller
         $lesson = theme::leftjoin('lessons', 'lessons.theme_id', '=', 'themes.id')
         ->leftJoin('user_lesson', 'user_lesson.lesson_id', '=', 'lessons.id')
         ->select('lessons.theme_id', 'themes.name AS themeName', 'lessons.id', 'lessons.name', 'user_lesson.created_at AS dateCreate',
-        'user_lesson.users_id AS userId')
+        'user_lesson.users_id AS userId')->orderBy('themes.id', 'ASC')
+
         // ->orwhere('user_lesson.users_id',  $_SESSION['user']->id)
         ->get();
-        Array($lesson);
+        Array($lesson->toArray());
         // return $lesson;
         $index = 0;
+        // dd($lesson);
+        $count = 0;
         foreach ($lesson as $element) {
-            $result[$element['theme_id']][] = $element;
+            // $result[$element['theme_id']][] = $element;
+            $result[strval($count)][] = $element;
+            $count++;
+            // echo("\n".strval($element)."\n");
+            // echo($result);
         }
+
+        // dd($result);
         $themess = [];
         $userId = $_SESSION['user']->id;
         foreach ($result as $key => $value) {
             $lessons = [];
             $themes = [];
             $themes['index'] = $index % 2;
+            
             foreach ($value as $s => $v) {
                 $themes['themeName'] = $v->themeName;
                 $lessonI = new ThemeView;
                 $lessonI->name = $v->name;
                 $lessonI->lessonId = $v->id;
+                
                 if(is_null($v->dateCreate)) {
                     $lessonI->dateDone = null;
                 } else {
@@ -76,11 +87,32 @@ class lessonController extends Controller
                 }
                 array_push($lessons, $lessonI);
             }
-            $themes['themeId'] = $key;
-            $themes['listLesson'] = $lessons;
-            $index++;
-            array_push($themess, $themes);
+            // $themes['themeId'] = $key;
+            $themes['themeId'] = $v['theme_id'];
+
+            $check = false;
+
+            foreach ($themess as $k_themess => $v_themess) {
+                if ($v_themess['themeId'] == $themes['themeId'] && $v_themess['themeId'] != null) {
+
+                    foreach ($lessons as $v_lessons) {
+                        array_push ($themess[$k_themess]['listLesson'], $v_lessons);
+                    }
+
+                    // array_push ($themess[$k_themess]['listLesson'], $lessons);
+                    
+                    $check = true;
+                }
+            }
+            if(!$check) {
+                $themes['listLesson'] = $lessons;
+                $index++;
+                array_push($themess, $themes);
+            }
+            
         }
+        
+        // dd($themess);
         return view('learn.listlesson', compact('themess'));
     }
 

@@ -13,6 +13,12 @@
       @csrf
       <div class="row">
         <div class="col-sm-3"> 
+          <h3 for="usr">Mã</h3>
+        </div>
+        <div class="col-sm-10 text-left" >    
+          <input name="id" display="true" class="form-control" class="text-left" type="text" value="{{$listlesson->id}}"><br>
+          </div>
+        <div class="col-sm-3"> 
           <h3 for="usr">Chọn chủ đề</h3>
         </div>
         <div class="col-sm-9">
@@ -60,7 +66,7 @@
         </div>
       </div>
       <div class="row mt-3 mb-3 justify-content-center">
-        <button type="submit" class="btn btn-outline-info" >Thêm</button>
+        <button type="submit" class="btn btn-outline-info" >Sửa</button>
       </div>
       <form>
 </div>

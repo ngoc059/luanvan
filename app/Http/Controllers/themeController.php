@@ -22,4 +22,8 @@ class ThemeController extends Controller
         return view('list.danhsachchude', compact('theme'));
     }
     
+    public function deleteTheme ($id) {
+        themes::destroy($id);
+        return redirect('/theme/list');
+    }
 }

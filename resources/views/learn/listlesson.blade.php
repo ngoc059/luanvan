@@ -8,7 +8,16 @@
 </head>
 <div class="container">
   <div class="timeline">
+    
+    {{-- @foreach ($themess as $index => $status)
+    {{ json_encode($status) }}
+    <br>
+    @endforeach --}}
     @foreach ($themess as $index => $status)
+    {{-- <br>
+    {{ json_encode($status) }}
+    {{ $status['listLesson'][0]['name'] }}
+    <br> --}}
     @if ($status['index'] == 0)
     <div class="containerTimeLine left">
       <div class="contentTimeLine">
@@ -31,10 +40,12 @@
         <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}</button>
         <div class="content">
           <div>BÀI HỌC</div>
+          @foreach ($status['listLesson'] as $i => $value)
           <div class="lesson mt-1"> <a class="btn btn-info btn-lg active" href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px' class='fas'>&#xf5da;</i>
           </a> 
             <span>{{ $value['name'] }}</span>
             <span> {{ $value['dateDone'] }}</span></div>
+            @endforeach
         </div>
       </div>
     </div>

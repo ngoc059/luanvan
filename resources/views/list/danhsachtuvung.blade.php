@@ -18,19 +18,14 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($lesson as $item)  
+        @foreach ($vocabulary as $item)  
 
         <tr>
-          <td>{{$item->id}}</td>
-          <td>{{$item->name}}</td>
           
-          @if ($item->is_finish == 0)
-          <td>Chưa hoàn thành!</td>
-        @endif
-        @if ($item->is_finish == 1)
-        <td> Đã hoàn thành!</td>
-        @endif
-   
+          <td>{{$item->chinese}}</td>
+        <td> {{$item->vietnamese}}</td>
+           <td>{{$item->vdTQ}}</td>
+          <td>{{$item->vdTV}}</td>
        
     
           <td><i class="fas fa-edit"></i></td>
