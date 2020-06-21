@@ -7,6 +7,8 @@ use App\lesson;
 use App\theme;
 use App\ListLesson;
 use App\ThemeView;
+use App\comment;
+
 session_start();
 
 class lessonController extends Controller
@@ -144,5 +146,16 @@ class lessonController extends Controller
         $lesson->theme_id = $request->theme;
         $lesson->save();
         return redirect('/lesson/list');
+    }
+
+    public function postComment(Request $request)
+    {
+        $comment = new comment();
+        $comment->lesson_id= $_SESSION['lessonId'];
+        $comment->users_id= $_SESSION['user']->id;
+        $comment->comment= $request->NoiDung;
+        $comment->save();
+        $id = $_SESSION['lessonId'];
+        return redirect("/learn/get-list-question-by-lesson/$id")->with('thongbao','Them comment thanh cong');;
     }
 }

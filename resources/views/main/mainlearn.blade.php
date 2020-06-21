@@ -15,21 +15,22 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-          <form action="">
+          <form action="/them-comment" method="POST">
+            @csrf
             <h3 class="pull-left">Thêm Bình Luận</h3>&nbsp;
             <fieldset>
               <div class="row">
                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                  <textarea class="form-control" id="message" placeholder="Bình luận của bạn"></textarea>
+                  <textarea class="form-control" name="NoiDung" placeholder="Bình luận của bạn"></textarea>
                 </div>
               </div>
             </fieldset>
-            <button type="button"  class="btn btn-info" >Thêm</button>
+            <button type="submit"  class="btn btn-info" >Thêm</button>
           </form>
 
           <h3>Bình Luận <i class="fa fa-pencil-square-o" ></i></h3 >
 
-          {{-- <!-- COMMENT 1 - START -->
+          <!-- COMMENT 1 - START -->
           @if (sizeof(Session::get('listComment')) > 0)
           @foreach ( Session::get('listComment') as $item)
           <div class="media">
@@ -53,7 +54,7 @@
             </div>
           </div> 
           @endforeach
-          @endif --}}
+          @endif
           <!-- COMMENT 1 - END -->
         </div>
       </div>

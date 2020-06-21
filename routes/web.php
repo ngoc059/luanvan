@@ -153,6 +153,9 @@ Route::group(['prefix' => '/theme'], function () {
 
 });
 
+Route::post('/them-comment', 'lessonController@postComment', function () {
+       
+});
 
 
 Route::group(['prefix' => '/type', 'middleware'=>'permissionUser'], function () {
