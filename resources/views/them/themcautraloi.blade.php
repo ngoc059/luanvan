@@ -1,7 +1,6 @@
 @extends('layout.app')
 @section('body')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
-
 <div class="container">
     <h2 style="text-align: center;">THÊM BÀI HỌC</h2> <br>
     <div class="row">

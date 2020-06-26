@@ -7,18 +7,18 @@
         <div class="collapse navbar-collapse add" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-              <a class="nav-link " href="them-trac-nghiem">THÊM CÂU TRẮC NGHIỆM<span class="sr-only">(current)</span></a>
+              <a class="nav-link " href="/question/them-trac-nghiem">THÊM CÂU TRẮC NGHIỆM<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="question-add">THÊM NGHE RỒI VIẾT LẠI</a>
+              <a class="nav-link " href="/question/question-add">THÊM NGHE RỒI VIẾT LẠI</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link " href="view-img">THÊM HỌC THEO HÌNH ẢNH</a>
+              <a class="nav-link " href="/question/view-img">THÊM HỌC THEO HÌNH ẢNH</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link " href="view-insert-listen-repeat">THÊM NGHE RỒI LẶP LẠI</a>
+              <a class="nav-link " href="/question/view-insert-listen-repeat">THÊM NGHE RỒI LẶP LẠI</a>
             </li>
           </ul>
         </div>

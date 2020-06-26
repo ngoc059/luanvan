@@ -116,7 +116,6 @@ Route::group(['prefix' => '/lesson', 'middleware'=>'permissionUser'], function (
 
     });
 
-    
     Route::post('/sua', 'lessonController@suaLesson', function () {
 
     });
@@ -185,6 +184,9 @@ Route::group(['prefix' => '/question', 'middleware'=>'permissionUser'], function
     });
 
     Route::post('/insert-tn', 'questionController@createTN', function (){
+    });
+
+    Route::get('/add/{id}','questionController@viewInsert', function ($id) {
 
     });
 
@@ -218,4 +220,6 @@ Route::group(['prefix' => '/question', 'middleware'=>'permissionUser'], function
 
 });
 
-Route::post('comment/{id}','CommentController@postCommment');
+Route::post('comment/{id}', 'CommentController@postCommment', function ($id) {
+
+});
