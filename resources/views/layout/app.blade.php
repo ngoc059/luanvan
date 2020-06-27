@@ -185,6 +185,7 @@
 
 
 
+
     <!-- Vendor JS-->
     <script src="{{ asset('vendor/datepicker/moment.min.js') }}"></script>
     <script src="{{ asset('vendor/datepicker/daterangepicker.js') }}"></script>

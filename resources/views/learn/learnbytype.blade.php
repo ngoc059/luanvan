@@ -1,11 +1,7 @@
 @extends('main.mainlearn')
 @section('mainlearn')
 <script>
-  window.setTimeout(function() {
-  $(".alert").fadeTo(500, 0).slideUp(500, function(){
-  $(this).remove(); 
-  });
-  }, 2000); 
+
 </script>
 <div class="container">
   <div class="progress">
@@ -14,19 +10,6 @@
   </div>
   <h3 style="text-align: center;">{{$question->description}} {{$question->name}} </h3>
   <form action={{ url('learn/check') }} method="POST">
-    @if ($checkAnswer->status == 1)
-    <div class="alert alert-danger alert-dismissible fade show">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      {{ $checkAnswer->info }}
-    </div>
-    @endif
-
-    @if ($checkAnswer->status == 0)
-    <div class="alert alert-success alert-dismissible fade show">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      {{ $checkAnswer->info }}
-    </div>
-    @endif
     @csrf
     <br>
     <div class="row row-cols-3 row-cols-md-4">
@@ -35,7 +18,7 @@
         <label>
           <div class="card h-100">
             <input type="radio" name="test" value="{{$answer->id}}">
-            <img onclick="onClick({{$answer->id}}, '{{$answer->chinese}}')" src="<?php echo asset("$answer->img") ?>" class="card-img-top">
+          <img onclick="onClick({{$answer->id}}, '{{$answer->chinese}}', '{{$answer}}')" src="<?php echo asset("$answer->img") ?>" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title" id="{{$answer->id}}">{{$answer->chinese}}</h5>
             </div>
@@ -44,7 +27,30 @@
       </div>
       @endforeach
     </div>
-    <input type="submit" class="btn btn-info btn-block" name="check" value="KIỂM TRA">
+  <input type="button" onclick="clickTN('{{$question}}','{{ $vocabulary }}')" class="btn btn-info btn-block" name="check" value="KIỂM TRA">
   </form>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" id="autoclick" data-toggle="modal" data-target="#exampleModalCenter">
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Modal title</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="exampleModalCenterdd">
+        <h3 id="testview"></h3>
+      </div>
+      <div class="modal-footer">
+        <a href="{{ url('/learn/check')}}" class="btn btn-info" role="button" aria-pressed="true">Tiếp Tục</a>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection

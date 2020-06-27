@@ -7,7 +7,7 @@
 
 </head>
 <div class="container">
-  <div class="timeline">
+  <div class="timeline" onload="loadImage()">
     
     {{-- @foreach ($themess as $index => $status)
     {{ json_encode($status) }}
@@ -69,5 +69,6 @@
         }
       });
     }
-</script>
+    </script>
+
 @endsection

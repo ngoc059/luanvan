@@ -84,7 +84,7 @@ Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], functi
 
 
 Route::group(['prefix' => '/learn'], function () {
-    Route::post('/check', 'learnController@check', function (){
+    Route::get('/check', 'learnController@check', function (){
 
     });
 

@@ -35,7 +35,6 @@ class questionController extends Controller
     }
 
     public function viewRepeat() {
-        
         $lesson = $_SESSION['lessonInsert'];
         return view('them.themcaunghelaplai',['lesson'=> $lesson]);
     }

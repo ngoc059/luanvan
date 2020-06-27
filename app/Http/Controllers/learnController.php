@@ -65,7 +65,7 @@ class learnController extends Controller
         return $listComment;
     }
 
-    public function viewQuestLearnByType($question, $checkAnswer)
+    public function viewQuestLearnByType($question)
     {
         $_SESSION['rightAnswer'] = $question->vocabularyId;
         $vocabulary = vocabulary::find($question->vocabularyId);
@@ -80,10 +80,10 @@ class learnController extends Controller
         $process['processNow'] = $_SESSION['question']->stt - 1;
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
-        return view('learn.learnbytype',['listAnswer'=> $questionToView, 'question'=> $question, 'process'=> $process, 'checkAnswer'=>$checkAnswer]);
+        return view('learn.learnbytype',['listAnswer'=> $questionToView, 'question'=> $question, 'process'=> $process, 'vocabulary'=> $vocabulary]);
     }
 
-    public function viewQuestListenToWrite($question, $checkAnswer)
+    public function viewQuestListenToWrite($question)
     {  
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
         $_SESSION['rightAnswer'] = $question->question;
@@ -91,10 +91,10 @@ class learnController extends Controller
         $process['processNow'] = $_SESSION['question']->stt - 1;
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
-        return view('learn.nghevietlai',['question'=> $question, 'process'=> $process, 'checkAnswer'=>$checkAnswer]);
+        return view('learn.nghevietlai',['question'=> $question, 'process'=> $process]);
     }
 
-    public function viewQuestListenToRepeat($question, $checkAnswer)
+    public function viewQuestListenToRepeat($question)
     {  
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
         $_SESSION['rightAnswer'] = $question->question;
@@ -103,10 +103,10 @@ class learnController extends Controller
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
 
-        return view('learn.nghelaplai',['question'=> $question, 'process'=> $process, 'checkAnswer'=>$checkAnswer]);
+        return view('learn.nghelaplai',['question'=> $question, 'process'=> $process]);
     }
 
-    public function viewQuestMultipleChoice($question, $checkAnswer) {
+    public function viewQuestMultipleChoice($question) {
         $answers = answer::where('question_id', $question->id)->get();
         $arrayAnswer = $answers->toArray();
         $_SESSION['question']->stt = $_SESSION['question']->stt +1;
@@ -116,18 +116,10 @@ class learnController extends Controller
         $process['processNow'] = $_SESSION['question']->stt - 1;
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
-        return view('learn.tracnghiem',['answers'=> $answers, 'question'=> $question->description, 'process'=> $process, 'checkAnswer'=>$checkAnswer]);
+        return view('learn.tracnghiem',['answers'=> $answers, 'question'=> $question->description, 'process'=> $process]);
     }
 
     public function check(Request $request){
-      $checkAnswer =  new ThemeView;
-      if ($_SESSION['rightAnswer'] == $request->test) {
-        $checkAnswer->status = 0;
-        $checkAnswer->info = "chinh xac";
-      } else {
-        $checkAnswer->status = 1;
-        $checkAnswer->info = "khong chinh xac";
-      }
       $stt = $_SESSION['question']->stt;
       if (sizeof($_SESSION['question']->listQuestion) > $stt) {
         $type = $_SESSION['question']->listQuestion[$stt]->type_id;
@@ -135,16 +127,16 @@ class learnController extends Controller
         
         switch ($type) {
           case '1':
-              return $this->viewQuestMultipleChoice($question, $checkAnswer);
+              return $this->viewQuestMultipleChoice($question);
               break;
           case '2':
-              return $this->viewQuestLearnByType($question, $checkAnswer);
+              return $this->viewQuestLearnByType($question);
               break;
           case '3':
-              return $this->viewQuestListenToWrite($question, $checkAnswer);
+              return $this->viewQuestListenToWrite($question);
               break;
          case '4':
-              return $this->viewQuestListenToRepeat($question, $checkAnswer);
+              return $this->viewQuestListenToRepeat($question);
               break;
         }
       } else {

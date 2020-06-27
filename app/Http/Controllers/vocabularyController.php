@@ -40,14 +40,13 @@ class vocabularyController extends Controller
         $vocabulary->vdTV = $request->vdtv;
         $file = $request->file('hinhanh');
         
-        if($file->getClientOriginalExtension('myFile')== "jpg"||$file->getClientOriginalExtension('myFile')== "png" ){
+        if($file->getClientOriginalExtension('myFile') == "jpg"||$file->getClientOriginalExtension('myFile') == "png" ){
             $fileName = $file->getClientOriginalName('myFile');
-            
             $file->move('images', $fileName); 
-            $vocabulary->img ='images/' + $fileName;
+            $vocabulary->img ="images/" . $fileName;
             }
             else{
-                return redirect('admin/vocabulary/them')->with('thongbao','khong phai file anh');
+                return "redirect('/vocabulary/them')->with('thongbao','khong phai file anh')";
         }
         $vocabulary->save();
         return redirect('/vocabulary/view-vocabulary')->with('thongbao','Thêm thành công');
