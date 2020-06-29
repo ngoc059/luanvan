@@ -21,7 +21,7 @@
     @if ($status['index'] == 0)
     <div class="containerTimeLine left">
       <div class="contentTimeLine">
-        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}</button>
+        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }} ({{$status['countIsDone']}}\{{$status['countIndex']}})</button>
         <div class="content">
           <div>BÀI HỌC</div>
           @foreach ($status['listLesson'] as $i => $value)
@@ -37,7 +37,7 @@
     @if ($status['index'] == 1)
     <div class="containerTimeLine right">
       <div class="contentTimeLine">
-        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}</button>
+        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}({{$status['countIsDone']}}\{{$status['countIndex']}})</button>
         <div class="content">
           <div>BÀI HỌC</div>
           @foreach ($status['listLesson'] as $i => $value)
