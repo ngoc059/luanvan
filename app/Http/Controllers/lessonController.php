@@ -71,7 +71,6 @@ class lessonController extends Controller
             $lessons = [];
             $themes = [];
             $themes['index'] = $index % 2;
-            
             foreach ($value as $s => $v) {
                 $themes['themeName'] = $v->themeName;
                 $lessonI = new ThemeView;
@@ -106,6 +105,7 @@ class lessonController extends Controller
                     $check = true;
                 }
             }
+
             if(!$check) {
                 $themes['listLesson'] = $lessons;
                 $index++;
@@ -113,7 +113,16 @@ class lessonController extends Controller
             }
             
         }
-        
+        foreach ($themess as $key => $value) {
+            $themess[$key]['countIndex'] = count($value['listLesson']);
+            $countFinish = 0;
+            foreach ($value['listLesson'] as $k => $v) {
+                if($v['dateDone'] !== null) {
+                    $countFinish++;
+                }
+            }
+            $themess[$key]['countIsDone'] = $countFinish;
+        }
         // dd($themess);
         return view('learn.listlesson', compact('themess'));
     }
