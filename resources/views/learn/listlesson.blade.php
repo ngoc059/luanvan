@@ -11,7 +11,7 @@
 </div> --}}
 <div class="container" style="background-image: url('/images/trangchu.svg'); background-repeat:no-repeat;">
   <div class="timeline" onload="loadImage()">
-    
+
     {{-- @foreach ($themess as $index => $status)
     {{ json_encode($status) }}
     <br>
@@ -28,8 +28,17 @@
         <div class="content">
           <div>BÀI HỌC</div>
           @foreach ($status['listLesson'] as $i => $value)
-          <div class="lesson mt-1"> <a class="btn btn-info btn-lg active" href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px' class='fas'>&#xf5da;</i>
-          </a> 
+          @if ($value->isDone === false)
+          <div class="lesson mt-1 disabled"> <a class="btn btn-info btn-lg disabled active"
+              href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px'
+                class='fas'>&#xf5da;</i>
+            </a>
+            @else
+            <div class="lesson mt-1"> <a class="btn btn-info btn-lg active"
+                href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px'
+                  class='fas'>&#xf5da;</i>
+              </a>
+              @endif
             <span>{{ $value['name'] }}</span>
             <span> {{ $value['dateDone'] }}</span></div>
           @endforeach
@@ -44,21 +53,30 @@
         <div class="content">
           <div>BÀI HỌC</div>
           @foreach ($status['listLesson'] as $i => $value)
-          <div class="lesson mt-1"> <a class="btn btn-info btn-lg active" href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px' class='fas'>&#xf5da;</i>
-          </a> 
-            <span>{{ $value['name'] }}</span>
-            <span> {{ $value['dateDone'] }}</span></div>
+          @if ($value->isDone === false)
+          <div class="lesson mt-1 disabled"> <a class="btn btn-info btn-lg disabled active"
+              href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px'
+                class='fas'>&#xf5da;</i>
+            </a>
+            @else
+            <div class="lesson mt-1"> <a class="btn btn-info btn-lg active"
+                href="{{ url('/learn/get-list-question-by-lesson',$value['lessonId']) }}"><i style='font-size:24px'
+                  class='fas'>&#xf5da;</i>
+              </a>
+              @endif
+              <span>{{ $value['name'] }}</span>
+              <span> {{ $value['dateDone'] }}</span></div>
             @endforeach
+          </div>
         </div>
       </div>
+      @endif
+      @endforeach
     </div>
-    @endif
-    @endforeach
   </div>
-</div>
 
-<script>
-  var coll = document.getElementsByClassName("collapsible");
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
     var i;
     
     for (i = 0; i < coll.length; i++) {
@@ -72,6 +90,6 @@
         }
       });
     }
-    </script>
+  </script>
 
-@endsection
+  @endsection

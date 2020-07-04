@@ -6,3 +6,12 @@ window.addEventListener('load', function() {
           })
       })
 })
+
+window.addEventListener('load', function() {
+    $("#theme-list-lesson").change(function () {
+          var themeId = $(this).val();
+          $.get("get-list-lesson/" + themeId, function(data) {
+              $("#tableLesson").html(data);
+          })
+      })
+})

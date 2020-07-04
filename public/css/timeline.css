@@ -196,3 +196,13 @@ body {
 .collapsible{
     background-color: #CC99FF	;
 }
+
+div.disabled {
+    pointer-events: none;
+    color: #ccc;
+}
+
+a.disabled {
+    pointer-events: none;
+    color: #ccc;
+}

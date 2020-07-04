@@ -78,7 +78,10 @@ Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], functi
     Route::get('/delete/{id}', 'vocabularyController@deleteTypeVocabulary', function ($id) {
 
     });
-});
+
+    Route::get('/get-list-draw', 'vocabularyController@listDraw', function () {
+
+    });});
 
 
 
@@ -118,6 +121,9 @@ Route::group(['prefix' => '/lesson', 'middleware'=>'permissionUser'], function (
 
     Route::post('/sua', 'lessonController@suaLesson', function () {
 
+    });
+
+    Route::get('/get-list-lesson/{themeId}', 'lessonController@getAjaxListLesson', function ($themeId) {
     });
 
 });

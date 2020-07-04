@@ -6,6 +6,15 @@
   <div class="row mt-3 mb-3 pb-3 justify-content-end">
     <a href="{{ url('/lesson/lesson-add')}}" class="btn btn-info" role="button" aria-pressed="true">Thêm</a>
   </div>
+  <div class="row">
+    <div class="col-3 mb-3">
+      <select class="form-control" name="theme" id="theme-list-lesson">
+        @foreach ($theme as $th)
+        <option value="{{$th->id}}">{{$th->name}}</option>
+        @endforeach
+      </select>
+     </div>
+  </div>
   <table class="table table-striped">
     <thead>
       @csrf
@@ -13,33 +22,13 @@
       <tr>
         <th>Mã</th>
         <th>Bài Học</th>
-        <th>Hoàn Thành</th>
         <th>Thêm câu hỏi</th>
         <th>Sửa</th>
         <th>Xóa</th>
-
       </tr>
     </thead>
-    <tbody>
-      @foreach ($lesson as $item)
-
-      <tr>
-        <td>{{$item->id}}</td>
-        <td>{{$item->name}}</td>
-        @if ($item->is_finish == 0)
-        <td>Chưa hoàn thành!</td>
-        @endif
-        @if ($item->is_finish == 1)
-        <td> Đã hoàn thành!</td>
-        @endif
-      <td> <a href="/question/add/{{$item->id}}">thêm câu hỏi</a></td>
-
-
-
-        <td> <a href="/lesson/update/{{$item->id}}"><i class="fas fa-edit"></i></a></td>
-        <td><a href="/lesson/delete/{{$item->id}}"><i class="fas fa-trash"></i></a></td>
-      </tr>
-      @endforeach
+    <tbody id="tableLesson">
+      
     </tbody>
   </table>
 </div>

@@ -30,3 +30,15 @@ function clickTN (r, listAnswer) {
     }
   }
 
+  function voidSpeech(value){
+    // alert(1);
+    var speech = new SpeechSynthesisUtterance();
+    speech.text = value;
+    speech.volume = 1;
+    speech.rate = 1;
+    speech.pitch = 1;
+    speech.lang = "zh-CN"
+    window.speechSynthesis.speak(speech);
+    localStorage.setItem('testImg', d);
+}
+

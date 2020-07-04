@@ -62,6 +62,15 @@ class vocabularyController extends Controller
     public function deleteTypeVocabulary($id){
         type_vobucalary::destroy($id);
         return redirect('/vocabulary/list');
+    }
 
+    public function listDraw() {
+        $listDraw = [];
+        for ($i=0;$i < 5; $i++) { 
+            $img['imgDraw'] = "image/imgDraw/img". ($i + 1);
+            array_push($listDraw, $img);
+        }
+        // return $listDraw;
+        return view('learn.listDraw', compact('listDraw'));
     }
 }
