@@ -18,6 +18,7 @@ class CreateVocabulariesTable extends Migration
             $table->bigInteger('type_vocabulary_id')->unsigned();
             $table->foreign('type_vocabulary_id')->references('id')->on('type_vocabulary');
             $table->string('chinese');
+            $table->string('pinyin');
             $table->string('vietnamese');
             $table->string('vdTQ');
             $table->string('vdTV');

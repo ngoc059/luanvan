@@ -2,10 +2,16 @@
 @section('body')
 <div class="page-wrapper bg-gra-01 p-t-80 p-b-100 font-poppins">
     <div class="wrapper wrapper--w780">
-        <div class="card card-3">
+        <div class="card card-3 ml-5" style="width: 650px; ">
             {{-- <div class="card-heading"></div> --}}
             <div class="card-body">
-                <h2 class="title">Đăng kí thông tin</h2>
+                <div class="row">
+                    <div class="col-md-9"><h2 class="title">ĐĂNG KÝ THÔNG TIN</h2></div>
+                    <div class="col-md-3">
+                        <img src="{{ asset('images/trangchu2.svg') }}" alt="" style="width:100px; text-align:right">
+                    </div>
+                </div>
+                
                 <form method="POST" action="{{url('user/create')}}" style="background-image: ">
                     @csrf
                     <div class="input-group">

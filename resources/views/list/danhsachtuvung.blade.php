@@ -10,6 +10,7 @@
       <thead>
         <tr>
           <th>Tiếng Trung Quốc</th>
+          <th>Chữ Pinyin</th>
           <th>Tiếng Việt</th>
           <th>Ví dụ tiếng TQ</th>
           <th>Ví dụ tiếng VN</th>
@@ -23,7 +24,8 @@
         <tr>
           
           <td>{{$item->chinese}}</td>
-        <td> {{$item->vietnamese}}</td>
+          <td>{{$item->pinyin}}</td>
+          <td> {{$item->vietnamese}}</td>
            <td>{{$item->vdTQ}}</td>
           <td>{{$item->vdTV}}</td>
        

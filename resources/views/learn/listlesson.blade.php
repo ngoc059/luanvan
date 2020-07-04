@@ -6,7 +6,10 @@
   <link rel="stylesheet" type="text/css" href="{{asset('css/timeline.css')}}" />
 
 </head>
-<div class="container">
+{{-- <div class="container">
+<img src="{{ asset('images/trangchu2.svg') }}" alt="Banner">
+</div> --}}
+<div class="container" style="background-image: url('/images/trangchu.svg'); background-repeat:no-repeat;">
   <div class="timeline" onload="loadImage()">
     
     {{-- @foreach ($themess as $index => $status)
@@ -21,7 +24,7 @@
     @if ($status['index'] == 0)
     <div class="containerTimeLine left">
       <div class="contentTimeLine">
-        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}</button>
+        <button type="button" class="collapsible"><i class="fab fa-accusoft"></i> CHỦ ĐỀ: {{ $status['themeName'] }}</button>
         <div class="content">
           <div>BÀI HỌC</div>
           @foreach ($status['listLesson'] as $i => $value)
@@ -37,7 +40,7 @@
     @if ($status['index'] == 1)
     <div class="containerTimeLine right">
       <div class="contentTimeLine">
-        <button type="button" class="collapsible">CHỦ ĐỀ: {{ $status['themeName'] }}</button>
+        <button type="button" class="collapsible"><i class="fab fa-accusoft"></i> CHỦ ĐỀ: {{ $status['themeName'] }}</button>
         <div class="content">
           <div>BÀI HỌC</div>
           @foreach ($status['listLesson'] as $i => $value)
