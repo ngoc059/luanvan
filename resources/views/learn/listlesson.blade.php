@@ -6,21 +6,9 @@
   <link rel="stylesheet" type="text/css" href="{{asset('css/timeline.css')}}" />
 
 </head>
-{{-- <div class="container">
-<img src="{{ asset('images/trangchu2.svg') }}" alt="Banner">
-</div> --}}
-<div class="container" style="background-image: url('/images/trangchu.svg'); background-repeat:no-repeat;">
+<div class="container fix-container" style="background-image: url('/images/trangchu.svg') ;">
   <div class="timeline" onload="loadImage()">
-
-    {{-- @foreach ($themess as $index => $status)
-    {{ json_encode($status) }}
-    <br>
-    @endforeach --}}
     @foreach ($themess as $index => $status)
-    {{-- <br>
-    {{ json_encode($status) }}
-    {{ $status['listLesson'][0]['name'] }}
-    <br> --}}
     @if ($status['index'] == 0)
     <div class="containerTimeLine left">
       <div class="contentTimeLine">

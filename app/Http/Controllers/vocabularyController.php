@@ -67,10 +67,11 @@ class vocabularyController extends Controller
     public function listDraw() {
         $listDraw = [];
         for ($i=0;$i < 5; $i++) { 
-            $img['imgDraw'] = "image/imgDraw/img". ($i + 1);
+            $img['imgDraw'] = "image/imgDraw/draw". ($i + 1)."jpg";
             array_push($listDraw, $img);
         }
-        // return $listDraw;
+        Array($listDraw);
+        return $listDraw;
         return view('learn.listDraw', compact('listDraw'));
     }
 }

@@ -2,7 +2,11 @@
 @section('mainlearn')
 <div class="containers">
     @foreach ($listDraw as $imgDra)
-    <img  src="<?php echo asset("image/imgDraw/img1") ?>" class="card-img-top">
+<p>{{$listDraw}}</p>
+    {{-- <img  src=" --}}
+    {{-- < echo asset("$imgDra->imgDraw") ?> --}}
+    {{-- " --}}
+     {{-- class="card-img-top"> --}}
     @endforeach    
 </div>
 @endsection

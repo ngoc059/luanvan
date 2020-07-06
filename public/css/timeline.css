@@ -206,3 +206,10 @@ a.disabled {
     pointer-events: none;
     color: #ccc;
 }
+
+.fix-container {
+    width: 100wh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
