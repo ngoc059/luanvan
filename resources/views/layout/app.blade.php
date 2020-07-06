@@ -61,11 +61,11 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{ url('/lesson/lesson-list') }}">Danh sách bài học</a>
                 </li>
-
+                @if (Session::get('userLogin')->permission === 2)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        Danh sách
+                        Danh sách 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="nav-link" href="{{ url('/user/list-user/2')}}">Danh sách cộng tác viên</a> 
@@ -75,9 +75,10 @@
                         <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a>
                         <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
                         <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách loại từ vựng</a>
-
                     </div>
                 </li>
+                @endif
+    
 
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
