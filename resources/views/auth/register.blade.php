@@ -6,9 +6,9 @@
             {{-- <div class="card-heading"></div> --}}
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-9"><h2 class="title">ĐĂNG KÝ THÔNG TIN</h2></div>
+                    <div class="col-md-9"><h2 class="title"><i class="fab fa-accusoft"></i>    ĐĂNG KÝ THÔNG TIN    <i class="fab fa-accusoft"></i></h2> </div>
                     <div class="col-md-3">
-                        <img src="{{ asset('images/trangchu2.svg') }}" alt="" style="width:100px; text-align:right">
+                        <img src="{{ asset('images/trangchu2.svg') }}" alt="" style="width:120px; text-align:right">
                     </div>
                 </div>
                 
