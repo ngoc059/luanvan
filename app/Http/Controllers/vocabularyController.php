@@ -36,6 +36,7 @@ class vocabularyController extends Controller
         $vocabulary->type_vocabulary_id = $request->type_id;
         $vocabulary->vietnamese = $request->tv;
         $vocabulary->chinese = $request->tq;
+        $vocabulary->pinyin = $request->cp;
         $vocabulary->vdTQ = $request->vdtq;
         $vocabulary->vdTV = $request->vdtv;
         $file = $request->file('hinhanh');

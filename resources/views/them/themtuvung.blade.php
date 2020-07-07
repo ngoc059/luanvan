@@ -39,6 +39,16 @@ $(".alert").fadeTo(500, 0).slideUp(500, function(){
           <input name="tq" class="form-control" type="text" value=""><br>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm-3">    
+          <h3 for="usr">Chữ Pinyin</h3>
+        </div>
+        <div class="col-sm-9">    
+          <input name="cp" class="form-control" type="text" value=""><br>
+        </div>
+
+      </div>
       <div class="row">
         <div class="col-sm-3">    
           <h3 for="usr">Tiếng Việt </h3>
@@ -66,7 +76,7 @@ $(".alert").fadeTo(500, 0).slideUp(500, function(){
         </div>
       </div>
 
-      <div class="row mt-3">
+      <div class="row mt-1">
         <div class="col-sm-3">    
           <h3 for="usr">Ảnh</h3>
         </div>
