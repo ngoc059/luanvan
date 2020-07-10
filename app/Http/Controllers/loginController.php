@@ -65,6 +65,7 @@ class LoginController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->remember_token = $request->token;
+        $user->permission = 1;
         $user->gender = $request->gender;
         $user->save();
         return view('auth.login');

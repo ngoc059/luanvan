@@ -46,7 +46,7 @@
     <div class="wrapper wrapper--w780">
         <div class="card card-3 ml-5" style="width: 650px; ">
             {{-- <div class="card-heading"></div> --}}
-            <div class="card-body">
+            <div class="card-body" style="background-color: #607d8b">
                 <div class="row">
                     <div class="col-md-9"><h2 class="title"><i class="fab fa-accusoft"></i>    ĐĂNG KÝ THÔNG TIN    <i class="fab fa-accusoft"></i></h2> </div>
                     <div class="col-md-3">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 
-                <form method="POST" action="{{url('user/create')}}" style="background-color: #009688 ">
+                <form method="POST" action="{{url('user/create')}}" >
                     @csrf
                     <div class="input-group">
                         <input class="input--style-3" type="text" placeholder="Tên" name="name">
