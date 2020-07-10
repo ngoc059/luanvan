@@ -133,6 +133,9 @@ Route::group(['prefix' => '/lesson'], function () {
         
     });
 
+    Route::get('/lesson-list-err','lessonController@isViewErr', function () {
+        
+    });
 });
 
 

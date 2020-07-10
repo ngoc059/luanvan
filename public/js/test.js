@@ -23,11 +23,19 @@ function clickTN (r, listAnswer) {
       document.getElementById("testview").innerHTML = nameI.chinese.toString();
       document.getElementById("exampleModalLongTitle").innerHTML = "chính xác";
     } else {
+}     const isWrong = localStorage.getItem('countWrong');
+      if(isWrong) {
+        isWrong++
+        if(isWrong >= 5) {
+          window.location.href('/lesson/lesson-list');
+          localStorage.setItem('countWrong', 0)
+        }
+      } 
+      localStorage.setItem('countWrong', isWrong)
       document.getElementById("autoclick").click();
       document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ff4d4d"
       document.getElementById("exampleModalLongTitle").innerHTML = "sai";
       document.getElementById("testview").innerHTML = nameI.chinese.toString();
-    }
   }
 
   function voidSpeech(value){

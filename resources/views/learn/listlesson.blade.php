@@ -1,12 +1,25 @@
 @extends('layout.app')
 @section('body')
+<script>
+  window.setTimeout(function() {
+$(".alert").fadeTo(500, 0).slideUp(500, function(){
+  $(this).remove(); 
+});
+}, 2000); 
 
+</script>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="{{asset('css/timeline.css')}}" />
 
 </head>
 <div class="container fix-container" style="background-image: url('/images/trangchu.svg') ;">
+  @if ($dataView == true)
+  <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      Không có câu hỏi trong bài học
+  </div>
+  @endif
   <div class="timeline" onload="loadImage()">
     @foreach ($themess as $index => $status)
     @if ($status['index'] == 0)

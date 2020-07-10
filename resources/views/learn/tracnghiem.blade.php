@@ -24,6 +24,15 @@
         document.getElementById("exampleModalLongTitle").innerHTML = "chính xác";
         document.getElementById('exampleModalCenterdd').style.backgroundColor = "#66ff66"
       } else {
+        const isWrong = localStorage.getItem('countWrong');
+      if(isWrong) {
+        isWrong++
+        if(isWrong >= 5) {
+          window.location.href('/lesson/lesson-list');
+          localStorage.setItem('countWrong', 0)
+        }
+      } 
+      localStorage.setItem('countWrong', isWrong)
         const data = JSON.parse(r);
         const iscor = data.find((rd)=> {
           return rd.is_corred == 1;

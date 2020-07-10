@@ -55,7 +55,7 @@ class lessonController extends Controller
         }        
     }
 
-    public function viewListLesson(){
+    public function viewListLessonV(){
         $result = array();
         $userId = $_SESSION['user']->id;
         $lesson = theme::join('lessons', 'lessons.theme_id', '=', 'themes.id')
@@ -158,9 +158,21 @@ class lessonController extends Controller
             }
             $themess[$key]['countIsDone'] = $countFinish;
         }
-        // return $themess;
+        return $themess;
         // dd($themess);
-        return view('learn.listlesson', compact('themess'));
+        // return view('learn.listlesson', compact('themess'));
+    }
+
+    public function viewListLesson() {
+        $dataView = false;
+        $themess = $this->viewListLessonV();
+        return view('learn.listlesson', compact('themess', 'dataView'));
+    }
+
+    public function isViewErr() {
+        $dataView = true;
+        $themess = $this->viewListLessonV();
+        return view('learn.listlesson', compact('themess', 'dataView'));
     }
 
     public function lesson($id){

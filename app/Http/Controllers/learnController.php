@@ -26,6 +26,12 @@ class learnController extends Controller
         $_SESSION['lessonId'] = $lessonId;
         unset($_SESSION['question']);
         $listQuestion = question::where('lesson_id', $lessonId)->inRandomOrder()->get();
+        if(sizeof($listQuestion) == 0) {
+            Session::put('isView', $listQuestion);
+            // return Session::get('isView');
+            return redirect('/lesson/lesson-list-err');
+         }
+
         $type = $listQuestion[0]->type_id;
         $question = $listQuestion[0];
         $questionView = new questionview;
@@ -34,10 +40,7 @@ class learnController extends Controller
         $_SESSION['question'] = $questionView;
         $thongbao = new ThemeView;
         $thongbao->status = 2;
-        $thongbao->info ="";
-        if(sizeof($_SESSION['question']->listQuestion) == 0) {
-            return view('/lesson/lesson-list');
-         }
+        $thongbao->info ="";      
         $listComment = $this->getListComment($lessonId);
         Session::put('listComment', $listComment);
         switch ($type) {
