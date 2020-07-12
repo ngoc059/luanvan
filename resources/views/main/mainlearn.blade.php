@@ -4,14 +4,14 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/comment.css') }}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
 @section('body')
-<div class="container">
+<div class="container" style="background-color: 00BFFF">
   <h1 style="text-align: center; text-shadow: 2px 2px 5px #B40486;"> BÀI HỌC </h1>
   <div class="bg-insert" style="margin-bottom: 40px; margin-top: 40px;">
     @yield('mainlearn')
   </div>
 </div>
 <div>
-  <section class="content-item" id="comments">
+  <section class="content-item" id="comments"  style="background-color: #81F7F3">
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
@@ -29,8 +29,7 @@
           </form>
 
           <h3>Bình Luận <i class="fa fa-pencil-square-o" ></i></h3 >
-
-          @if (is_array(Session::get('listComment')) && sizeof(Session::get('listComment')) > 0)
+          @if (sizeof(Session::get('listComment')) > 0)
           @foreach ( Session::get('listComment') as $item)
           <div class="media">
             <a class="pull-left" href="#">

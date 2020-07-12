@@ -150,8 +150,7 @@ Route::group(['prefix' => '/lesson', 'middleware'=>'checklogin'], function () {
 
 
 Route::group(['prefix' => '/theme', 'middleware'=>'permissionUser'], function () {
-    Route::get('/view-insert', function (){
-        return view('them.themchude');
+    Route::get('/view-insert','ThemeController@viewCreateTheme', function (){
     });
     
     Route::post('/add', 'ThemeController@create', function (){

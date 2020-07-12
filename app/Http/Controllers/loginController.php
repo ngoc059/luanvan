@@ -67,7 +67,7 @@ class LoginController extends Controller
         $user->permission = 1;
         $user->gender = $request->gender;
         $user->save();
-        return redirect('/user/register')->with('thongbao','Thêm thành công');
+        return redirect('user/register')->with('thongbao','Thêm thành công');
 
     }
 
@@ -75,13 +75,14 @@ class LoginController extends Controller
         return view('auth.create-user');
     }
 
-    public function createUserAdmin() {
+    public function createUserAdmin(Request $request) {
         $user = new User;
         $user->full_name = $request->name;
         $user->birthday = $request->birthday;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->remember_token = $request->token;
+        $user->permission = 2;
         $user->gender = $request->gender;
         $user->save();
         return redirect('/admin/view-create-user')->with('thongbao','Thêm thành công');

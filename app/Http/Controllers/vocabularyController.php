@@ -47,7 +47,7 @@ class vocabularyController extends Controller
             $vocabulary->img ="images/" . $fileName;
             }
             else{
-                return "redirect('/vocabulary/them')->with('thongbao','khong phai file anh')";
+                return redirect('/vocabulary/view-vocabulary')->with('thongbao','khong phai file anh');
         }
         $vocabulary->save();
         return redirect('/vocabulary/view-vocabulary')->with('thongbao','Thêm thành công');
