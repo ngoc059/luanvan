@@ -9,6 +9,7 @@
   <div class="row">
     <div class="col-3 mb-3">
       <select class="form-control" name="theme" id="theme-list-lesson">
+        <option>Chọn chủ đề</option>
         @foreach ($theme as $th)
         <option value="{{$th->id}}">{{$th->name}}</option>
         @endforeach

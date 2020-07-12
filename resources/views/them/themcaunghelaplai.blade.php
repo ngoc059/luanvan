@@ -27,7 +27,7 @@ $(".alert").fadeTo(500, 0).slideUp(500, function(){
     </div> <br>
       <div class="row">
         <div class="col-sm-3">    
-          <h3 for="usr">Tên câu hỏi</h3>
+          <h3 for="usr">Câu hỏi yêu cầu</h3>
         </div>
         <div class="col-sm-9">    
           <input name="name" class="form-control" type="text" value=""><br>
@@ -43,7 +43,7 @@ $(".alert").fadeTo(500, 0).slideUp(500, function(){
       </div>
       <div class="row">
         <div class="col-sm-3">    
-          <h3 for="usr">Thoại</h3>
+          <h3 for="usr">Văn bản âm thanh</h3>
         </div>
         <div class="col-sm-9">    
             <input type="text" name="question" class="form-control">

@@ -1,5 +1,7 @@
 @extends('layout.app')
 @section('body')
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div class="container">
     <h2 style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="pt-3">DANH SÁCH TỪ VỰNG</h2>
   
@@ -23,10 +25,10 @@
 
         <tr>
           
-          <td>{{$item->chinese}}</td>
+          <td onclick="readOutLoud('{{$item->chinese}}')" style="cursor: pointer"><i class='fas fa-volume-up pr-2'> </i>  {{$item->chinese}}</td>
           <td>{{$item->pinyin}}</td>
           <td> {{$item->vietnamese}}</td>
-           <td>{{$item->vdTQ}}</td>
+           <td onclick="readOutLoud('{{$item->vdTQ}}')" style="cursor: pointer"><i class='fas fa-volume-up pr-2'> </i>  {{$item->vdTQ}}</td>
           <td>{{$item->vdTV}}</td>
        
     

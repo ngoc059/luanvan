@@ -33,6 +33,7 @@ $(".alert").fadeTo(500, 0).slideUp(500, function(){
             </div>
           <div class="col-sm-10">
             <select class="form-control" name="theme" id="sel1">
+              <option>Chọn chủ đề</option>
               @foreach ($theme as $th)
               <option value="{{$th->id}}">{{$th->name}}</option>
               @endforeach

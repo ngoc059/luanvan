@@ -63,6 +63,7 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{ url('/lesson/lesson-list') }}">Danh sách bài học</a>
                 </li>
+         
                 @if (Session::get('userLogin')->permission == 2)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -70,18 +71,20 @@
                         Danh sách 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="{{ url('/user/list-user/2')}}">Danh sách cộng tác viên</a> 
+                        <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a> 
                         <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách bài học</a>
                         {{-- <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách loại bài học</a> --}}
                         <a class="nav-link" href="{{ url('/theme/list')}}">Danh sách chủ đề</a>
-                        <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a>
-                        <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
+                        {{-- <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a> --}}
                         <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách loại từ vựng</a>
-                        <a class="nav-link" href="{{ url('/admin/view-create-user')}}">Danh sách loại từ vựng</a>
-
+                        <a class="nav-link" href="{{ url('/admin/view-create-user')}}">Tạo cộng tác viên</a>
+                            <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
                     </div>
                 </li>
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

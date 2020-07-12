@@ -34,7 +34,7 @@ class lessonController extends Controller
             $index = $listLesson->indexLesson + 1;
         }
         if($index > 5) {
-            return redirect('/lesson/list');
+            return redirect('lesson/lesson-list');
         }
         $lesson = new lesson;
         $lesson->name = $request->name;
@@ -43,7 +43,7 @@ class lessonController extends Controller
         $lesson->indexLesson = $index;
         $lesson->is_finish = false;
         $lesson->save();
-        return $this->viewListLesson();
+        return redirect('lesson/lesson-list');
     }
 
     public function getAjax($themeId) {
