@@ -57,6 +57,16 @@ Route::group(['prefix' => '/user'], function () {
     });
 });
 
+Route::group(['prefix' => '/admin'], function () {
+    Route::get('/view-create-user', 'LoginController@viewCreateUser', function (){
+
+    });
+
+    Route::post('/create-user', 'LoginController@createUserAdmin', function (){
+
+    });
+});
+
 Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], function () {
 
     Route::post('/create', 'vocabularyController@insert', function () {
@@ -128,7 +138,7 @@ Route::group(['prefix' => '/lesson', 'middleware'=>'permissionUser'], function (
 
 });
 
-Route::group(['prefix' => '/lesson'], function () { 
+Route::group(['prefix' => '/lesson', 'middleware'=>'checklogin'], function () { 
     Route::get('/lesson-list','lessonController@viewListLesson', function () {
         
     });
@@ -156,7 +166,7 @@ Route::group(['prefix' => '/theme', 'middleware'=>'permissionUser'], function ()
 
 });
 
-Route::group(['prefix' => '/theme'], function () { 
+Route::group(['prefix' => '/theme', 'middleware'=>'checklogin'], function () { 
     Route::get('/list', 'themeController@list');
 
 });
@@ -178,7 +188,7 @@ Route::group(['prefix' => '/type', 'middleware'=>'permissionUser'], function () 
     
 });
 
-Route::group(['prefix' => '/question'], function () { 
+Route::group(['prefix' => '/question', 'middleware'=>'checklogin'], function () { 
     Route::group(['prefix' => '/ajax'], function () {
         Route::get('/get-lesson/{themeId}', 'lessonController@getAjax', function ($themeId) {
            

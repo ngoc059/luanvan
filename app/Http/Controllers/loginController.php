@@ -52,7 +52,6 @@ class LoginController extends Controller
 
     public function viewLogin() {
         if(isset($_SESSION['user'])) {
-            $lesson = lesson::All();
             return redirect('/lesson/lesson-list');
         }
         return view('auth.login');
@@ -67,8 +66,24 @@ class LoginController extends Controller
         $user->remember_token = $request->token;
         $user->gender = $request->gender;
         $user->save();
-        return view('auth.login');
+        return redirect('/user/register')->with('thongbao','Thêm thành công');
 
+    }
+
+    public function viewCreateUser() {
+        return view('auth.create-user');
+    }
+
+    public function createUserAdmin() {
+        $user = new User;
+        $user->full_name = $request->name;
+        $user->birthday = $request->birthday;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->remember_token = $request->token;
+        $user->gender = $request->gender;
+        $user->save();
+        return redirect('/admin/view-create-user')->with('thongbao','Thêm thành công');
     }
 
     public function listUser($id) {

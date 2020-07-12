@@ -38,21 +38,17 @@
     <h2 class="text-center pt-3 " style="text-shadow: 2px 2px 5px #B40486;"> {{ $question->name }} </h2>
     <div class="row mt-3 mb-3 pb-3 justify-content-center">
     <button  class="btn btn-info p-1"  type="button" onclick="readOutLoud('{{$question->question}}')"
-        ><i class='fas fa-volume-up'> </i></button> &nbsp;  {{$question->question}}
+        ><i class='fas fa-volume-up'> </i>  {{$question->question}}</button> &nbsp;
     </div>
     <form action={{url('learn/check')}} method="POST">
       @csrf
-      <div class="row ml-5">
-        <button  class="btn btn-info p-3"  type="button" onclick="record()"
-             class="btn btn-outline-info"  ><i style='font-size:24px' class='fas'>&#xf3c9;</i> 
-             </button>  <br> <br>
-      </div>
       <div class="row">
-        <div class="col-sm-3">    
-          <h3 for="usr" style="text-align: center; text-shadow: 2px 2px 5px #B40486;">Trả lời</h3>
+        <div class="col-3">    
+           <button  for="usr" style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="form-control btn btn-info px-1"  type="button" onclick="record()"  ><i style='font-size:24px' class='fas'>&#xf3c9;</i> Trả lời
+          </button>
         </div>
-        <div class="col-sm-9">  
-          <input name="test" class="form-control" id="voice" type="text" value=""><br>
+        <div class="col-9">  
+          <input name="test" disabled class="form-control" id="voice" type="text" value=""><br>
         </div>
       </div>
       <button type="button" onclick="checkI('{{$question}}')" class="btn btn-primary btn-block">KIỂM TRA</button> 

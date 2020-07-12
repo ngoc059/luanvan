@@ -38,7 +38,7 @@ class questionController extends Controller
         $lesson = $_SESSION['lessonInsert'];
         return view('them.themcaunghelaplai',['lesson'=> $lesson]);
     }
-
+    
     public function createLS(Request $request) {
         $lesson = $_SESSION['lessonInsert'];
         $question = new question;
@@ -49,7 +49,7 @@ class questionController extends Controller
         $question->lesson_id = $lesson->id;
         $question->question = $request->question;
         $question->save();
-        return $this->hienThiThemIMG();
+        return redirect("/question/view-insert-listen-repeat")->with('thongbao','Thêm thành công');
     }
 
     public function createRepeat(Request $request) {
@@ -62,7 +62,7 @@ class questionController extends Controller
         $question->lesson_id = $lesson->id;
         $question->question = $request->question;
         $question->save();
-        return $this->viewRepeat();
+        return redirect("/question/question-add")->with('thongbao','Thêm thành công');
     }
 
     public function createTN (Request $request) {
@@ -98,8 +98,7 @@ class questionController extends Controller
         $answer3->is_corred = false;
         $answer3->question_id = $question->id;
         $answer3->save();
-        // return redirect('admin/hangHoa/them')->with('thongbao','Thêm thành công');
-        return $this->hienThiThemTN();
+        return redirect('/question/them-trac-nghiem')->with('thongbao','Thêm thành công');
     }
   
     public function createIMG(Request $request) {
@@ -111,6 +110,6 @@ class questionController extends Controller
         $question->type_id = 2;
         $question->lesson_id = $lesson->id;
         $question->save();  
-        return $this->hienThiThemIMG();
+        return redirect('/question/view-img')->with('thongbao','Thêm thành công');
     }
 }

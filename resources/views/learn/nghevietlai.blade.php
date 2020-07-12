@@ -54,7 +54,7 @@
           <input name="test" class="form-control" id="voice" type="text" value=""><br>
         </div>
       </div>
-      <button type="button" onclick="checkI('{{$question}}')" class="btn btn-info">Kiểm Tra</button> 
+      <button type="button" onclick="checkI('{{$question}}')" class="btn btn-primary btn-block">KIỂM TRA</button> 
       {{-- <div class="row mt-3 mb-3 justify-content-center">
         <button type="submit" class="btn btn-outline-info" >Kiểm Tra</button>
       </div> --}}

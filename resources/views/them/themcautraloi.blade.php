@@ -1,6 +1,13 @@
 @extends('layout.app')
 @section('body')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
+<script>
+  window.setTimeout(function() {
+$(".alert").fadeTo(500, 0).slideUp(500, function(){
+  $(this).remove(); 
+});
+}, 2000); 
+</script>
 <div class="container">
     <h2 style="text-align: center;">THÊM BÀI HỌC</h2> <br>
     <div class="row">

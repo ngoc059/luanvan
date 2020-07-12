@@ -2,8 +2,21 @@
 @section('body')
 <link rel="stylesheet" type="text/css" href="{{asset('css/learnbytype.css')}}" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/learn.css')}}" media="screen" />
+<script>
+  window.setTimeout(function() {
+$(".alert").fadeTo(500, 0).slideUp(500, function(){
+  $(this).remove(); 
+});
+}, 2000); 
+</script>
 <div class="container fix-width bg-insert pl-5 pr-5">
     <h2 style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="pt-3">THÊM BÀI HỌC</h2> <br>
+    @if (session('thongbao'))
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ session('thongbao') }}
+    </div>
+    @endif
     <form action="/lesson/insert" method="POST">
       @csrf
         <div class="row">

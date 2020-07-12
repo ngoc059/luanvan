@@ -37,18 +37,23 @@
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
         $(this).remove(); 
     });
-}, 2000); 
+    }, 2000); 
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
     </script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 
 <body>
     <div class="limiter">
-    <div class="container-login100" style="background-image: url('{{ asset('images/bg-01.jpg')}}');">
+        <div class="container-login100" style="background-image: url('{{ asset('images/bg-01.jpg')}}');">
             <div class="wrap-login100">
                 <form class="login100-form validate-form" method="POST" action="{{url('user/login-admin')}}">
-
                     @csrf
-
                     <span class="login100-form-logo">
                         <i class="zmdi zmdi-landscape"></i>
                         {{-- <img src="{{ asset('images/sao.jpg')}}" alt=""> --}}
@@ -64,7 +69,6 @@
                         {{ session('thongbao') }}
                     </div>
                     @endif
-
                     <div class="wrap-input100 validate-input" data-validate="Enter username">
                         <input class="input100" type="text" name="username" placeholder="Email">
                         <span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -87,14 +91,14 @@
                             Đăng Nhập
                         </button>
                     </div>
-<br>
+                    <br>
                     <div class="text-center">
                         <div>
                             <a class="txt1" href="#">
                                 Quên mật khẩu?
                             </a>
                         </div>
-                        
+
 
 
                         <div class="text-center">

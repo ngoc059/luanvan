@@ -203,7 +203,7 @@ class lessonController extends Controller
         $lesson->description = $request->description;
         $lesson->theme_id = $request->theme;
         $lesson->save();
-        return redirect('/lesson/list');
+        return redirect('/lesson/list')->with('thongbao','sua thanh cong');
     }
 
     public function postComment(Request $request)
@@ -214,6 +214,6 @@ class lessonController extends Controller
         $comment->comment= $request->NoiDung;
         $comment->save();
         $id = $_SESSION['lessonId'];
-        return redirect("/learn/get-list-question-by-lesson/$id")->with('thongbao','Them comment thanh cong');;
+        return redirect("/learn/get-list-question-by-lesson/$id")->with('thongbao','Them comment thanh cong');
     }
 }

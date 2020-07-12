@@ -56,6 +56,12 @@
                 
                 <form method="POST" action="{{url('user/create')}}" style="background-color: #009688 ">
                     @csrf
+                    @if (session('thongbao'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ session('thongbao') }}
+                    </div>
+                    @endif
                     <div class="input-group">
                         <input class="input--style-3" type="text" placeholder="Tên" name="name">
                     </div>
