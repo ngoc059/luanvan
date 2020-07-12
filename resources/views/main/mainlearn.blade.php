@@ -30,8 +30,7 @@
 
           <h3>Bình Luận <i class="fa fa-pencil-square-o" ></i></h3 >
 
-          <!-- COMMENT 1 - START -->
-          @if (sizeof(Session::get('listComment')) > 0)
+          @if (is_array(Session::get('listComment')) && sizeof(Session::get('listComment')) > 0)
           @foreach ( Session::get('listComment') as $item)
           <div class="media">
             <a class="pull-left" href="#">

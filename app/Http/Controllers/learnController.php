@@ -43,6 +43,7 @@ class learnController extends Controller
         $thongbao->info ="";      
         $listComment = $this->getListComment($lessonId);
         Session::put('listComment', $listComment);
+        // return $listComment;
         switch ($type) {
             case '1':
                 return $this->viewQuestMultipleChoice($question, $thongbao);

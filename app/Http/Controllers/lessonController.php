@@ -26,10 +26,21 @@ class lessonController extends Controller
 
     public function create(Request $request)
     {
+        $listLesson = lesson::where('theme_id', $request->theme)
+        ->MAX('indexLesson')
+        ->first();
+        $index = 0;
+        if ($listLesson) {
+            $index = $listLesson->indexLesson + 1;
+        }
+        if($index > 5) {
+            return redirect('/lesson/list');
+        }
         $lesson = new lesson;
         $lesson->name = $request->name;
         $lesson->description = $request->description;
         $lesson->theme_id = $request->theme;
+        $lesson->indexLesson = $index;
         $lesson->is_finish = false;
         $lesson->save();
         return $this->viewListLesson();
