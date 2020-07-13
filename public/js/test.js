@@ -23,17 +23,23 @@ function clickTN (r, listAnswer) {
       document.getElementById("testview").innerHTML = nameI.chinese.toString();
       document.getElementById("exampleModalLongTitle").innerHTML = "chính xác";
     } else {
-      // const isWrong = localStorage.getItem('countWrong');
-      // if(isWrong) {
-      //   isWrong++
-      //   if(isWrong >= 5) {
-      //     window.location.href('/lesson/lesson-list');
-      //     localStorage.setItem('countWrong', 0)
-      //   }
-      // } 
-      // localStorage.setItem('countWrong', isWrong);
+      let isWrong = Number(localStorage.getItem('countWrong'));
+      if(isWrong) {
+        localStorage.setItem('countWrong', Number(isWrong) + 1);
+        if((Number(isWrong)+ 1) >= 5) {
+          localStorage.clear();
+          document.getElementById("autoclick").click();
+          document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ffdddd"
+          document.getElementById("exampleModalLongTitle").innerHTML = "Đã sai hơn 5 câu";
+          document.getElementById("testview").innerHTML = "Vui Lòng Làm Lại Bài Học";
+          document.getElementById("ahref").href="/lesson/lesson-list"; 
+          return;
+        }
+      } else {
+        localStorage.setItem('countWrong', 1);
+      } 
       document.getElementById("autoclick").click();
-      document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ff4d4d"
+      document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ffdddd"
       document.getElementById("exampleModalLongTitle").innerHTML = "sai";
       document.getElementById("testview").innerHTML = nameI.chinese.toString();
     }

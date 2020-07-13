@@ -12,24 +12,30 @@
     function checkI (v) {
    const data = JSON.parse(v);
    const value = document.getElementById("voice").value;
-   if (data.question == value) {
+   if (data.question.trim() == value.trim()) {
     document.getElementById("autoclick").click();
     document.getElementById("testview").innerHTML = data.question.toString();
     document.getElementById('exampleModalCenterdd').style.backgroundColor = "#66ff66"
     document.getElementById("exampleModalLongTitle").innerHTML = "chính xác";
    } 
    else {
-    // const isWrong = localStorage.getItem('countWrong');
-    //   if(isWrong) {
-    //     isWrong++
-    //     if(isWrong >= 5) {
-    //       window.location.href('/lesson/lesson-list');
-    //       localStorage.setItem('countWrong', 0)
-    //     }
-    //   } 
-    //   localStorage.setItem('countWrong', isWrong);
+    let isWrong = Number(localStorage.getItem('countWrong'));
+      if(isWrong) {
+        localStorage.setItem('countWrong', Number(isWrong) + 1);
+        if((Number(isWrong)+ 1) >= 5) {
+          localStorage.clear();
+          document.getElementById("autoclick").click();
+          document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ffdddd"
+          document.getElementById("exampleModalLongTitle").innerHTML = "Đã sai hơn 5 câu";
+          document.getElementById("testview").innerHTML = "Vui Lòng Làm Lại Bài Học";
+          document.getElementById("ahref").href="/lesson/lesson-list"; 
+          return;
+        }
+      } else {
+        localStorage.setItem('countWrong', 1);
+      } 
       document.getElementById("autoclick").click();
-      document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ff4d4d"
+      document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ffdddd"
       document.getElementById("exampleModalLongTitle").innerHTML = "sai";
       document.getElementById("testview").innerHTML = data.question.toString();
     }
@@ -77,7 +83,7 @@
         <h3 id="testview"></h3>
       </div>
       <div class="modal-footer">
-        <a href="{{ url('/learn/check')}}" class="btn btn-info" role="button" aria-pressed="true">Tiếp Tục</a>
+        <a href="{{ url('/learn/check')}}" id="ahref" class="btn btn-info" role="button" aria-pressed="true">Tiếp Tục</a>
       </div>
     </div>
   </div>

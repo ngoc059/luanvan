@@ -18,28 +18,35 @@
     }
 
     function clickTNL (r) {
-      if (this.test.is_corred == 1) {
+
+      if (this.test.is_corred == '1') {
         document.getElementById("autoclick").click();
-        document.getElementById("testview").innerHTML = iscor.name.toString();
+        document.getElementById("testview").innerHTML = this.test.name.toString();
         document.getElementById("exampleModalLongTitle").innerHTML = "chính xác";
         document.getElementById('exampleModalCenterdd').style.backgroundColor = "#66ff66"
       } else {
-      //   const isWrong = localStorage.getItem('countWrong');
-      // if(isWrong) {
-      //   isWrong++
-      //   if(isWrong >= 5) {
-      //     window.location.href('/lesson/lesson-list');
-      //     localStorage.setItem('countWrong', 0)
-      //   }
-      // } 
-      // localStorage.setItem('countWrong', isWrong);
+        let isWrong = Number(localStorage.getItem('countWrong'));
+      if(isWrong) {
+        localStorage.setItem('countWrong', Number(isWrong) + 1);
+        if((Number(isWrong)+ 1) >= 5) {
+          localStorage.clear();
+          document.getElementById("autoclick").click();
+          document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ffdddd"
+          document.getElementById("exampleModalLongTitle").innerHTML = "Đã sai hơn 5 câu";
+          document.getElementById("testview").innerHTML = "Vui Lòng Làm Lại Bài Học";
+          document.getElementById("ahref").href="/lesson/lesson-list"; 
+          return;
+        }
+      } else {
+        localStorage.setItem('countWrong', 1);
+      } 
         const data = JSON.parse(r);
         const iscor = data.find((rd)=> {
           return rd.is_corred == 1;
         });
         document.getElementById("autoclick").click();
         document.getElementById("exampleModalLongTitle").innerHTML = "sai";
-        document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ff4d4d"
+        document.getElementById('exampleModalCenterdd').style.backgroundColor = "#ffdddd"
         document.getElementById("testview").innerHTML = iscor.name.toString();
 
       }
@@ -69,7 +76,7 @@
 <button type="button" id="autoclick" data-toggle="modal" data-target="#exampleModalCenter">
 </button>
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -82,7 +89,7 @@
         <h3 id="testview"></h3>
       </div>
       <div class="modal-footer">
-        <a href="{{ url('/learn/check')}}" class="btn btn-info" role="button" aria-pressed="true">Tiếp Tục</a>
+        <a href="{{ url('/learn/check')}}" id="ahref" class="btn btn-info" role="button" aria-pressed="true">Tiếp Tục</a>
       </div>
     </div>
   </div>

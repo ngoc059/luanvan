@@ -24,8 +24,13 @@ class LoginController extends Controller
         if(count($user) > 0){
             $_SESSION['user'] = $user[0];
             Session::put('userLogin', $user[0]);
-            $lesson = lesson::All();    
-            return redirect('/lesson/lesson-list');
+            if($user[0]->permission == 0) {
+                $user = User::where('permission', 0)->get();
+                $title = 'Danh Sách Cộng Tác Viên';
+                return view('list.danhsachuser',['listUser'=> $user, 'title'=> $title]);
+            } else {
+                return redirect('/lesson/lesson-list');
+            }
         }
         return redirect('user/login')->with('thongbao','Sai tai khoản hoặc mật khẩu');
     }

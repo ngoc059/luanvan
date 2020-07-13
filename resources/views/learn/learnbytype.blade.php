@@ -48,7 +48,7 @@
         <h3 id="testview"></h3>
       </div>
       <div class="modal-footer">
-        <a href="{{ url('/learn/check')}}" class="btn btn-info" role="button" aria-pressed="true">Tiếp Tục</a>
+        <a href="{{ url('/learn/check')}}" id="ahref" class="btn btn-info" role="button" aria-pressed="true">Tiếp Tục</a>
       </div>
     </div>
   </div>

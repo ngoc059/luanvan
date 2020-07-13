@@ -60,10 +60,11 @@
 
         <div class="collapse navbar-collapse add" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                @if (Session::get('userLogin')->permission == 2 || Session::get('userLogin')->permission == 1)
                 <li class="nav-item">
                 <a class="nav-link" href="{{ url('/lesson/lesson-list') }}">Danh sách bài học</a>
                 </li>
-         
+                @endif
                 @if (Session::get('userLogin')->permission == 2)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -75,16 +76,28 @@
                         <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách bài học</a>
                         {{-- <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách loại bài học</a> --}}
                         <a class="nav-link" href="{{ url('/theme/list')}}">Danh sách chủ đề</a>
-                        {{-- <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a> --}}
                         <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách loại từ vựng</a>
-                        <a class="nav-link" href="{{ url('/admin/view-create-user')}}">Tạo cộng tác viên</a>
                             <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
                     </div>
                 </li>
                 @endif
+                @if (Session::get('userLogin')->permission == 0)
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Danh sách 
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" href="{{ url('/user/list-user/2')}}">Danh sách Cộng Tác Viên</a> 
+                        <a class="nav-link" href="{{ url('/admin/view-create-user')}}">Tạo cộng tác viên</a>
+                    </div>
+                </li>
+                @endif
+                @if (Session::get('userLogin')->permission == 2 || Session::get('userLogin')->permission == 1)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
                 </li>
+                @endif
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

@@ -4,10 +4,11 @@
 
 <div class="container">
     <h2 style="text-align: center; text-shadow: 2px 2px 5px #B40486;" class="pt-3">DANH SÁCH TỪ VỰNG</h2>
-  
+  @if (Session::get('userLogin')->permission == 2)
   <div class="row mt-3 mb-3 pb-3 justify-content-end">
     <a href="{{ url('/vocabulary/view-vocabulary')}}" class="btn btn-info" role="button" aria-pressed="true">Thêm</a>
   </div>
+  @endif
     <table class="table table-striped">
       <thead>
         <tr>
@@ -31,9 +32,10 @@
            <td onclick="readOutLoud('{{$item->vdTQ}}')" style="cursor: pointer"><i class='fas fa-volume-up pr-2'> </i>  {{$item->vdTQ}}</td>
           <td>{{$item->vdTV}}</td>
        
-    
+          @if (Session::get('userLogin')->permission == 2)
           <td><i class="fas fa-edit"></i></td>
           <td><i class="fas fa-trash"></i></td>
+          @endif
         </tr>
         @endforeach
       </tbody>

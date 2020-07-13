@@ -89,11 +89,20 @@ Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], functi
 
     });
 
+
+});
+
+
+Route::group(['prefix' => '/vocabulary',  'middleware'=>'checklogin'], function () {
+
+    Route::get('/list', 'vocabularyController@list', function (){
+
+    });
+
     Route::get('/get-list-draw', 'vocabularyController@listDraw', function () {
 
-    });});
-
-
+    });
+});
 
 
 Route::group(['prefix' => '/learn'], function () {

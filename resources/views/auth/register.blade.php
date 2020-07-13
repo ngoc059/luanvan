@@ -37,7 +37,7 @@
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
         $(this).remove(); 
     });
-}, 2000); 
+    }, 2000); 
     </script>
 </head>
 
@@ -91,6 +91,7 @@
                     </div>
                     <div class="p-t-10">
                         <button class="btn btn--pill btn--green" type="submit">Đăng kí</button>
+                        <button class="btn btn--pill btn--gray" type="button">Quay Lại> </button>
                     </div>
                 </form>
             </div>
