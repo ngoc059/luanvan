@@ -93,7 +93,7 @@ class questionController extends Controller
         $answer2->question_id = $question->id;
         $answer2->save();
         $answer3 = new answer;
-        $answer3->name = $request->cautraloi2;
+        $answer3->name = $request->cautraloi3;
         $answer3->description = $request->description;
         $answer3->is_corred = false;
         $answer3->question_id = $question->id;

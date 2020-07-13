@@ -69,6 +69,8 @@ class LoginController extends Controller
                 $title = 'Danh Sách Cộng Tác Viên';
                 return view('list.danhsachuser',['listUser'=> $user, 'title'=> $title]);
             } else {
+                Session::put('userLogin', $_SESSION['user']);
+
                 return redirect('/lesson/lesson-list');
             }
         }
@@ -84,6 +86,7 @@ class LoginController extends Controller
         $user->remember_token = $request->token;
         $user->permission = 1;
         $user->gender = $request->gender;
+        $user->updated_at = null;
         $user->save();
         return redirect('user/register')->with('thongbao','Thêm thành công');
 
@@ -102,6 +105,7 @@ class LoginController extends Controller
         $user->remember_token = $request->token;
         $user->permission = 2;
         $user->gender = $request->gender;
+        $user->updated_at = null;
         $user->save();
         return redirect('/admin/view-create-user')->with('thongbao','Thêm thành công');
     }

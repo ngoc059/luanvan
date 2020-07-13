@@ -84,7 +84,7 @@
                         <input class="input--style-3" type="email" placeholder="Email" name="email">
                     </div>
                     <div class="input-group">
-                        <input class="input--style-3" type="text" placeholder="Mật khẩu" name="password">
+                        <input class="input--style-3" type="password" placeholder="Mật khẩu" name="password">
                     </div>
                     <div class="input-group">
                         <input class="input--style-3" type="text" placeholder="Số điện thoại" name="phone">

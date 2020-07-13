@@ -60,12 +60,12 @@
 
         <div class="collapse navbar-collapse add" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                @if (Session::get('userLogin')->permission == 2 || Session::get('userLogin')->permission == 1)
+                @if ((Session::get('userLogin')->permission == 2 || Session::get('userLogin')->permission == 1) && Session::get('userLogin'))
                 <li class="nav-item">
                 <a class="nav-link" href="{{ url('/lesson/lesson-list') }}">Danh sách bài học</a>
                 </li>
                 @endif
-                @if (Session::get('userLogin')->permission == 2)
+                @if ( Session::get('userLogin') && Session::get('userLogin')->permission == 2)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
