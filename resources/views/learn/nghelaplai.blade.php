@@ -6,6 +6,9 @@
   function checkI (v) {
    const data = JSON.parse(v);
    const value = document.getElementById("voice").value;
+   console.log(value.trim());
+   console.log(data.question.trim());
+
    if (data.question.trim() == value.trim()) {
     document.getElementById("autoclick").click();
     document.getElementById("testview").innerHTML = data.question.toString();

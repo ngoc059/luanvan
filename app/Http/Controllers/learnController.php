@@ -42,8 +42,8 @@ class learnController extends Controller
         $thongbao->status = 2;
         $thongbao->info ="";      
         $listComment = $this->getListComment($lessonId);
-        Session::put('listComment', $listComment);
-        // return $listComment;
+        Array($listComment);
+        Session::put('listCommentCC', $listComment);
         switch ($type) {
             case '1':
                 return $this->viewQuestMultipleChoice($question, $thongbao);
@@ -66,6 +66,7 @@ class learnController extends Controller
         ->select('comment.lesson_id AS lessonId', 'users.full_name  AS userName', 
         'comment.id AS commentId', 'comment.comment', 'comment.created_at', 'users.gender AS gender')
         ->get();
+        Array($listComment);
         return $listComment;
     }
 
@@ -84,6 +85,9 @@ class learnController extends Controller
         $process['processNow'] = $_SESSION['question']->stt - 1;
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
+        $listComment = $this->getListComment($question->lesson_id);
+        Array($listComment);
+        Session::put('listCommentCC', $listComment);
         return view('learn.learnbytype',['listAnswer'=> $questionToView, 'question'=> $question, 'process'=> $process, 'vocabulary'=> $vocabulary]);
     }
 
@@ -95,6 +99,9 @@ class learnController extends Controller
         $process['processNow'] = $_SESSION['question']->stt - 1;
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
+        $listComment = $this->getListComment($question->lesson_id);
+        Array($listComment);
+        Session::put('listCommentCC', $listComment);
         return view('learn.nghevietlai',['question'=> $question, 'process'=> $process]);
     }
 
@@ -106,7 +113,9 @@ class learnController extends Controller
         $process['processNow'] = $_SESSION['question']->stt - 1;
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
-
+        $listComment = $this->getListComment($question->lesson_id);
+        Array($listComment);
+        Session::put('listCommentCC', $listComment);
         return view('learn.nghelaplai',['question'=> $question, 'process'=> $process]);
     }
 
@@ -120,6 +129,9 @@ class learnController extends Controller
         $process['processNow'] = $_SESSION['question']->stt - 1;
         $process['total'] = sizeof($_SESSION['question']->listQuestion);
         $process['persen'] =  ($process['processNow'] / $process['total']) * 100;
+        $listComment = $this->getListComment($question->lesson_id);
+        Array($listComment);
+        Session::put('listCommentCC', $listComment);
         return view('learn.tracnghiem',['answers'=> $answers, 'question'=> $question->description, 'process'=> $process]);
     }
 
@@ -128,7 +140,9 @@ class learnController extends Controller
       if (sizeof($_SESSION['question']->listQuestion) > $stt) {
         $type = $_SESSION['question']->listQuestion[$stt]->type_id;
         $question = $_SESSION['question']->listQuestion[$stt];
-        
+        $listComment = $this->getListComment($question->lesson_id);
+        Array($listComment);
+        Session::put('listCommentCC', $listComment);
         switch ($type) {
           case '1':
               return $this->viewQuestMultipleChoice($question);

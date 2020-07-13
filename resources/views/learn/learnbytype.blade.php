@@ -8,7 +8,7 @@
     <div class="progress-bar bg-info progress-bar-striped" style="width:{{ $process['persen'] }}%">
       {{ $process['processNow'] }} / {{ $process['total'] }}</div>
   </div>
-  <h3 style="text-align: center;">{{$question->description}} {{$question->name}} </h3>
+  <h3 style="text-align: center;">{{$question->description}} </h3>
   <form action={{ url('learn/check') }} method="POST">
     @csrf
     <br>

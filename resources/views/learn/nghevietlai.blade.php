@@ -9,10 +9,13 @@
       }, 1000);
     }
 
-    function checkI (v) {
+  function checkI (v) {
    const data = JSON.parse(v);
    const value = document.getElementById("voice").value;
-   if (data.question.trim() == value.trim()) {
+   console.log(data.name.trim());
+   console.log(value.trim());
+
+   if (data.name.trim() == value.trim()) {
     document.getElementById("autoclick").click();
     document.getElementById("testview").innerHTML = data.question.toString();
     document.getElementById('exampleModalCenterdd').style.backgroundColor = "#66ff66"
@@ -46,7 +49,7 @@
   <div class="progress">
     <div class="progress-bar bg-info progress-bar-striped" style="width:{{ $process['persen'] }}%">{{ $process['processNow'] }} / {{ $process['total'] }}</div>
   </div>
-    <h2 class="text-center pt-3 " style="text-shadow: 2px 2px 5px #B40486;"> {{ $question->name }} </h2>
+    <h2 class="text-center pt-3 " style="text-shadow: 2px 2px 5px #B40486;"> {{ $question->question }} </h2>
     <div class="row mt-3 mb-3 pb-3 justify-content-center">
     <button  class="btn btn-info"  type="button" onclick="readOutLoud('{{$question->question}}')"  ><i class='fas fa-volume-up'> </i></button>
     </div>

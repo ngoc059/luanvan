@@ -14,12 +14,21 @@
     let test;
 
     function chooseTNL (d) {
+      const data = JSON.parse(d);
+      console.log(data.name);
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = data.name;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 1;
+      speech.lang = "zh-CN"
+      window.speechSynthesis.speak(speech);
       this.test = JSON.parse(d);
     }
 
     function clickTNL (r) {
-
-      if (this.test.is_corred == '1') {
+     
+      if (this.test.is_corred == 1) {
         document.getElementById("autoclick").click();
         document.getElementById("testview").innerHTML = this.test.name.toString();
         document.getElementById("exampleModalLongTitle").innerHTML = "chính xác";
