@@ -158,7 +158,7 @@ Route::group(['prefix' => '/lesson', 'middleware'=>'permissionUser'], function (
 
 });
 
-Route::group(['prefix' => '/lesson', 'middleware'=>'checklogin'], function () { 
+Route::group(['prefix' => '/lesson'], function () { 
     Route::get('/lesson-list','lessonController@viewListLesson', function () {
         
     });
