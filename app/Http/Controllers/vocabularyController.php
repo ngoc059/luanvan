@@ -60,6 +60,11 @@ class vocabularyController extends Controller
         return view('list.danhsachtuvung', compact('vocabulary'));
     }
 
+    public function listType(){
+        $typeVocabulary = TypeVocabulary::all();
+        return view('list.danhsachloaituvung', compact('typeVocabulary'));
+    }
+
     public function deleteTypeVocabulary($id){
         type_vobucalary::destroy($id);
         return redirect('/vocabulary/list');

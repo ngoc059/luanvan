@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($vocabulary as $item)  
+        @foreach ($typeVocabulary as $item)  
         <tr>
           <td>{{$item->id}}</td>
           <td>{{$item->name}}</td>

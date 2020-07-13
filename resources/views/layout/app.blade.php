@@ -76,7 +76,7 @@
                         {{-- <a class="nav-link" href="{{ url('/lesson/list')}}">Danh sách loại bài học</a> --}}
                         <a class="nav-link" href="{{ url('/theme/list')}}">Danh sách chủ đề</a>
                         {{-- <a class="nav-link" href="{{ url('/user/list-user/1')}}">Danh sách học viên</a> --}}
-                        <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách loại từ vựng</a>
+                        <a class="nav-link" href="{{ url('/vocabulary/list-type')}}">Danh sách loại từ vựng</a>
                         <a class="nav-link" href="{{ url('/admin/view-create-user')}}">Tạo cộng tác viên</a>
                             <a class="nav-link" href="{{ url('/vocabulary/list')}}">Danh sách từ vựng</a>
                     </div>

@@ -81,6 +81,11 @@ Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], functi
 
     });
 
+    
+    Route::get('/list-type', 'vocabularyController@listType', function (){
+
+    });
+
     Route::post('/create-type', 'vocabularyController@insertType', function () {
        
     });
@@ -88,6 +93,8 @@ Route::group(['prefix' => '/vocabulary', 'middleware'=>'permissionUser'], functi
     Route::get('/delete/{id}', 'vocabularyController@deleteTypeVocabulary', function ($id) {
 
     });
+
+
 
     Route::get('/get-list-draw', 'vocabularyController@listDraw', function () {
 

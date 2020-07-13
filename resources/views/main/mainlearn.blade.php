@@ -29,30 +29,32 @@
           </form>
 
           <h3>Bình Luận <i class="fa fa-pencil-square-o" ></i></h3 >
-          @if (sizeof(Session::get('listComment')) > 0)
-          @foreach ( Session::get('listComment') as $item)
-          <div class="media">
-            <a class="pull-left" href="#">
-            @if ($item->gender == 1)
-            <img class="media-object"
-            src={{ asset('images/nguyvotien.jpg')}} alt="">
-            @endif
-
-            @if ($item->gender == 0)
-            <img class="media-object"
-            src={{ asset('images/phuongcuu.jpg')}} alt="">
-            @endif
-            </a>
-            <div class="media-body">
-            <h4 class="media-heading">{{$item->userName}}</h4>
-            <p> {{$item->comment}}</p>
-              <ul class="list-unstyled list-inline media-detail pull-left">
-              <li><i class="fa fa-calendar"></i>{{$item->created_at}}</li>
-              </ul>
-            </div>
-          </div> 
-          @endforeach
+        @if (sizeof(Session::get('listCommentCC')) > 0)
+        @foreach ( Session::get('listCommentCC') as $item)
+        <div class="media">
+          <a class="pull-left" href="#">
+          @if ($item->gender == 1)
+          <img class="media-object"
+          src={{ asset('images/nguyvotien.jpg')}} alt="">
           @endif
+
+          @if ($item->gender == 0)
+          <img class="media-object"
+          src={{ asset('images/phuongcuu.jpg')}} alt="">
+          @endif
+          </a>
+          <div class="media-body">
+          <h4 class="media-heading">{{$item->userName}}</h4>
+          <p> {{$item->comment}}</p>
+            <ul class="list-unstyled list-inline media-detail pull-left">
+            <li><i class="fa fa-calendar"></i>{{$item->created_at}}</li>
+            </ul>
+          </div>
+        </div> 
+        @endforeach
+        @endif
+        {{-- @endif --}}
+         
           <!-- COMMENT 1 - END -->
         </div>
       </div>

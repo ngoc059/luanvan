@@ -6,7 +6,10 @@
   function checkI (v) {
    const data = JSON.parse(v);
    const value = document.getElementById("voice").value;
-   if (data.question == value) {
+   console.log(value.trim());
+   console.log(data.question.trim());
+
+   if (data.question.trim() == value.trim()) {
     document.getElementById("autoclick").click();
     document.getElementById("testview").innerHTML = data.question.toString();
     document.getElementById('exampleModalCenterdd').style.backgroundColor = "#66ff66"
