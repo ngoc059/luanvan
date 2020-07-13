@@ -57,12 +57,20 @@ Route::group(['prefix' => '/user'], function () {
     });
 });
 
-Route::group(['prefix' => '/admin'], function () {
+Route::group(['prefix' => '/user'], function () {
     Route::get('/view-create-user', 'LoginController@viewCreateUser', function (){
 
     });
 
+    Route::get('/view-update-user/{id}', 'LoginController@viewUpdateUser', function ($id){
+
+    });
+
     Route::post('/create-user', 'LoginController@createUserAdmin', function (){
+
+    });
+
+    Route::post('/update-user', 'LoginController@updateUser', function (){
 
     });
 });

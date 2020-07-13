@@ -33,7 +33,7 @@
           <td>nam</td>
           @endif
 
-          <td><i class="fas fa-edit"><a href="#"></a></i></td>
+          <td><a href="/user/view-update-user/{{$item->id}}"><i class="fas fa-edit"></i></a></td>
         <td><a href="/user/delete/{{$item->id}}"><i class="fas fa-trash"></i> </a></td>
         </tr>
         @endforeach

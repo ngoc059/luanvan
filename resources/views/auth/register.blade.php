@@ -89,9 +89,9 @@
                     <div class="input-group">
                         <input class="input--style-3" type="text" placeholder="Số điện thoại" name="phone">
                     </div>
-                    <div class="p-t-10">
+                    <div class="p-t-10 d-flex justify-content-between">
                         <button class="btn btn--pill btn--green" type="submit">Đăng kí</button>
-                        <button class="btn btn--pill btn--gray" type="button">Quay Lại> </button>
+                        <a class="btn btn--pill btn--green" href="/user/login-out">Quay Lại></a>
                     </div>
                 </form>
             </div>

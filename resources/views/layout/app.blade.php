@@ -89,7 +89,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="nav-link" href="{{ url('/user/list-user/2')}}">Danh sách Cộng Tác Viên</a> 
-                        <a class="nav-link" href="{{ url('/admin/view-create-user')}}">Tạo cộng tác viên</a>
+                        <a class="nav-link" href="{{ url('/user/view-create-user')}}">Tạo cộng tác viên</a>
                     </div>
                 </li>
                 @endif

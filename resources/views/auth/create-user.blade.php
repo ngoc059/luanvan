@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 
-                <form method="POST" action="{{url('admin/create-user')}}">
+                <form method="POST" action="{{url('user/create-user')}}">
                     @csrf
                     @if (session('thongbao'))
                     <div class="alert alert-success alert-dismissible fade show">

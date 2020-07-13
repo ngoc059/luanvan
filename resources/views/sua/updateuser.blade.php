@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 
-                <form method="POST" action="{{url('admin/update-user')}}">
+                <form method="POST" action="{{url('user/update-user')}}">
                     @csrf
                     @if (session('thongbao'))
                     <div class="alert alert-success alert-dismissible fade show">
@@ -32,17 +32,19 @@
                         {{ session('thongbao') }}
                     </div>
                     @endif
+                    <div class="input-group" >    
+                        <input name="id" display="true" class="input--style-3" class="text-left" type="text" value="{{$user->id}}"><br>
+                        </div>
                     <div class="input-group">
-                        <input class="input--style-3" type="text" placeholder="Tên" name="name">
+                        <input class="input--style-3" type="text" value="{{ $user->full_name }}" placeholder="Tên" name="name">
                     </div>
                     <div class="input-group">
-                        <input class="input--style-3 js-datepicker" type="text" placeholder="Ngày sinh" name="birthday">
+                        <input class="input--style-3 js-datepicker" type="text" value="{{$user->birthday}}" placeholder="Ngày sinh" name="birthday">
                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                     </div>
                     <div class="input-group">
                         <div class="rs-select2 js-select-simple select--no-search">
-                            <select name="gender">
-                                <option disabled="disabled" selected="selected">Giới tính</option>
+                            <select name="gender" value="{{$user->gender}}">
                                 <option value="0">Nam</option>
                                 <option value="1">Nữ</option>
                                 <option value="2">Khác</option>
@@ -51,13 +53,10 @@
                         </div>
                     </div>
                     <div class="input-group">
-                        <input class="input--style-3" type="email" placeholder="Email" name="email">
+                        <input class="input--style-3" value="{{$user->email}}" type="email" placeholder="Email" name="email">
                     </div>
                     <div class="input-group">
-                        <input class="input--style-3" type="text" placeholder="Mật khẩu" name="password">
-                    </div>
-                    <div class="input-group">
-                        <input class="input--style-3" type="text" placeholder="Số điện thoại" name="phone">
+                        <input class="input--style-3" type="password" value="{{$user->password}}" placeholder="Mật khẩu" name="password">
                     </div>
                     <div class="p-t-10">
                         <button class="btn btn--pill btn--green" type="submit">SỬA</button>
